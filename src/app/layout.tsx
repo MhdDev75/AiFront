@@ -46,7 +46,7 @@ export default async function RootLayout({
         <I18nProvider>{children}</I18nProvider>
         </main>
       </body>
-      <GoogleAnalytics gaId="G-XYZ" />
+      <GoogleAnalytics gaId="G-286074ML3H" />
     </html>
   );
 }
