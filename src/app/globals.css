@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Your base theme settings */
+@layer base {
+  :root {
+    --background: #fff;
+    --foreground: #000;
+    --color-primary: #4285f4;
+    --color-secondary: #34a853;
+    --color-buttons: #fbbc05;
+    --color-typography: #ea4335;
+    --border-radius-size:0.375rem
+  }
+  
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    transition: all 2s ease-out;
+    /*note: not transitioning width */
+    transition-property: color, background-color, border-radius;
+  }
+}
+
+.light {
+  --background: #f5f5f5;
+  --foreground: #212121;
+  --color-primary: #0d47a1;
+  --color-secondary: #00acc1;
+  --color-buttons: #ffab00;
+  --color-typography: #212121;
+  --border-radius-size:0.120rem
+}
+.dark {
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --color-primary: #1e1e2f;
+  --color-secondary: #3d3d5c;
+  --color-buttons: #de7a22;
+  --color-typography: #e0e0e0;
+  --border-radius-size:0.6rem
+}
+.minimalist {
+  --background: #f7f7f7;
+  --foreground: #333333;
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-buttons: #ff6f61;
+  --color-typography: #333333;
+  --border-radius-size:1rem
+}
+
+
