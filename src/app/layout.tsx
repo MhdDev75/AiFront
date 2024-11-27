@@ -31,16 +31,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const theme = (await cookies()).get("Theme")
+  console.log(theme);
+  
   const locale = await getLocale();
   return (
-    <html lang={locale} className={theme}>
+    <html lang={locale} className={theme?.value}>
       <body
         dir={locale == locales[0] ? "rtl" : "ltr"}
         className={`${
           locale == locales[0] ? iranSans.className : geistSans.variable
         }   antialiased`}
       >
+        <main className="container p-4">
         <I18nProvider>{children}</I18nProvider>
+        </main>
       </body>
       <GoogleAnalytics gaId="G-XYZ" />
     </html>

@@ -4,7 +4,7 @@ export const defaultLocale = 'fa';
 
 export const timeZone = 'Asia/Tehran';
 
-export const locales = [defaultLocale, 'fa'] as const;
+export const locales = [defaultLocale, 'en'] as const;
 
 export const localesMap = [
   { key: 'en', title: 'انگلیسی' },

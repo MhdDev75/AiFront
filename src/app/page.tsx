@@ -1,10 +1,13 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { BotIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const LandingPage: React.FC = () => {
     const [progress, setProgress] = useState(0);
     const router = useRouter();
+    const t = useTranslations("i18n")
 
     useEffect(() => {
         const totalDuration = 10000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
@@ -26,11 +29,12 @@ const LandingPage: React.FC = () => {
     }, [router]);
 
     return (
-        <div>
-            <h1>Welcome to My Website!</h1>
-            <p>Redirecting to home page...</p>
+        <div className='flex flex-col justify-center items-center h-screen'>
+            <BotIcon size={200} />
+            <h1 className='text-2xl text-center'>{t("welcome")}</h1>
+           
             <div style={styles.progressBarContainer}>
-                <div className='bg-primary' style={{ ...styles.progressBar, width: `${progress}%` }} />
+                <div className='bg-primary ' style={{ ...styles.progressBar, width: `${progress}%` }} />
             </div>
         </div>
     );
@@ -47,7 +51,7 @@ const styles = {
     },
     progressBarContainer: {
         width: '80%',
-        height: '10px',
+        height: '60px',
         backgroundColor: '#e0e0e0',
         borderRadius: '5px',
         overflow: 'hidden',
