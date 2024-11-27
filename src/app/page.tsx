@@ -42,7 +42,7 @@ const LandingPage: React.FC = () => {
 
 const styles = {
     container: {
-        height: '100bvh',
+        height: '100dvh',
     },
     progressBarContainer: {
         width: '80%',
