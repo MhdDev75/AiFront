@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
     }, [router]);
 
     return (
-        <div style={styles.container}>
+        <div className='flex flex-col justify-center items-center text-center' style={styles.container}>
             <BotIcon size={200} />
             <h1 className='text-2xl text-center'>{t("welcome")}</h1>
            
@@ -42,12 +42,7 @@ const LandingPage: React.FC = () => {
 
 const styles = {
     container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
         height: '100bvh',
-        textAlign: 'center',
     },
     progressBarContainer: {
         width: '80%',
