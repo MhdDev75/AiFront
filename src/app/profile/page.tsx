@@ -3,6 +3,17 @@
 import { LocaleSwitcher } from "@/components/LocaleSwitcher/LocaleSwitcher";
 import { changeTheme } from "@/utils/helper";
 import { useTranslations } from "next-intl";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
 
@@ -24,23 +35,42 @@ const HomePage = () => {
     const t = useTranslations("i18n");
 
     return (
-        <div className="h-screen grid place-items-center ">
-            <h1>Home Page</h1>
-            <p>This is the main content of the website.</p>
-            <div className="flex flex-col gap-2">
-                <h4>انتخاب تم</h4>
-                <div className="grid grid-cols-3 gap-3">
-                    {theme.map((item) => (
-                        <button
-                            key={item.value}
-                            className="bg-primary rounded-md"
-                            onClick={() => changeTheme(item.name.toLowerCase())}
-                        >
-                            {t(`Theme.${item.name}`)}
-                        </button>
-                    ))}
-                </div>
-            </div>
+        <div className=" grid grid-rows-4 place-items-center ">
+            <h1>تنظیمات</h1>
+            <p>صفحه ای برای تنظیم کردن اپ</p>
+            <Drawer>
+                <DrawerTrigger asChild>
+                    <Button  className="bg-primary rounded">انتخاب تم</Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                    <div className="mx-auto w-full max-w-sm">
+                        <DrawerHeader>
+                            <DrawerTitle>انتخاب تم</DrawerTitle>
+                            <DrawerDescription>هر رنگی رو که دوست دارید انتخاب کنید</DrawerDescription>
+                        </DrawerHeader>
+                        <div className="p-4 pb-0">
+
+                            <div className="grid grid-cols-3 gap-3">
+                                {theme.map((item) => (
+                                    <Button
+                                        key={item.value}
+                                        className="rounded"
+                                        variant={"secondary"}
+                                        onClick={() => changeTheme(item.name.toLowerCase())}
+                                    >
+                                        {t(`Theme.${item.name}`)}
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                        <DrawerFooter>
+                            <DrawerClose asChild>
+                                <Button className="bg-red-500 rounded">{t("Cancel")}</Button>
+                            </DrawerClose>
+                        </DrawerFooter>
+                    </div>
+                </DrawerContent>
+            </Drawer>
             <LocaleSwitcher />
         </div>
     );
