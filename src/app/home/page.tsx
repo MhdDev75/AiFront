@@ -17,19 +17,50 @@ const HomePage: React.FC = () => {
             className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
             onClick={() => changeTheme("light")}
           >
-            {t("header")}{" "}
+            {t("Theme.Light")}
           </button>
           <button
             className="py-2 px-8 bg-buttons rounded-md text-typography m-2"
             onClick={() => changeTheme("dark")}
           >
-            dark
+             {t("Theme.Dark")}
           </button>
+          <button
+            className="py-2 px-8 bg-buttons rounded-md text-typography m-2"
+            onClick={() => changeTheme("colorize")}
+          >
+             {t("Theme.Colorize")}
+          </button>
+          
           <button
             className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
             onClick={() => changeTheme("minimalist")}
           >
-            winter
+             {t("Theme.Minimalist")}
+          </button>
+          <button
+            className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
+            onClick={() => changeTheme("winter")}
+          >
+             {t("Theme.Winter")}
+          </button>
+          <button
+            className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
+            onClick={() => changeTheme("summer")}
+          >
+             {t("Theme.Summer")}
+          </button>
+          <button
+            className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
+            onClick={() => changeTheme("autumn")}
+          >
+             {t("Theme.Autumn")}
+          </button>
+          <button
+            className="py-2 px-8 bg-buttons  rounded-md text-typography m-2"
+            onClick={() => changeTheme("spring")}
+          >
+             {t("Theme.Spring")}
           </button>
         </div>
         <LocaleSwitcher />

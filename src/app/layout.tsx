@@ -42,7 +42,7 @@ export default async function RootLayout({
           locale == locales[0] ? iranSans.className : geistSans.variable
         }   antialiased`}
       >
-        <main className="container p-4">
+        <main className="container">
         <I18nProvider>{children}</I18nProvider>
         </main>
       </body>

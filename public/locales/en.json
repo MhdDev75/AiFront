@@ -1,6 +1,16 @@
 {
   "i18n": {
-    "welcome":"Welcome To The Ai Studio!",
+    "Theme": {
+      "Spring": "Spring",
+      "Autumn": "Autumn",
+      "Summer": "Summer",
+      "Winter": "Winter",
+      "Minimalist": "Minimalist",
+      "Colorize": "Colorize",
+      "Dark": "Dark",
+      "Light": "Light"
+    },
+    "welcome": "Welcome To The Ai Studio!",
     "header": "Application supports i18n",
     "footer": "You can select a different language from the dropdown menu."
   }
