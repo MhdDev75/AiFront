@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, ChevronLeft, WalletCards } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -31,7 +31,7 @@ function Header() {
     <header className="p-2">
       <nav className="flex justify-between w-full">
         <ul className="flex justify-between items-center w-full gap-8">
-          {pathName === "/home" && (
+          {/* {pathName === "/home" && (
             <li>
               <motion.div
                 initial={{ width: 40, height: 3, opacity: 0 }}
@@ -60,7 +60,7 @@ function Header() {
                 </motion.div>
               </motion.div>
             </li>
-          )}
+          )} */}
           {pathName !== "/home" && (
             <li>
               <motion.div

@@ -29,6 +29,7 @@
     --chart-3: 120, 100%, 50%;
     --chart-4: 180, 100%, 50%;
     --chart-5: 240, 100%, 50%;
+    --radius: 5px;
   }
   .dark {
     --background: 0, 0%, 10%;
@@ -55,6 +56,7 @@
     --chart-3: 120, 100%, 40%;
     --chart-4: 180, 100%, 40%;
     --chart-5: 240, 100%, 40%;
+    --radius: 5px;
   }
   .colorize {
     --background: 0, 0%, 98%;
@@ -81,6 +83,7 @@
     --chart-3: 60, 100%, 50%;
     --chart-4: 120, 100%, 50%;
     --chart-5: 240, 100%, 50%;
+    --radius: 5px;
   }
   .minimalist {
     --background: 0, 0%, 100%;
@@ -107,6 +110,7 @@
     --chart-3: 60, 100%, 50%;
     --chart-4: 120, 100%, 50%;
     --chart-5: 240, 100%, 50%;
+    --radius: 5px;
   }
   .winter {
     --background: 210, 30%, 98%;
@@ -133,6 +137,7 @@
     --chart-3: 170, 100%, 40%;
     --chart-4: 0, 100%, 60%;
     --chart-5: 210, 30%, 70%;
+    --radius: 5px;
   }
   .summer {
     --background: 60, 100%, 90%;
@@ -159,6 +164,7 @@
     --chart-3: 340, 100%, 50%;
     --chart-4: 0, 100%, 55%;
     --chart-5: 60, 100%, 75%;
+    --radius: 5px;
   }
   .autumn {
     --background: 30, 100%, 95%;
@@ -185,6 +191,7 @@
     --chart-3: 0, 70%, 50%;
     --chart-4: 0, 100%, 45%;
     --chart-5: 30, 100%, 70%;
+    --radius: 5px;
   }
   .spring {
     --background: 120, 30%, 95%;
@@ -211,9 +218,8 @@
     --chart-3: 0, 100%, 40%;
     --chart-4: 0, 100%, 45%;
     --chart-5: 120, 50%, 70%;
+    --radius: 5px;
   }
-  
-  
 }
 
 @layer base {
@@ -232,4 +238,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.swiper-slide {
+  width: unset !important;
 }

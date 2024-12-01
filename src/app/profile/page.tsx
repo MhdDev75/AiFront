@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button";
 
-const HomePage = () => {
+const ProfilePage = () => {
 
     interface cmb {
         value: number,
@@ -76,4 +76,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default ProfilePage;

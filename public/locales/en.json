@@ -10,7 +10,19 @@
       "Dark": "Dark",
       "Light": "Light"
     },
-    "Cancel":"Cancel",
+    "Footer": {
+      "Home": "Home",
+      "Wallet": "Wallet",
+      "Setting": "Setting",
+      "Task": "Task",
+      "Friends": "Friends"
+    },
+    "see-all": "See All",
+    "Text": "Text",
+    "Image": "Image",
+    "Video": "Video",
+    "Sound": "Sound",
+    "Cancel": "Cancel",
     "welcome": "The Ai Studio",
     "header": "Application supports i18n",
     "footer": "You can select a different language from the dropdown menu."
