@@ -32,17 +32,19 @@ const LandingPage: React.FC = () => {
 
   return (
     <Page back={false}>
-         <section style={styles.container} className="px-5  bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+      <section
+        style={styles.container}
+        className="px-5  bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
+      >
         <div
-          className="flex flex-col justify-center  gap-8 backdrop-blur-sm text-center"
+          className="flex flex-col justify-center  items-center gap-1 backdrop-blur-sm text-center"
           style={styles.container}
         >
-          <span className="relative flex justify-center items-center ">
+          <span className="relative flex justify-center items-center h-52 w-52">
             <Image src={icon} alt="welcome" width={120} />
-            <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-36 w-36 rounded-full bg-white opacity-35"></span>
-            <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-44 w-44 rounded-full bg-white opacity-25"></span>
-            <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-            <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-36 w-36   rounded-full bg-white opacity-35"></span>
+            <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-3/4 w-3/4 rounded-full bg-white opacity-25"></span>
+            <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-4/4 w-4/4 rounded-full bg-white opacity-35"></span>
+            <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-3/4 w-3/4  rounded-full bg-white opacity-35"></span>
           </span>
           <h1 className="text-2xl text-white font-extrabold text-center">
             {t("welcome")}

@@ -85,9 +85,9 @@ const WelcomePage = () => {
                   <div className="flex flex-col gap-2 items-center  justify-center ">
                     <span className="relative flex ">
                       <Image src={item.url} alt={item.title} />
-                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-                      <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
-                      <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-1/4 w-1/4 rounded-full bg-white opacity-35"></span>
+                      <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-2/4 w-2/4 rounded-full bg-white opacity-25"></span>
+                      <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-3/4 w-3/4 rounded-full bg-white opacity-35"></span>
                     </span>
                     <span className="text-3xl font-semibold text-white">
                       {item.title}
@@ -106,9 +106,10 @@ const WelcomePage = () => {
                   <div className="flex flex-col gap-2 items-center justify-center ">
                     <span className="relative flex ">
                       <Image src={item.url} alt={item.title} />
-                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-                      <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
-                      <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                      <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-2/4 w-2/4 rounded-full bg-white opacity-25"></span>
+                      <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-3/4 w-3/4 rounded-full bg-white opacity-35"></span>
+                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-2/3 w-2/3 rounded-full bg-white opacity-35"></span>
+
                     </span>
 
                     <span className="text-3xl font-semibold text-white">
