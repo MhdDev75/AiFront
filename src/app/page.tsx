@@ -12,7 +12,7 @@ const LandingPage: React.FC = () => {
   const t = useTranslations("i18n");
 
   useEffect(() => {
-    const totalDuration = 100000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+    const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
 
