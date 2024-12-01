@@ -5,12 +5,10 @@ import React from "react";
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 
-
 import { Button } from "../ui/button";
-import { getLocale } from "next-intl/server";
 import { locales } from "@/core/i18n/config";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export interface CategoryItemsProps {
   id: number,
@@ -32,16 +30,11 @@ export const CategoryList: React.FC<category> = ({ id, itemList, title }: catego
 
 
   const t =useTranslations("i18n")
-
-  const getloc: boolean = async () => {
-    const locale = await getLocale();
-    return locale == locales[0] ? true : false
-  }
-
+  const locale = useLocale();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sliderRef, instanceRef] = useKeenSlider(
     {
-      rtl: getloc,
+      rtl: locale == locales[0] ? true : false,
       mode: "snap",
       slides: { origin: "auto", perView: 1.5, spacing: 10 },
       loop: true,
