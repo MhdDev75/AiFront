@@ -3,6 +3,7 @@
 import slide1 from "@/assets/images/welcome/slide-1.gif";
 import slide2 from "@/assets/images/welcome/slide-2.gif";
 import slide3 from "@/assets/images/welcome/slide-3.gif";
+import slide4 from "@/assets/images/welcome/slide-4.gif";
 import {
   Carousel,
   CarouselContent,
@@ -12,6 +13,8 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { Bolt, ChevronRight } from "lucide-react";
 // import { Icon } from "lucide-react";
 
 const WelcomePage = () => {
@@ -19,6 +22,7 @@ const WelcomePage = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
+  const router = useRouter();
   useEffect(() => {
     if (!api) {
       return;
@@ -37,8 +41,9 @@ const WelcomePage = () => {
       id: 1,
       title: "هوش مصنوعی",
       description:
-        "استقاده از تمامی قابلیت های هوش مصنوعی متل چت جی پی تی و کانورتور های عکس و ویدیو و جزو کامل ترین پکیح ها",
+        "استقاده از تمامی قابلیت های هوش مصنوعی مثل چت جی پی تی و ویرایشگر های عکس و ویدیو و جزو کامل ترین پکیح ها",
       url: slide1,
+      color: "bg-sky-400",
     },
     {
       id: 2,
@@ -46,6 +51,7 @@ const WelcomePage = () => {
       description:
         "کیفیت حرف اول رو میزنه پس با ما همراه باشه تا بتونیم کیفیت رو به نمایش بزاریم ",
       url: slide2,
+      color: "bg-purple-400",
     },
     {
       id: 3,
@@ -53,41 +59,98 @@ const WelcomePage = () => {
       description:
         "برای اینکه بتونی حس خوبی داشته باشی یه سری از بخش ها به صورت رایگام میتونی استفاده کنی پس میتونی با زدن دکمه زیر با مه همراه باشی ",
       url: slide3,
+      color: "bg-green-400",
+    },
+    {
+      id: 4,
+      title: "!بزن بریم",
+      description:
+        "دکمه زیر منتظر توئه ",
+      url: slide4,
+      color: "bg-pink-400",
     },
   ];
   return (
-    <div className="h-screen  flex items-center">
+    <div
+      className={`${
+        welcome.find((x) => x.id === current)?.color
+      } h-screen  flex-col justify-between  space-y-16  pt-12 items-center `}
+    >
       <Carousel dir="ltr" setApi={setApi}>
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="mx-0 md:-mx-0">
           {welcome.map((item, index) => (
             <CarouselItem className="h-full w-full p-0" key={item.id}>
-                <div className="flex flex-col gap-2 items-center justify-center ">
-                  <Image  src={item.url} alt={item.title} />
-                  <span className="text-3xl font-semibold text-black">
+              {welcome.length == index + 1 ? (
+                <div className="flex flex-col gap-2 items-center  justify-center ">
+                      <span className="relative flex ">
+                    <Image src={item.url} alt={item.title} />
+                    <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+                    <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
+                    <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                  </span>
+                  <span className="text-3xl font-semibold text-white">
                     {item.title}
                   </span>
-                  <p className="text-md text-center p-6 text-gray-500 font-semibold">
+                  <p className="text-sm text-center p-6 text-white font-semibold">
                     {item.description}
                   </p>
-                  {welcome.length == index + 1 && (
-                    <Button size={"lg"} className=" rounded">
-                      بزن بریم
-                    </Button>
-                  )}
+                  <Button
+                    onClick={() => router.push("/home")}
+                    size={"lg"}
+                    className=" rounded"
+                  >
+                    بزن بریم
+                  </Button>
                 </div>
+              ) : (
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                  <span className="relative flex ">
+                    <Image src={item.url} alt={item.title} />
+                    <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+                    <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
+                    <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                  </span>
+
+                  <span className="text-3xl font-semibold text-white">
+                    {item.title}
+                  </span>
+                  <p className="text-sm text-center p-6 text-white font-semibold">
+                    {item.description}
+                  </p>
+                </div>
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="py-2 w-full text-center absolute bottom-20 left-auto  text-sm text-muted-foreground">
-        صفحه {current} از {count}
-        {/* {Array(count).map((item)=>{
-            
-            <Icon className={current == item ? '':} />
-        })} */}
+      {welcome.length !== current && (
+      <div className="grid grid-cols-1 ">
+        {/* <div className="w-full flex ps-5">
+          <div
+            className="bg-yellow-400 flex justify-center items-center h-20 w-20 rounded-full shadow-lg"
+            onClick={() => api && setCurrent(api.selectedScrollSnap() + 1)}
+          >
+            <ChevronRight color="white" size={50} />
+          </div>
+        </div> */}
+        <div className="flex flex-row-reverse items-center justify-center">
+          {welcome.map((item, index) => (
+            <Bolt
+              size={20}
+              color="white"
+              className={`${
+                item.id === current ? "opacity-100" : "opacity-50"
+              }`}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
+      )}
     </div>
   );
 };
 
 export default WelcomePage;
+
+<style></style>;
