@@ -23,6 +23,8 @@ export function useTelegramMock(): void {
     try {
       lp = retrieveLaunchParams();
     } catch (e) {
+      console.log(e);
+      
       const initDataRaw = new URLSearchParams([
         ['user', JSON.stringify({
           id: 99281932,
