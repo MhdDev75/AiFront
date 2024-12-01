@@ -74,7 +74,7 @@ const WelcomePage = () => {
     <div
       className={`${
         welcome.find((x) => x.id === current)?.color
-      } h-screen  flex-col justify-between  space-y-16  pt-12 items-center `}
+      }  flex-col justify-between  items-center `}
     >
       <Carousel dir="ltr" setApi={setApi}>
         <CarouselContent className="mx-0 md:-mx-0">

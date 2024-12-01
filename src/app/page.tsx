@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import icon from "@/assets/images/icon-ai.gif";
+import { Page } from "@/components/telegram/Page";
 
 const LandingPage: React.FC = () => {
   const [progress, setProgress] = useState(0);
@@ -30,36 +31,39 @@ const LandingPage: React.FC = () => {
   }, [router]);
 
   return (
-    <div
-      className='h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%'
-      style={styles.container}
-    >
+    <Page back={false}>
+         <section className="px-5">
       <div
-        className="flex flex-col justify-center  gap-8 backdrop-blur-sm text-center"
+        className="h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
         style={styles.container}
       >
-        <span className="relative flex justify-center items-center ">
-          <Image src={icon} alt="welcome" width={120} />
-          <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-36 w-36 rounded-full bg-white opacity-35"></span>
-          <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-44 w-44 rounded-full bg-white opacity-25"></span>
-          <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-          <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-36 w-36   rounded-full bg-white opacity-35"></span>
-        </span>
-        <h1 className="text-2xl text-white font-extrabold text-center">
+        <div
+          className="flex flex-col justify-center  gap-8 backdrop-blur-sm text-center"
+          style={styles.container}
+        >
+          <span className="relative flex justify-center items-center ">
+            <Image src={icon} alt="welcome" width={120} />
+            <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-36 w-36 rounded-full bg-white opacity-35"></span>
+            <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-44 w-44 rounded-full bg-white opacity-25"></span>
+            <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+            <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-36 w-36   rounded-full bg-white opacity-35"></span>
+          </span>
+          <h1 className="text-2xl text-white font-extrabold text-center">
             {t("welcome")}
           </h1>
 
-        <div className="flex flex-col items-center justify-center w-full gap-3 absolute bottom-24 ">
-        
-          <div  style={styles.progressBarContainer}>
-            <div
-              className="bg-primary "
-              style={{ ...styles.progressBar, width: `${progress}%` }}
-            />
+          <div className="flex flex-col items-center justify-center w-full gap-3 absolute bottom-24 ">
+            <div style={styles.progressBarContainer}>
+              <div
+                className="bg-primary "
+                style={{ ...styles.progressBar, width: `${progress}%` }}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      </section>
+    </Page>
   );
 };
 
@@ -69,7 +73,7 @@ const styles = {
   },
   progressBarContainer: {
     height: "10px",
-    width:"50%",
+    width: "50%",
     backgroundColor: "#e0e0e0",
     borderRadius: "5px",
     overflow: "hidden",
