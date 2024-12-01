@@ -12,7 +12,7 @@ const LandingPage: React.FC = () => {
   const t = useTranslations("i18n");
 
   useEffect(() => {
-    const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+    const totalDuration = 100000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
 
@@ -32,11 +32,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <Page back={false}>
-         <section className="px-5">
-      <div
-        className="h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
-        style={styles.container}
-      >
+         <section style={styles.container} className="px-5  bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
         <div
           className="flex flex-col justify-center  gap-8 backdrop-blur-sm text-center"
           style={styles.container}
@@ -61,7 +57,6 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
       </section>
     </Page>
   );

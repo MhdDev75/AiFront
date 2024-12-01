@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+
 // import { getUser } from "@/api/actions/userActions";
 function Header() {
   const pathName = usePathname();
@@ -30,7 +31,7 @@ function Header() {
     <header className="p-2">
       <nav className="flex justify-between w-full">
         <ul className="flex justify-between items-center w-full gap-8">
-          {pathName === "/" && (
+          {pathName === "/home" && (
             <li>
               <motion.div
                 initial={{ width: 40, height: 3, opacity: 0 }}
@@ -60,7 +61,7 @@ function Header() {
               </motion.div>
             </li>
           )}
-          {pathName !== "/" && (
+          {pathName !== "/home" && (
             <li>
               <motion.div
                 initial={{ width: 120, opacity: 0 }}

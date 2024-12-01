@@ -13,7 +13,8 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Bolt,  CirclePlay } from "lucide-react";
+import { Bolt, CirclePlay } from "lucide-react";
+import { Page } from "@/components/telegram/Page";
 // import { Icon } from "lucide-react";
 
 const WelcomePage = () => {
@@ -64,62 +65,67 @@ const WelcomePage = () => {
     {
       id: 4,
       title: "!بزن بریم",
-      description:
-        "دکمه زیر منتظر توئه ",
+      description: "دکمه زیر منتظر توئه ",
       url: slide4,
       color: "bg-pink-400",
     },
   ];
   return (
-    <div
-      className={`${
-        welcome.find((x) => x.id === current)?.color
-      }  flex-col justify-between  items-center `}
-    >
-      <Carousel dir="ltr" setApi={setApi}>
-        <CarouselContent className="mx-0 md:-mx-0">
-          {welcome.map((item, index) => (
-            <CarouselItem className="h-full w-full p-0" key={item.id}>
-              {welcome.length == index + 1 ? (
-                <div className="flex flex-col gap-2 items-center  justify-center ">
-                      <span className="relative flex ">
-                    <Image src={item.url} alt={item.title} />
-                    <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-                    <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
-                    <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
-                  </span>
-                  <span className="text-3xl font-semibold text-white">
-                    {item.title}
-                  </span>
-                  <p className="text-sm text-center p-6 text-white font-semibold">
-                    {item.description}
-                  </p>
-                  <CirclePlay  color="white" onClick={() => router.push("/home")} className="flex justify-center items-center rounded-full drop-shadow-xl " size={100} />
-                </div>
-              ) : (
-                <div className="flex flex-col gap-2 items-center justify-center ">
-                  <span className="relative flex ">
-                    <Image src={item.url} alt={item.title} />
-                    <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
-                    <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
-                    <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
-                  </span>
+    <Page back={false}>
+      <section
+        className={`${
+          welcome.find((x) => x.id === current)?.color
+        }  flex-col justify-center content-center  items-center h-full`}
+      >
+        <Carousel dir="ltr" setApi={setApi}>
+          <CarouselContent className="mx-0 md:-mx-0">
+            {welcome.map((item, index) => (
+              <CarouselItem className="h-full w-full p-0" key={item.id}>
+                {welcome.length == index + 1 ? (
+                  <div className="flex flex-col gap-2 items-center  justify-center ">
+                    <span className="relative flex ">
+                      <Image src={item.url} alt={item.title} />
+                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+                      <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
+                      <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                    </span>
+                    <span className="text-3xl font-semibold text-white">
+                      {item.title}
+                    </span>
+                    <p className="text-sm text-center p-6 text-white font-semibold">
+                      {item.description}
+                    </p>
+                    <CirclePlay
+                      color="white"
+                      onClick={() => router.push("/home")}
+                      className="flex justify-center items-center rounded-full drop-shadow-xl "
+                      size={100}
+                    />
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-2 items-center justify-center ">
+                    <span className="relative flex ">
+                      <Image src={item.url} alt={item.title} />
+                      <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+                      <span className="absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-72 w-72 rounded-full bg-white opacity-25"></span>
+                      <span className="absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-96 w-96 rounded-full bg-white opacity-35"></span>
+                    </span>
 
-                  <span className="text-3xl font-semibold text-white">
-                    {item.title}
-                  </span>
-                  <p className="text-sm text-center p-6 text-white font-semibold">
-                    {item.description}
-                  </p>
-                </div>
-              )}
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-      {welcome.length !== current && (
-      <div className="grid grid-cols-1 ">
-        {/* <div className="w-full flex ps-5">
+                    <span className="text-3xl font-semibold text-white">
+                      {item.title}
+                    </span>
+                    <p className="text-sm text-center p-6 text-white font-semibold">
+                      {item.description}
+                    </p>
+                  </div>
+                )}
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        {welcome.length !== current && (
+          <div className="grid grid-cols-1 ">
+            {/* <div className="w-full flex ps-5">
           <div
             className="bg-yellow-400 flex justify-center items-center h-20 w-20 rounded-full shadow-lg"
             onClick={() => api && setCurrent(api.selectedScrollSnap() + 1)}
@@ -127,21 +133,22 @@ const WelcomePage = () => {
             <ChevronRight color="white" size={50} />
           </div>
         </div> */}
-        <div className="flex flex-row-reverse items-center justify-center">
-          {welcome.map((item, index) => (
-            <Bolt
-              size={20}
-              color="white"
-              className={`${
-                item.id === current ? "opacity-100" : "opacity-50"
-              }`}
-              key={index}
-            />
-          ))}
-        </div>
-      </div>
-      )}
-    </div>
+            <div className="flex flex-row-reverse items-center justify-center">
+              {welcome.map((item, index) => (
+                <Bolt
+                  size={20}
+                  color="white"
+                  className={`${
+                    item.id === current ? "opacity-100" : "opacity-50"
+                  }`}
+                  key={index}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+    </Page>
   );
 };
 

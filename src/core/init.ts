@@ -25,14 +25,14 @@ export function init(debug: boolean): void {
   miniApp.mount();
   themeParams.mount();
   initData.restore();
-  void viewport.mount().catch(e => {
-    console.error('Something went wrong mounting the viewport', e);
-  });
+  // void viewport.mount().catch(e => {
+  //   console.error('Something went wrong mounting the viewport', e);
+  // });
 
   // Define components-related CSS variables.
-  viewport.bindCssVars();
-  miniApp.bindCssVars();
-  themeParams.bindCssVars();
+  // viewport.bindCssVars();
+  // miniApp.bindCssVars();
+  // themeParams.bindCssVars();
 
   // Add Eruda if needed.
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions

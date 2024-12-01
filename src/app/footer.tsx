@@ -1,9 +1,8 @@
 "use client";
 import {
-  Coins,
-  Gamepad,
   Home,
   ListTodo,
+  Settings,
   Users,
   WalletMinimal,
 } from "lucide-react";
@@ -14,9 +13,9 @@ function Footer() {
   const router = useRouter();
 
   const footerButton = [
-    { id: 1, name: "خانه", icon: <Home size={26} />, pathName: "/" },
+    { id: 1, name: "خانه", icon: <Home size={26} />, pathName: "/home" },
     { id: 2, name: "ماموریت", icon: <ListTodo size={26} />, pathName: "/task" },
-    { id: 3, name: "بازی‌ها", icon: <Gamepad size={26} />, pathName: "/games" },
+    { id: 3, name: "تنظیمات", icon: <Settings size={26} />, pathName: "/profile" },
     { id: 4, name: "دوستان", icon: <Users size={26} />, pathName: "/friends" },
     {
       id: 5,
