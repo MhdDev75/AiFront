@@ -12,14 +12,14 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { Bolt, ChevronRight } from "lucide-react";
+import { Bolt,  CirclePlay } from "lucide-react";
 // import { Icon } from "lucide-react";
 
 const WelcomePage = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [count, setCount] = useState(0);
 
   const router = useRouter();
@@ -94,13 +94,7 @@ const WelcomePage = () => {
                   <p className="text-sm text-center p-6 text-white font-semibold">
                     {item.description}
                   </p>
-                  <Button
-                    onClick={() => router.push("/home")}
-                    size={"lg"}
-                    className=" rounded"
-                  >
-                    بزن بریم
-                  </Button>
+                  <CirclePlay  color="white" onClick={() => router.push("/home")} className="flex justify-center items-center rounded-full drop-shadow-xl " size={100} />
                 </div>
               ) : (
                 <div className="flex flex-col gap-2 items-center justify-center ">

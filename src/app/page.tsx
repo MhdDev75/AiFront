@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BotIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import icon from "@/assets/images/icon-ai.gif";
 
 const LandingPage: React.FC = () => {
   const [progress, setProgress] = useState(0);
@@ -10,7 +11,7 @@ const LandingPage: React.FC = () => {
   const t = useTranslations("i18n");
 
   useEffect(() => {
-    const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+    const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
 
@@ -30,24 +31,27 @@ const LandingPage: React.FC = () => {
 
   return (
     <div
-      className=' bg-center bg-no-repeat bg-cover bg-[url("/images/bg-ai.jpg")] bg-slate-900  shadow-slate-800'
+      className='h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%'
       style={styles.container}
     >
       <div
-        className="flex flex-col justify-center gap-2 items-center backdrop-blur-sm text-center  w-full"
+        className="flex flex-col justify-center  gap-8 backdrop-blur-sm text-center"
         style={styles.container}
       >
-        <div className="flex flex-col items-center gap-3 ">
-          <BotIcon color="white" size={150} />
-        </div>
-        <div className="flex flex-col items-center gap-3 ">
-          <span className="text-3xl font-extrabold text-white">The Ai Studio</span>
-        </div>
-        <div className="flex flex-col items-center gap-3 absolute bottom-24">
-          <h1 className="text-lg text-white font-bold text-center">
+        <span className="relative flex justify-center items-center ">
+          <Image src={icon} alt="welcome" width={120} />
+          <span className="absolute -z-10  shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-36 w-36 rounded-full bg-white opacity-35"></span>
+          <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-44 w-44 rounded-full bg-white opacity-25"></span>
+          <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-52 w-52 rounded-full bg-white opacity-35"></span>
+          <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-36 w-36   rounded-full bg-white opacity-35"></span>
+        </span>
+        <h1 className="text-2xl text-white font-extrabold text-center">
             {t("welcome")}
           </h1>
-          <div className="w-full" style={styles.progressBarContainer}>
+
+        <div className="flex flex-col items-center justify-center w-full gap-3 absolute bottom-24 ">
+        
+          <div  style={styles.progressBarContainer}>
             <div
               className="bg-primary "
               style={{ ...styles.progressBar, width: `${progress}%` }}
@@ -65,6 +69,7 @@ const styles = {
   },
   progressBarContainer: {
     height: "10px",
+    width:"50%",
     backgroundColor: "#e0e0e0",
     borderRadius: "5px",
     overflow: "hidden",
