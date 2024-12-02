@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <section className="flex flex-col gap-2 px-4">
-      <div className="text-start text-2xl mb-4">{t("Home.How")} <br /> <span className="text-primary"> {user?.first_name + " " + user?.last_name} </span> {!isIr && '?'}  {isIr && t("Home.Dear")}  </div>
+      <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{t("Home.How")} {isIr && user?.first_name + " " + user?.last_name + " " + t("Home.Dear")}  <span className="text-primary font-bold"> {!isIr && t("Home.Dear") + " " + user?.first_name + " " + user?.last_name} </span> {!isIr && '?'}    </div>
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-primary rounded-custom flex flex-col gap-4 justify-between w-full p-3 shadow-md">
