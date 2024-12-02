@@ -13,6 +13,7 @@ import Header from "./header";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import { TelegramProvider } from "@/core/telegram/TelegramProvider";
+import { BackButtonProvider } from "@/components/telegram/Page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,7 +46,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         }   antialiased`}
       >
         <TelegramProvider>
-          <I18nProvider>
+          <BackButtonProvider>
+            <I18nProvider>
               <div className="flex flex-col h-screen">
                 <Header />
                 <main className="relative flex-1 overflow-y-auto">
@@ -54,7 +56,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
                 </main>
                 <Footer />
               </div>
-          </I18nProvider>
+            </I18nProvider>
+          </BackButtonProvider>
         </TelegramProvider>
       </body>
       <GoogleAnalytics gaId="G-286074ML3H" />

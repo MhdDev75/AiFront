@@ -1,34 +1,45 @@
-"use client";
+import { usePathname, useRouter } from "next/navigation";
+import { createContext, useContext, useState, useEffect } from "react";
 
-import { PropsWithChildren, useEffect } from "react";
-import { useRouter } from "next/navigation";
-
-export function Page({
-  children,
-  back = true,
-}: PropsWithChildren<{
-  /**
-   * True if it is allowed to go back from this page.
-   * @default true
-   */
-  back?: boolean;
-}>) {
-  const router = useRouter();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const app = (window as any).Telegram?.WebApp;
-  useEffect(() => {
-    if (back) {
-      app.BackButton.show();
-    } else {
-      app.BackButton.hide();
-    }
-  }, [back]);
-
-  useEffect(() => {
-    return app.BackButton.onClick(() => {
-      router.back();
-    });
-  }, [router]);
-
-  return <>{children}</>;
+interface BackButtonContextProps {
+  isVisible: boolean;
+  setIsVisible: (visible: boolean) => void;
 }
+
+const BackButtonContext = createContext<BackButtonContextProps>({
+  isVisible: false,
+  setIsVisible: () => {},
+});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const BackButtonProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
+  const pathName = usePathname()
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      const { WebApp } = window.Telegram;
+
+      if (isVisible) {
+        WebApp.BackButton.show();
+      } else {
+        WebApp.BackButton.hide();
+      }
+
+      WebApp.BackButton.onClick(() => {
+        if (isVisible) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          pathName === "/home" ? WebApp.close() : router.back(); // عملکرد دکمه بازگشت زمانی که فعال است
+        }
+      });
+    }
+  }, [isVisible]);
+
+  return (
+    <BackButtonContext.Provider value={{ isVisible, setIsVisible }}>
+      {children}
+    </BackButtonContext.Provider>
+  );
+};
+
+export const useBackButton = () => useContext(BackButtonContext);

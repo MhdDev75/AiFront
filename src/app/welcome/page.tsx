@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Bolt, CirclePlay } from "lucide-react";
-import { Page } from "@/components/telegram/Page";
+import {  useBackButton } from "@/components/telegram/Page";
 // import { Icon } from "lucide-react";
 
 const WelcomePage = () => {
@@ -22,9 +22,11 @@ const WelcomePage = () => {
   const [current, setCurrent] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [count, setCount] = useState(0);
-
+  const { setIsVisible } = useBackButton();
   const router = useRouter();
   useEffect(() => {
+    setIsVisible(false); // دکمه بازگشت را فعال کنید
+
     if (!api) {
       return;
     }
@@ -71,7 +73,6 @@ const WelcomePage = () => {
     },
   ];
   return (
-    <Page back={false}>
       <section
         className={`${
           welcome.find((x) => x.id === current)?.color
@@ -149,7 +150,6 @@ const WelcomePage = () => {
           </div>
         )}
       </section>
-    </Page>
   );
 };
 

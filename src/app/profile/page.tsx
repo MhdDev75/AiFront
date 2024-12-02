@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
+import { useBackButton } from "@/components/telegram/Page";
+import { useEffect } from "react";
 
 const ProfilePage = () => {
   interface cmb {
@@ -34,6 +36,12 @@ const ProfilePage = () => {
 
   const t = useTranslations("i18n");
   const { user } = useTelegram();
+  const { setIsVisible } = useBackButton();
+
+  useEffect(() => {
+    setIsVisible(true); // دکمه بازگشت را فعال کنید
+  }, []);
+
   console.log(user);
 
   return (
