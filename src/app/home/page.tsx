@@ -228,7 +228,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="text-start">Hot Feature</div>
-      <div className="grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
             {item.icon}
