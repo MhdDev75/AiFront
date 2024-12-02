@@ -30,6 +30,10 @@
     --chart-4: 180, 100%, 50%;
     --chart-5: 240, 100%, 50%;
     --radius: 5px;
+    --inset-right: 0px;
+    --inset-left: 0px;
+    --inset-top: 56px;
+    --inset-bottom: 0px;
   }
   /* .dark {
     --background: 0, 0%, 10%;
@@ -226,12 +230,8 @@
   body {
     @apply bg-background text-foreground;
     transition: all 1s ease-out;
-    /*note: not transitioning width */
     transition-property: color, background-color, border-radius;
-  }
-
-  body main {
-    padding-inline-start: Var(--inset-right);
+    padding-inline-start: var(--inset-right);
     padding-inline-end: var(--inset-left);
     padding-block-start: var(--inset-top);
     padding-block-end: var(--inset-bottom);
