@@ -173,17 +173,16 @@ const HomePage = () => {
     <section className="flex flex-col gap-2 px-6">
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-primary rounded-custom flex flex-col justify-between h-20 w-full p-3">
+          <div className="bg-primary rounded-custom flex flex-col justify-between  w-full p-3">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-secondary">
                 <Text size={20} />
               </div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
-              <ArrowUpRight size={20} />
             </div>
             <span className="text-2xl">Chat <br /> With Ai</span>
           </div>
-          <div className="bg-slate-700 rounded-custom flex flex-col justify-between h-20 w-full p-3">
+          <div className="bg-slate-700 rounded-custom flex flex-col justify-between  w-full p-3">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-secondary">
                 <Image size={20} />
@@ -194,7 +193,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-red-500 rounded-custom flex flex-col justify-between h-20 w-full p-3">
+          <div className="bg-red-500 rounded-custom flex flex-col justify-between  w-full p-3">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-secondary">
                 <Video size={20} />
@@ -203,7 +202,7 @@ const HomePage = () => {
             </div>
             <span className="text-2xl">Video <br /> With Ai</span>
           </div>
-          <div className="bg-purple-600 rounded-custom flex flex-col justify-between h-20 w-full p-3">
+          <div className="bg-purple-600 rounded-custom flex flex-col justify-between  w-full p-3">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-secondary">
                 <Speaker size={20} />

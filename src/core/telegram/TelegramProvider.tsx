@@ -51,6 +51,10 @@ export const TelegramProvider = ({
         "--primary",
         themeParams.button_color
       );
+      document.documentElement.style.setProperty(
+        "--secondary",
+        themeParams.secondary_bg_color
+      );
 
       // تنظیم فاصله‌های امن محتوا
       const insets = webApp?.contentSafeAreaInset;
