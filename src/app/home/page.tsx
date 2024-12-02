@@ -1,7 +1,9 @@
 "use client"
 // import { category, CategoryList } from "@/components/Category/CategoryList";
 import { useBackButton } from "@/components/telegram/Page";
-import { ArrowUpRight, Image, Speaker, Text, Video } from "lucide-react";
+import { locales } from "@/core/i18n/config";
+import { ArrowUpLeft, ArrowUpRight, Image, Speaker, Text, Video } from "lucide-react";
+import { useLocale } from "next-intl";
 import { useEffect } from "react";
 
 // const list: category[] = [
@@ -160,6 +162,8 @@ import { useEffect } from "react";
 
 const HomePage = () => {
   const { setIsVisible } = useBackButton();
+  const locale = useLocale();
+  const isIr = locale == locales[0] ? true : false;
 
   useEffect(() => {
     setIsVisible(false)
@@ -169,35 +173,44 @@ const HomePage = () => {
     <section className="flex flex-col gap-2 px-6">
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-primary rounded-custom flex flex-col justify-between h-14 w-full p-3">
+          <div className="bg-primary rounded-custom flex flex-col justify-between h-20 w-full p-3">
             <div className="flex flex-row justify-between">
-              <Text size={20} />
+              <div className="p-1 rounded-full bg-secondary">
+                <Text size={20} />
+              </div>
+              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
               <ArrowUpRight size={20} />
             </div>
-            <span>Chat With Ai</span>
+            <span className="text-2xl">Chat <br /> With Ai</span>
           </div>
-          <div className="bg-slate-700 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+          <div className="bg-slate-700 rounded-custom flex flex-col justify-between h-20 w-full p-3">
             <div className="flex flex-row justify-between">
-              <Image size={20} />
-              <ArrowUpRight size={20} />
+              <div className="p-1 rounded-full bg-secondary">
+                <Image size={20} />
+              </div>
+              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
             </div>
-            <span> Image With Ai</span>
+            <span className="text-2xl"> Image <br /> With Ai</span>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-red-500 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+          <div className="bg-red-500 rounded-custom flex flex-col justify-between h-20 w-full p-3">
             <div className="flex flex-row justify-between">
-              <Video size={20} />
-              <ArrowUpRight size={20} />
+              <div className="p-1 rounded-full bg-secondary">
+                <Video size={20} />
+              </div>
+              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
             </div>
-            <span>Video With Ai</span>
+            <span className="text-2xl">Video <br /> With Ai</span>
           </div>
-          <div className="bg-purple-600 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+          <div className="bg-purple-600 rounded-custom flex flex-col justify-between h-20 w-full p-3">
             <div className="flex flex-row justify-between">
-              <Speaker size={20} />
-              <ArrowUpRight size={20} />
+              <div className="p-1 rounded-full bg-secondary">
+                <Speaker size={20} />
+              </div>
+              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
             </div>
-            <span>Sound With Ai</span>
+            <span className="text-2xl">Sound <br /> With Ai</span>
           </div>
         </div>
       </div>
