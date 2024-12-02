@@ -1,28 +1,31 @@
-'use client';
+"use client";
 
-import { backButton } from '@telegram-apps/sdk-react';
-import { PropsWithChildren, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { PropsWithChildren, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export function Page({ children, back = true }: PropsWithChildren<{
+export function Page({
+  children,
+  back = true,
+}: PropsWithChildren<{
   /**
    * True if it is allowed to go back from this page.
    * @default true
    */
-  back?: boolean
+  back?: boolean;
 }>) {
   const router = useRouter();
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const app = (window as any).Telegram?.WebApp;
   useEffect(() => {
     if (back) {
-      backButton.show();
+      app.BackButton.show();
     } else {
-      backButton.hide();
+      app.BackButton.hide();
     }
   }, [back]);
 
   useEffect(() => {
-    return backButton.onClick(() => {
+    return app.BackButton.onClick(() => {
       router.back();
     });
   }, [router]);
