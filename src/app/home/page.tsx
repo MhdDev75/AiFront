@@ -187,7 +187,7 @@ const HomePage = () => {
     <section className="flex flex-col gap-2 px-6">
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-primary rounded-custom flex flex-col gap-4 justify-between  w-full p-3">
+          <div className="bg-primary rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
                 <Text size={20} />
@@ -196,7 +196,7 @@ const HomePage = () => {
             </div>
             <span className="text-lg">{t("Home.Chat")} <br /> {t("Home.WithAi")}</span>
           </div>
-          <div className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3">
+          <div className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
                 <Image size={20} />
@@ -207,7 +207,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3">
+          <div className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
                 <Video size={20} />
@@ -216,7 +216,7 @@ const HomePage = () => {
             </div>
             <span className="text-lg">{t("Home.Video")} <br /> {t("Home.WithAi")}</span>
           </div>
-          <div className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3">
+          <div className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
               <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
                 <Speaker size={20} />
@@ -228,9 +228,9 @@ const HomePage = () => {
         </div>
       </div>
       <div className="text-start">Hot Feature</div>
-      <div className="grid-rows-3">
+      <div className="grid-cols-3 gap-2">
         {feature.map((item) => (
-          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary" key={item.id}>
+          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
             {item.icon}
             <span>{item.title}</span>
           </div>
