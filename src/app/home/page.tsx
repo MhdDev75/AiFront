@@ -1,3 +1,4 @@
+"use client"
 import { category, CategoryList } from "@/components/Category/CategoryList";
 import { useBackButton } from "@/components/telegram/Page";
 import { useEffect } from "react";
