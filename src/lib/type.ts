@@ -34,6 +34,7 @@ export interface IWebApp {
   headerColor: string;
   backgroundColor: string;
   isFullscreen: boolean;
+  contentSafeAreaInset:object;
   isOrientationLocked: boolean;
   BackButton: {
     isVisible: boolean;

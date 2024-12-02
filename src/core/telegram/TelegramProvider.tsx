@@ -24,6 +24,7 @@ export const TelegramProvider = ({
 
     if (app) {
       app.requestFullscreen();
+      app.enableClosingConfirmation();
       app.ready();
       setWebApp(app);
     }
@@ -46,6 +47,17 @@ export const TelegramProvider = ({
         "--primary",
         themeParams.button_color
       );
+
+      // فعال کردن ویژگی contentSafeAreaInset
+
+      // تنظیم فاصله‌های امن محتوا
+      const insets = webApp?.contentSafeAreaInset;
+      console.log(insets);
+
+      //  document.documentElement.style.setProperty('--inset-top', `${insets?.top}px`);
+      //  document.documentElement.style.setProperty('--inset-bottom', `${insets?.bottom}px`);
+      //   document.documentElement.style.setProperty('--inset-left', `${insets?.left}px`);
+      // document.documentElement.style.setProperty('--inset-right', `${insets?.right}px`);
     }
     return webApp
       ? {
