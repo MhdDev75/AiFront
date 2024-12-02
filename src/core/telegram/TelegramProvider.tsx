@@ -52,7 +52,7 @@ export const TelegramProvider = ({
 
       // تنظیم فاصله‌های امن محتوا
       const insets = webApp?.contentSafeAreaInset;
-      console.log(insets);
+      console.log("insets",insets);
 
       //  document.documentElement.style.setProperty('--inset-top', `${insets?.top}px`);
       //  document.documentElement.style.setProperty('--inset-bottom', `${insets?.bottom}px`);

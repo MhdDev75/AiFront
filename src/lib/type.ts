@@ -7,6 +7,13 @@ export interface ITelegramUser {
   language_code: string;
 }
 
+export interface IContentSafeAreaInset {
+  bottom: number;
+  left: number;
+  right: number;
+  top: number
+}
+
 export interface IWebApp {
   initData: string;
   initDataUnsafe: {
@@ -34,7 +41,7 @@ export interface IWebApp {
   headerColor: string;
   backgroundColor: string;
   isFullscreen: boolean;
-  contentSafeAreaInset:object;
+  contentSafeAreaInset: IContentSafeAreaInset;
   isOrientationLocked: boolean;
   BackButton: {
     isVisible: boolean;
