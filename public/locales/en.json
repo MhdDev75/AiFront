@@ -17,6 +17,13 @@
       "Task": "Task",
       "Friends": "Friends"
     },
+    "Home": {
+      "Sound": "Sound",
+      "Video": "Video",
+      "Image": "Image",
+      "Chat": "Chat",
+      "WithAi": "With Ai"
+    },
     "see-all": "See All",
     "Text": "Text",
     "Image": "Image",
