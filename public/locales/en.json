@@ -22,7 +22,15 @@
       "Video": "Video",
       "Image": "Image",
       "Chat": "Chat",
-      "WithAi": "With Ai"
+      "WithAi": "With Ai",
+      "QuickPrompts": "Quick Prompts",
+      "HotFeatures": "Hot Features",
+      "One":"One",
+      "Two":"One",
+      "Three":"Three",
+      "Four":"Four",
+      "Five":"Five",
+      "Six":"Six"
     },
     "see-all": "See All",
     "Text": "Text",

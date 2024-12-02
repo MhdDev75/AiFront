@@ -170,12 +170,12 @@ const HomePage = () => {
   const router = useRouter()
 
   const feature = [
-    { id: 1, title: "Game", icon: <ToyBrickIcon size={20} />, url: "/Game" },
+    { id: 1, title: "One", icon: <ToyBrickIcon size={20} />, url: "/Game" },
     { id: 2, title: "Two", icon: <Earth size={20} />, url: "/fff" },
-    { id: 3, title: "One", icon: <Tent size={20} />, url: "/other" },
-    { id: 4, title: "Game", icon: <ToyBrickIcon size={20} />, url: "/Game" },
-    { id: 5, title: "Two", icon: <Earth size={20} />, url: "/fff" },
-    { id: 6, title: "One", icon: <Tent size={20} />, url: "/other" },
+    { id: 3, title: "Three", icon: <Tent size={20} />, url: "/other" },
+    { id: 4, title: "Four", icon: <ToyBrickIcon size={20} />, url: "/Game" },
+    { id: 5, title: "Five", icon: <Earth size={20} />, url: "/fff" },
+    { id: 6, title: "Six", icon: <Tent size={20} />, url: "/other" },
   ]
 
 
@@ -227,12 +227,29 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="text-start">Hot Feature</div>
+      <div className="text-start">{t("Home.HotFeatures")} </div>
       <div className="grid grid-cols-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            {item.icon}
-            <span>{item.title}</span>
+            <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+              {item.icon}
+            </div>
+            <span>{t(`Home.${item.title}`)}</span>
+          </div>
+        ))}
+
+      </div>
+      <div className="text-start">{t("Home.QuickPrompts")}</div>
+      <div className="grid grid-rows-3 gap-2">
+        {feature.map((item) => (
+          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
+            <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+              {item.icon}
+            </div>
+            <span> {t(`Home.${item.title}`)} </span>
+            <div>
+              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+            </div>
           </div>
         ))}
 
