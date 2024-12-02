@@ -13,7 +13,7 @@ import Header from "./header";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import { Root } from "@/components/Root/Root";
-
+import { TelegramProvider } from "@/core/telegram/TelegramProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   description: "a platform for growing by Ai",
 };
 
-export default async function RootLayout({
-  children,
-}: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
   const theme = (await cookies()).get("Theme");
   console.log(theme);
 
@@ -47,18 +45,20 @@ export default async function RootLayout({
           locale == locales[0] ? iranSans.className : geistSans.variable
         }   antialiased`}
       >
-        <I18nProvider>
-        <Root>
-          <div className="flex flex-col h-screen">
-            <Header />
-            <main className="relative flex-1 overflow-y-auto">
-              <Suspense fallback={<Loading />}>{children}</Suspense>
-              <Toaster dir="rtl" position="top-center" richColors />
-            </main>
-            <Footer />
-          </div>
-          </Root>
-        </I18nProvider>
+        <TelegramProvider>
+          <I18nProvider>
+            <Root>
+              <div className="flex flex-col h-screen">
+                <Header />
+                <main className="relative flex-1 overflow-y-auto">
+                  <Suspense fallback={<Loading />}>{children}</Suspense>
+                  <Toaster dir="rtl" position="top-center" richColors />
+                </main>
+                <Footer />
+              </div>
+            </Root>
+          </I18nProvider>
+        </TelegramProvider>
       </body>
       <GoogleAnalytics gaId="G-286074ML3H" />
     </html>
