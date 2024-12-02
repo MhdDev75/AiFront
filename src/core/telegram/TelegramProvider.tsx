@@ -52,19 +52,19 @@ export const TelegramProvider = ({
 
       // تنظیم فاصله‌های امن محتوا
       const insets = webApp?.contentSafeAreaInset;
-      console.log("insets",insets);
+      console.log("insets", insets);
 
-      //  document.documentElement.style.setProperty('--inset-top', `${insets?.top}px`);
-      //  document.documentElement.style.setProperty('--inset-bottom', `${insets?.bottom}px`);
-      //   document.documentElement.style.setProperty('--inset-left', `${insets?.left}px`);
-      // document.documentElement.style.setProperty('--inset-right', `${insets?.right}px`);
+      document.documentElement.style.setProperty('--inset-top', `${insets?.top}px`);
+      document.documentElement.style.setProperty('--inset-bottom', `${insets?.bottom}px`);
+      document.documentElement.style.setProperty('--inset-left', `${insets?.left}px`);
+      document.documentElement.style.setProperty('--inset-right', `${insets?.right}px`);
     }
     return webApp
       ? {
-          webApp,
-          unsafeData: webApp.initDataUnsafe,
-          user: webApp.initDataUnsafe.user,
-        }
+        webApp,
+        unsafeData: webApp.initDataUnsafe,
+        user: webApp.initDataUnsafe.user,
+      }
       : {};
   }, [webApp]);
 

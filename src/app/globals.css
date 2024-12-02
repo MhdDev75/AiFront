@@ -229,6 +229,13 @@
     /*note: not transitioning width */
     transition-property: color, background-color, border-radius;
   }
+
+  body main {
+    padding-inline-start: Var(--inset-right);
+    padding-inline-end: var(--inset-left);
+    padding-block-start: var(--inset-top);
+    padding-block-end: var(--inset-bottom);
+  }
 }
 
 @layer base {
