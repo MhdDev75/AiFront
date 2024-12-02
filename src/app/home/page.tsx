@@ -231,7 +231,7 @@ const HomePage = () => {
       <div className="grid grid-cols-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            <div>
+            <div className="flex">
               <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
                 {item.icon}
               </div>
@@ -244,8 +244,8 @@ const HomePage = () => {
       <div className="text-start">{t("Home.QuickPrompts")}</div>
       <div className="grid grid-rows-3 gap-2">
         {feature.map((item) => (
-          <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            <div className="flex flex-row gap-1 justify-start">
+          <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
+            <div className="flex flex-row gap-1 justify-start items-center">
               <div>
                 <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
                   {item.icon}
@@ -253,7 +253,7 @@ const HomePage = () => {
               </div>
               <span> {t(`Home.${item.title}`)} </span>
             </div>
-            <div>
+            <div className="flex justify-end items-center">
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
             </div>
           </div>
