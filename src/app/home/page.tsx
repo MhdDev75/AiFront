@@ -170,12 +170,12 @@ const HomePage = () => {
   const router = useRouter()
 
   const feature = [
-    { id: 1, title: "One", icon: <ToyBrickIcon size={20} />, url: "/Game" },
-    { id: 2, title: "Two", icon: <Earth size={20} />, url: "/fff" },
-    { id: 3, title: "Three", icon: <Tent size={20} />, url: "/other" },
-    { id: 4, title: "Four", icon: <ToyBrickIcon size={20} />, url: "/Game" },
-    { id: 5, title: "Five", icon: <Earth size={20} />, url: "/fff" },
-    { id: 6, title: "Six", icon: <Tent size={20} />, url: "/other" },
+    { id: 1, title: "One", icon: <ToyBrickIcon size={20} />, url: "/Game", color: "bg-primary" },
+    { id: 2, title: "Two", icon: <Earth size={20} />, url: "/fff", color: "bg-secondary" },
+    { id: 3, title: "Three", icon: <Tent size={20} />, url: "/other", color: "bg-red-600" },
+    { id: 4, title: "Four", icon: <ToyBrickIcon size={20} />, url: "/Game", color: "bg-green-500" },
+    { id: 5, title: "Five", icon: <Earth size={20} />, url: "/fff", color: "bg-purple-500" },
+    { id: 6, title: "Six", icon: <Tent size={20} />, url: "/other", color: "bg-sky-500" },
   ]
 
 
@@ -187,9 +187,9 @@ const HomePage = () => {
     <section className="flex flex-col gap-2 px-6">
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-primary rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+          <div className="bg-primary rounded-custom flex flex-col gap-4 justify-between   w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
-              <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
+              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
                 <Text size={20} />
               </div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
@@ -198,7 +198,7 @@ const HomePage = () => {
           </div>
           <div className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
-              <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
+              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
                 <Image size={20} />
               </div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
@@ -209,7 +209,7 @@ const HomePage = () => {
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
-              <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
+              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
                 <Video size={20} />
               </div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
@@ -218,7 +218,7 @@ const HomePage = () => {
           </div>
           <div className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
             <div className="flex flex-row justify-between">
-              <div className="p-1 rounded-full bg-slate-800 bg-opacity-35">
+              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
                 <Speaker size={20} />
               </div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
@@ -232,7 +232,7 @@ const HomePage = () => {
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
             <div className="flex">
-              <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+              <div className=" bg-slate-600 bg-opacity-35 p-2 rounded-full">
                 {item.icon}
               </div>
             </div>
@@ -247,7 +247,7 @@ const HomePage = () => {
           <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
             <div className="flex flex-row gap-1 justify-start items-center">
               <div>
-                <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+                <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
                   {item.icon}
                 </div>
               </div>
