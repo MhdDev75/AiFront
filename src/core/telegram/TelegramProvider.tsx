@@ -24,9 +24,9 @@ export const TelegramProvider = ({
     console.log("app", app);
 
     if (app) {
-      app.platform !== "tdesktop" && app.requestFullscreen();
+      // app.platform !== "tdesktop" && app.requestFullscreen();
 
-
+      app.requestFullscreen();
       app.disableVerticalSwipes()
       app.enableClosingConfirmation();
       app.ready();

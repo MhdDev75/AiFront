@@ -94,7 +94,7 @@ const HomePage = () => {
       <div className="grid grid-rows-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            <div className="flex flex-row gap-1 justify-start items-center">
+            <div className="flex flex-row gap-3 justify-start items-center">
               <div>
                 <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
                   {item.icon}
