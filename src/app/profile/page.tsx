@@ -33,7 +33,7 @@ const ProfilePage = () => {
   ];
 
   const t = useTranslations("i18n");
-  const { user, webApp } = useTelegram();
+  const { user } = useTelegram();
   console.log(user);
 
   return (
