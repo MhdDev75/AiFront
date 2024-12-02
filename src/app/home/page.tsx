@@ -1,6 +1,7 @@
 "use client"
 // import { category, CategoryList } from "@/components/Category/CategoryList";
 import { useBackButton } from "@/components/telegram/Page";
+import { ArrowUpRight, Image, Speaker, Text, Video } from "lucide-react";
 import { useEffect } from "react";
 
 // const list: category[] = [
@@ -166,14 +167,38 @@ const HomePage = () => {
 
   return (
     <section className="flex flex-col gap-2 px-6">
-      <div className="grid grid-rows-2">
-        <div className="grid grid-cols-2">
-          <div className="bg-primary rounded-sm">متن</div>
-          <div className="bg-slate-700 rounded-custom">عکس</div>
+      <div className="grid grid-rows-2 gap-2">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="bg-primary rounded-custom flex flex-col justify-between h-14 w-full p-3">
+            <div className="flex flex-row justify-between">
+              <Text size={20} />
+              <ArrowUpRight size={20} />
+            </div>
+            <span>Chat With Ai</span>
+          </div>
+          <div className="bg-slate-700 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+            <div className="flex flex-row justify-between">
+              <Image size={20} />
+              <ArrowUpRight size={20} />
+            </div>
+            <span> Image With Ai</span>
+          </div>
         </div>
-        <div className="grid grid-cols-2">
-          <div className="bg-red-500 rounded-custom">ویدیو</div>
-          <div className="bg-purple-600 rounded-md">صوت</div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="bg-red-500 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+            <div className="flex flex-row justify-between">
+              <Video size={20} />
+              <ArrowUpRight size={20} />
+            </div>
+            <span>Video With Ai</span>
+          </div>
+          <div className="bg-purple-600 rounded-custom flex flex-col justify-between h-14 w-full p-3">
+            <div className="flex flex-row justify-between">
+              <Speaker size={20} />
+              <ArrowUpRight size={20} />
+            </div>
+            <span>Sound With Ai</span>
+          </div>
         </div>
       </div>
       {/* {list.map((item) => (

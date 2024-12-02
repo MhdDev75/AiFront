@@ -24,10 +24,10 @@ export const TelegramProvider = ({
     console.log("app", app);
 
     if (app) {
-      app.platform !=="tdesktop" && app.requestFullscreen();
+      app.platform !== "tdesktop" && app.requestFullscreen();
 
 
-     
+
       app.enableClosingConfirmation();
       app.ready();
       setWebApp(app);
@@ -52,16 +52,13 @@ export const TelegramProvider = ({
         themeParams.button_color
       );
 
-      // فعال کردن ویژگی contentSafeAreaInset
-
       // تنظیم فاصله‌های امن محتوا
       const insets = webApp?.contentSafeAreaInset;
-      console.log("insets", insets);
 
-      document.documentElement.style.setProperty('--inset-top', `${insets?.top}px`);
-      document.documentElement.style.setProperty('--inset-bottom', `${insets?.bottom}px`);
-      document.documentElement.style.setProperty('--inset-left', `${insets?.left}px`);
-      document.documentElement.style.setProperty('--inset-right', `${insets?.right}px`);
+      document.documentElement.style.setProperty('--inset-top', `${insets.top > 0 ? insets.top + 30 : insets.top}px`);
+      document.documentElement.style.setProperty('--inset-bottom', `${insets.bottom > 0 ? insets.bottom + 30 : insets.bottom}px`);
+      document.documentElement.style.setProperty('--inset-left', `${insets.left > 0 ? insets.left + 30 : insets.left}px`);
+      document.documentElement.style.setProperty('--inset-right', `${insets.right > 0 ? insets.right + 30 : insets.right}px`);
     }
     return webApp
       ? {
