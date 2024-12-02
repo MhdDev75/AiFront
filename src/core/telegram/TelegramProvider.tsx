@@ -26,6 +26,14 @@ export const TelegramProvider = ({
       app.requestFullscreen();
       app.enableClosingConfirmation();
       app.ready();
+      app.MainButton.setParams({
+        text: "Minimize", color: "#3b5998",
+        // رنگ دکمه 
+        textColor: "#ffffff",
+        // رنگ متن دکمه 
+      });
+      app.MainButton.show();
+      app.MainButton.onClick(() => { app.Minimize() });
       setWebApp(app);
     }
   }, []);
