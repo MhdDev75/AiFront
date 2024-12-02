@@ -16,21 +16,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
 
-const HomePage = () => {
-  interface cmb {
-    value: number;
-    name: string;
-  }
-  const theme: cmb[] = [
-    { value: 1, name: "Light" },
-    { value: 2, name: "Dark" },
-    { value: 3, name: "Colorize" },
-    { value: 4, name: "Minimalist" },
-    { value: 5, name: "Winter" },
-    { value: 6, name: "Summer" },
-    { value: 7, name: "Autumn" },
-    { value: 8, name: "Spring" },
-  ];
+const ProfilePage = () => {
+
+    interface cmb {
+        value: number,
+        name: string
+    }
+    const theme: cmb[] = [
+        { value: 1, name: "Light", },
+        { value: 2, name: "Dark", },
+        { value: 3, name: "Colorize", },
+        { value: 4, name: "Minimalist", },
+        { value: 5, name: "Winter", },
+        { value: 6, name: "Summer", },
+        { value: 7, name: "Autumn", },
+        { value: 8, name: "Spring", },
+    ]
 
   const t = useTranslations("i18n");
   const { user, webApp } = useTelegram();
@@ -91,4 +92,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ProfilePage;
