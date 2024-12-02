@@ -33,14 +33,9 @@ const LandingPage: React.FC = () => {
   }, [router]);
 
   return (
-    <section
-      style={styles.container}
-      className="px-5  bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
+    <section className="px-5  bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
     >
-      <div
-        className="flex flex-col justify-center  items-center gap-1 backdrop-blur-sm text-center"
-        style={styles.container}
-      >
+      <div className="flex flex-col justify-center  items-center gap-1 backdrop-blur-sm text-center">
         <span className="relative flex justify-center items-center h-52 w-52">
           <Image src={icon} alt="welcome" width={120} />
           <span className=" absolute -z-20 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-3/4 w-3/4 rounded-full bg-white opacity-25"></span>
@@ -65,9 +60,7 @@ const LandingPage: React.FC = () => {
 };
 
 const styles = {
-  container: {
-    height: "100vh",
-  },
+
   progressBarContainer: {
     height: "10px",
     width: "50%",
