@@ -2,7 +2,7 @@
 import {
   Home,
   ListTodo,
-  Settings,
+  User,
   Users,
   WalletMinimal,
 } from "lucide-react";
@@ -17,7 +17,7 @@ function Footer() {
   const footerButton = [
     { id: 1, name: "Home", icon: <Home size={26} />, pathName: "/home" },
     { id: 2, name: "Task", icon: <ListTodo size={26} />, pathName: "/task" },
-    { id: 3, name: "Setting", icon: <Settings size={26} />, pathName: "/profile" },
+    { id: 3, name: "Setting", icon: <User size={26} />, pathName: "/profile" },
     { id: 4, name: "Friends", icon: <Users size={26} />, pathName: "/friends" },
     {
       id: 5,
@@ -35,7 +35,7 @@ function Footer() {
     <>
       {pathname !== "/" && pathname !== "/welcome" && (
         <footer className="p-2">
-          <div className="grid grid-cols-5 text-gray-500  rounded-custom m-2 z-10 bg-slate-900 bg-opacity-50 shadow-sm shadow-gray-500/45  text-center">
+          <div className="grid grid-cols-5 text-gray-500  rounded-custom  z-10 bg-slate-900 bg-opacity-50 shadow-sm shadow-gray-500/45  text-center">
             {footerButton.map((item) => (
               <button
                 key={item.id}
