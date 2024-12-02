@@ -2,8 +2,9 @@
 // import { category, CategoryList } from "@/components/Category/CategoryList";
 import { useBackButton } from "@/components/telegram/Page";
 import { locales } from "@/core/i18n/config";
-import { ArrowUpLeft, ArrowUpRight, Image, Speaker, Text, Video } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight, Earth, Image, Speaker, Tent, Text, ToyBrickIcon, Video } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 // const list: category[] = [
@@ -166,6 +167,18 @@ const HomePage = () => {
   const locale = useLocale();
   const isIr = locale == locales[0] ? true : false;
 
+  const router = useRouter()
+
+  const feature = [
+    { id: 1, title: "Game", icon: <ToyBrickIcon size={20} />, url: "/Game" },
+    { id: 2, title: "Two", icon: <Earth size={20} />, url: "/fff" },
+    { id: 3, title: "One", icon: <Tent size={20} />, url: "/other" },
+    { id: 4, title: "Game", icon: <ToyBrickIcon size={20} />, url: "/Game" },
+    { id: 5, title: "Two", icon: <Earth size={20} />, url: "/fff" },
+    { id: 6, title: "One", icon: <Tent size={20} />, url: "/other" },
+  ]
+
+
   useEffect(() => {
     setIsVisible(false)
   });
@@ -213,6 +226,16 @@ const HomePage = () => {
             <span className="text-lg">{t("Home.Sound")} <br /> {t("Home.WithAi")}</span>
           </div>
         </div>
+      </div>
+      <div className="text-start">Hot Feature</div>
+      <div className="grid-rows-3">
+        {feature.map((item) => (
+          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary" key={item.id}>
+            {item.icon}
+            <span>{item.title}</span>
+          </div>
+        ))}
+
       </div>
       {/* {list.map((item) => (
           <CategoryList
