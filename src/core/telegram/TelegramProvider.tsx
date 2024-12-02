@@ -20,6 +20,8 @@ export const TelegramProvider = ({
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
+    console.log("app",app);
+    
     if (app) {
       app.ready();
       setWebApp(app);
@@ -27,6 +29,8 @@ export const TelegramProvider = ({
   }, []);
 
   const value = useMemo(() => {
+    console.log(webApp);
+
     return webApp
       ? {
           webApp,
@@ -34,6 +38,7 @@ export const TelegramProvider = ({
           user: webApp.initDataUnsafe.user,
         }
       : {};
+      
   }, [webApp]);
 
   return (

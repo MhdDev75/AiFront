@@ -35,6 +35,8 @@ const ProfilePage = () => {
 
   const t = useTranslations("i18n");
   const { user, webApp } = useTelegram();
+  console.log(user);
+  
   return (
     <div className=" grid grid-rows-4 place-items-center ">
       <div>
