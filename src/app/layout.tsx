@@ -48,7 +48,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <TelegramProvider>
           <BackButtonProvider>
             <I18nProvider>
-              <div className="flex flex-col h-screen">
+              <div className="flex flex-col h-screen main-div">
                 <Header />
                 <main className="relative flex-1 overflow-y-auto">
                   <Suspense fallback={<Loading />}>{children}</Suspense>

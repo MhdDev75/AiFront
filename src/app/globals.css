@@ -231,6 +231,8 @@
     @apply bg-background text-foreground;
     transition: all 1s ease-out;
     transition-property: color, background-color, border-radius;
+  }
+  body .main-div {
     padding-inline-start: var(--inset-right);
     padding-inline-end: var(--inset-left);
     padding-block-start: var(--inset-top);

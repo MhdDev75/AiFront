@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ITelegramUser, IWebApp } from "@/lib/type";
@@ -23,17 +24,12 @@ export const TelegramProvider = ({
     console.log("app", app);
 
     if (app) {
-      app.requestFullscreen();
+      app.platform !=="tdesktop" && app.requestFullscreen();
+
+
+     
       app.enableClosingConfirmation();
       app.ready();
-      app.MainButton.setParams({
-        text: "Minimize", color: "#3b5998",
-        // رنگ دکمه 
-        textColor: "#ffffff",
-        // رنگ متن دکمه 
-      });
-      app.MainButton.show();
-      app.MainButton.onClick(() => { app.Minimize() });
       setWebApp(app);
     }
   }, []);
