@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ITelegramUser, IWebApp } from "@/lib/type";
 import Script from "next/script";
@@ -20,16 +20,33 @@ export const TelegramProvider = ({
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
-    console.log("app",app);
-    
+    console.log("app", app);
+
     if (app) {
-      app.requestFullscreen()
+      app.requestFullscreen();
       app.ready();
       setWebApp(app);
     }
   }, []);
 
+  // Add more properties based on your needs
+
   const value = useMemo(() => {
+    const themeParams = webApp?.themeParams;
+    if (themeParams) {
+      document.documentElement.style.setProperty(
+        "--background",
+        themeParams.bg_color
+      );
+      document.documentElement.style.setProperty(
+        "--foreground",
+        themeParams.text_color
+      );
+      document.documentElement.style.setProperty(
+        "--primary",
+        themeParams.button_color
+      );
+    }
     return webApp
       ? {
           webApp,
@@ -37,7 +54,6 @@ export const TelegramProvider = ({
           user: webApp.initDataUnsafe.user,
         }
       : {};
-      
   }, [webApp]);
 
   return (

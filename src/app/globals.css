@@ -31,7 +31,7 @@
     --chart-5: 240, 100%, 50%;
     --radius: 5px;
   }
-  .dark {
+  /* .dark {
     --background: 0, 0%, 10%;
     --foreground: 0, 0%, 90%;
     --card: 240, 5%, 15%;
@@ -219,7 +219,7 @@
     --chart-4: 0, 100%, 45%;
     --chart-5: 120, 50%, 70%;
     --radius: 5px;
-  }
+  } */
 }
 
 @layer base {

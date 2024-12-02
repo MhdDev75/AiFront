@@ -161,7 +161,7 @@ const HomePage = () => {
   const { setIsVisible } = useBackButton();
 
   useEffect(() => {
-    setIsVisible(true)
+    setIsVisible(false)
   });
 
   return (
