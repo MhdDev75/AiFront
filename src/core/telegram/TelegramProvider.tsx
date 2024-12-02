@@ -23,14 +23,13 @@ export const TelegramProvider = ({
     console.log("app",app);
     
     if (app) {
+      app.isFullscreen= true
       app.ready();
       setWebApp(app);
     }
   }, []);
 
   const value = useMemo(() => {
-    console.log(webApp);
-
     return webApp
       ? {
           webApp,
