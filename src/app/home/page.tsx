@@ -32,7 +32,7 @@ const HomePage = () => {
   });
 
   return (
-    <section className="flex flex-col gap-2 px-6">
+    <section className="flex flex-col gap-2 px-4">
       <div className="text-start text-2xl mb-4">{t("Home.How")} <br /> <span className="text-primary"> {user?.first_name + " " + user?.last_name} </span> {!isIr && '?'}  {isIr && t("Home.Dear")}  </div>
       <div className="grid grid-rows-2 gap-2">
         <div className="grid grid-cols-2 gap-2">
