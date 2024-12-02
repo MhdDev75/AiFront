@@ -231,8 +231,10 @@ const HomePage = () => {
       <div className="grid grid-cols-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
-              {item.icon}
+            <div>
+              <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+                {item.icon}
+              </div>
             </div>
             <span>{t(`Home.${item.title}`)}</span>
           </div>
@@ -242,11 +244,15 @@ const HomePage = () => {
       <div className="text-start">{t("Home.QuickPrompts")}</div>
       <div className="grid grid-rows-3 gap-2">
         {feature.map((item) => (
-          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
-            <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
-              {item.icon}
+          <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
+            <div className="flex flex-row gap-1 justify-start">
+              <div>
+                <div className=" bg-slate-600 bg-opacity-35 p-1 rounded-full">
+                  {item.icon}
+                </div>
+              </div>
+              <span> {t(`Home.${item.title}`)} </span>
             </div>
-            <span> {t(`Home.${item.title}`)} </span>
             <div>
               {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
             </div>
