@@ -23,7 +23,7 @@ export const TelegramProvider = ({
     console.log("app",app);
     
     if (app) {
-      app.isFullscreen= true
+      app.requestFullscreen()
       app.ready();
       setWebApp(app);
     }
