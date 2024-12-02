@@ -17,36 +17,32 @@ import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
 
 const ProfilePage = () => {
-
-    interface cmb {
-        value: number,
-        name: string
-    }
-    const theme: cmb[] = [
-        { value: 1, name: "Light", },
-        { value: 2, name: "Dark", },
-        { value: 3, name: "Colorize", },
-        { value: 4, name: "Minimalist", },
-        { value: 5, name: "Winter", },
-        { value: 6, name: "Summer", },
-        { value: 7, name: "Autumn", },
-        { value: 8, name: "Spring", },
-    ]
+  interface cmb {
+    value: number;
+    name: string;
+  }
+  const theme: cmb[] = [
+    { value: 1, name: "Light" },
+    { value: 2, name: "Dark" },
+    { value: 3, name: "Colorize" },
+    { value: 4, name: "Minimalist" },
+    { value: 5, name: "Winter" },
+    { value: 6, name: "Summer" },
+    { value: 7, name: "Autumn" },
+    { value: 8, name: "Spring" },
+  ];
 
   const t = useTranslations("i18n");
   const { user, webApp } = useTelegram();
   console.log(user);
-  
+
   return (
     <div className=" grid grid-rows-4 place-items-center ">
       <div>
         {user ? (
           <div>
             <h1>Welcome {user?.username}</h1>
-            User data:
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-            Eniter Web App data:
-            <pre>{JSON.stringify(webApp, null, 2)}</pre>
+            {user?.first_name + " " + user?.last_name}
           </div>
         ) : (
           <div>Make sure web app is opened from telegram client</div>

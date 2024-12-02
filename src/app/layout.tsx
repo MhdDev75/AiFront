@@ -12,7 +12,6 @@ import Loading from "./loading";
 import Header from "./header";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
-import { Root } from "@/components/Root/Root";
 import { TelegramProvider } from "@/core/telegram/TelegramProvider";
 
 const geistSans = localFont({
@@ -47,7 +46,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       >
         <TelegramProvider>
           <I18nProvider>
-            <Root>
               <div className="flex flex-col h-screen">
                 <Header />
                 <main className="relative flex-1 overflow-y-auto">
@@ -56,7 +54,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
                 </main>
                 <Footer />
               </div>
-            </Root>
           </I18nProvider>
         </TelegramProvider>
       </body>
