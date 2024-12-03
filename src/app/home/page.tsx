@@ -87,7 +87,7 @@ const HomePage = () => {
 
       </div>
       <div className="text-start">{t("Home.QuickPrompts")}</div>
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:col-span-2 gap-2">
+      <div className="grid grid-cols-1  md:grid-cols-3 lg:col-span-3 gap-2">
         {feature.map((item) => (
           <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
             <div className="flex flex-row gap-3 justify-start items-center">

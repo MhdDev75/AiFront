@@ -117,6 +117,54 @@
           "title": "Grok-beta",
           "description": "Grok-beta is an early preview of xAI's most intelligent language model. It features state-of-the-art capabilities in coding, reasoning, and answering questions. It excels at handling complex and multi-step tasks. Grok-beta does not have access to real-time information from X or the internet as part of its integration with Poe. For longer context messages, please try Grok-beta-128k. The compute points value is subject to change.",
           "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg"
+        },
+        {
+          "id": 5,
+          "title": "GPT-4o",
+          "description": "OpenAI's most powerful model, GPT-4o, leveraging the latest Nov 2024 model snapshot, which provides more natural, engaging & tailored writing and overall provides more thorough, insightful responses. Stronger than GPT-3.5 in quantitative questions (math and physics), creative writing, and many other challenging tasks. Context window has been shortened to optimize for performance -- for longer context messages, please use GPT-4o-128k.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg"
+        },
+        {
+          "id": 6,
+          "title": "Claude-3.5-Sonnet",
+          "description": "Anthropic's most powerful model (using the latest model snapshot as of October 22, 2024). Excels in complex tasks like coding, writing, analysis and visual processing. The context window has been shortened to optimize for speed and cost. For longer context messages, please try Claude-3.5-Sonnet-200k. The compute points value is subject to change.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg"
+        },
+        {
+          "id": 7,
+          "title": "o1-mini",
+          "description": "This OpenAI model is a faster, cheaper version of o1 that is particularly good at coding, math, and science applications when broad general knowledge is not required. Supports 128k tokens of context.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg"
+        },
+        {
+          "id": 8,
+          "title": "Grok-beta",
+          "description": "Grok-beta is an early preview of xAI's most intelligent language model. It features state-of-the-art capabilities in coding, reasoning, and answering questions. It excels at handling complex and multi-step tasks. Grok-beta does not have access to real-time information from X or the internet as part of its integration with Poe. For longer context messages, please try Grok-beta-128k. The compute points value is subject to change.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg"
+        },
+        {
+          "id": 9,
+          "title": "GPT-4o",
+          "description": "OpenAI's most powerful model, GPT-4o, leveraging the latest Nov 2024 model snapshot, which provides more natural, engaging & tailored writing and overall provides more thorough, insightful responses. Stronger than GPT-3.5 in quantitative questions (math and physics), creative writing, and many other challenging tasks. Context window has been shortened to optimize for performance -- for longer context messages, please use GPT-4o-128k.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg"
+        },
+        {
+          "id": 10,
+          "title": "Claude-3.5-Sonnet",
+          "description": "Anthropic's most powerful model (using the latest model snapshot as of October 22, 2024). Excels in complex tasks like coding, writing, analysis and visual processing. The context window has been shortened to optimize for speed and cost. For longer context messages, please try Claude-3.5-Sonnet-200k. The compute points value is subject to change.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg"
+        },
+        {
+          "id": 11,
+          "title": "o1-mini",
+          "description": "This OpenAI model is a faster, cheaper version of o1 that is particularly good at coding, math, and science applications when broad general knowledge is not required. Supports 128k tokens of context.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg"
+        },
+        {
+          "id": 12,
+          "title": "Grok-beta",
+          "description": "Grok-beta is an early preview of xAI's most intelligent language model. It features state-of-the-art capabilities in coding, reasoning, and answering questions. It excels at handling complex and multi-step tasks. Grok-beta does not have access to real-time information from X or the internet as part of its integration with Poe. For longer context messages, please try Grok-beta-128k. The compute points value is subject to change.",
+          "imgUrl": "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg"
         }
       ]
     }
