@@ -46,7 +46,7 @@ const CategoryPage = ({ params: { id } }: any) => {
                                 </div>
                                 <div className="bg-gray-500 bg-opacity-70 rounded-custom flex flex-row gap-1 flex-nowrap p-1 items-center">
                                     <BadgePlus color="primary" size={12} />
-                                    <span className="font-bold text-xs text-gray-400">{(10010).toLocaleString()}</span>
+                                    <span className=" text-xs text-gray-300">{(10010).toLocaleString()}</span>
                                 </div>
 
 
