@@ -13,7 +13,7 @@ import Header from "./header";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import { TelegramProvider } from "@/core/telegram/TelegramProvider";
-import { BackButtonProvider } from "@/components/telegram/Page";
+import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

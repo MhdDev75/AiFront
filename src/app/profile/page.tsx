@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
-import { useBackButton } from "@/components/telegram/Page";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { useEffect } from "react";
 
 const ProfilePage = () => {

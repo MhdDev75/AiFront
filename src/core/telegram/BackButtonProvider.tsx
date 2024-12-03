@@ -1,5 +1,5 @@
 "use client"
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { createContext, useContext, useState, useEffect } from "react";
 
 interface BackButtonContextProps {
@@ -9,14 +9,13 @@ interface BackButtonContextProps {
 
 const BackButtonContext = createContext<BackButtonContextProps>({
   isVisible: false,
-  setIsVisible: () => {},
+  setIsVisible: () => { },
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const BackButtonProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
-  const pathName = usePathname()
   useEffect(() => {
     if (window.Telegram?.WebApp) {
       const { WebApp } = window.Telegram;
@@ -30,7 +29,7 @@ export const BackButtonProvider: React.FC<React.PropsWithChildren> = ({ children
       WebApp.BackButton.onClick(() => {
         if (isVisible) {
           // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-          pathName === "/home" ? WebApp.close() : router.back(); // عملکرد دکمه بازگشت زمانی که فعال است
+          router.back();
         }
       });
     }

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import icon from "@/assets/images/icon-ai.gif";
-import { useBackButton } from "@/components/telegram/Page";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 const LandingPage: React.FC = () => {
   const [progress, setProgress] = useState(0);

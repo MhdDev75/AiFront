@@ -1,6 +1,6 @@
 "use client"
 // import { category, CategoryList } from "@/components/Category/CategoryList";
-import { useBackButton } from "@/components/telegram/Page";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { locales } from "@/core/i18n/config";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
 import { ArrowUpLeft, ArrowUpRight, Earth, Image, Speaker, Tent, Text, ToyBrickIcon, Video } from "lucide-react";

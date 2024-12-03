@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Bolt, CirclePlay } from "lucide-react";
-import {  useBackButton } from "@/components/telegram/Page";
+import {  useBackButton } from "@/core/telegram/BackButtonProvider";
 // import { Icon } from "lucide-react";
 
 const WelcomePage = () => {
