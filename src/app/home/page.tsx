@@ -34,46 +34,42 @@ const HomePage = () => {
   return (
     <section className="flex flex-col gap-2 px-4">
       <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{isIr && (<span className="text-primary font-bold"> {user?.first_name + " " + user?.last_name + " " + t("Home.Dear")} </span>)}  {t("Home.How")}   {!isIr && (<span className="text-primary font-bold"> {t("Home.Dear") + " " + user?.first_name + " " + user?.last_name + '?'}</span>)}   </div>
-      <div className="grid grid-rows-2 gap-2">
-        <div className="grid grid-cols-2 gap-2">
-          <div onClick={() => router.push("category/1")} className="bg-primary rounded-custom flex flex-col gap-4 justify-between w-full p-3 shadow-md">
-            <div className="flex flex-row justify-between">
-              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                <Text size={20} />
-              </div>
-              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:col-span-4 gap-2">
+        <div onClick={() => router.push("category/1")} className="bg-primary rounded-custom flex flex-col gap-4 justify-between w-full p-3 shadow-md">
+          <div className="flex flex-row justify-between">
+            <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
+              <Text size={20} />
             </div>
-            <span className="text-lg">{t("Home.Chat")} <br /> {t("Home.WithAi")}</span>
+            {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
           </div>
-          <div onClick={() => router.push("category/2")} className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
-            <div className="flex flex-row justify-between">
-              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                <Image size={20} />
-              </div>
-              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
-            </div>
-            <span className="text-lg"> {t("Home.Image")} <br /> {t("Home.WithAi")}</span>
-          </div>
+          <span className="text-lg">{t("Home.Chat")} <br /> {t("Home.WithAi")}</span>
         </div>
-        <div className="grid grid-cols-2 gap-2">
-          <div onClick={() => router.push("category/3")} className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
-            <div className="flex flex-row justify-between">
-              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                <Video size={20} />
-              </div>
-              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+        <div onClick={() => router.push("category/2")} className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+          <div className="flex flex-row justify-between">
+            <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
+              <Image size={20} />
             </div>
-            <span className="text-lg">{t("Home.Video")} <br /> {t("Home.WithAi")}</span>
+            {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
           </div>
-          <div onClick={() => router.push("category/4")} className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
-            <div className="flex flex-row justify-between">
-              <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                <Speaker size={20} />
-              </div>
-              {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+          <span className="text-lg"> {t("Home.Image")} <br /> {t("Home.WithAi")}</span>
+        </div>
+        <div onClick={() => router.push("category/3")} className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+          <div className="flex flex-row justify-between">
+            <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
+              <Video size={20} />
             </div>
-            <span className="text-lg">{t("Home.Sound")} <br /> {t("Home.WithAi")}</span>
+            {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
           </div>
+          <span className="text-lg">{t("Home.Video")} <br /> {t("Home.WithAi")}</span>
+        </div>
+        <div onClick={() => router.push("category/4")} className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+          <div className="flex flex-row justify-between">
+            <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
+              <Speaker size={20} />
+            </div>
+            {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+          </div>
+          <span className="text-lg">{t("Home.Sound")} <br /> {t("Home.WithAi")}</span>
         </div>
       </div>
       <div className="text-start">{t("Home.HotFeatures")} </div>

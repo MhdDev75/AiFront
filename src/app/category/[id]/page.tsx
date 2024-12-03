@@ -36,7 +36,7 @@ const CategoryPage = ({ params: { id } }: any) => {
             {data?.items.title}
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6  gap-2">
                 {data?.items.itemList.map((item: any) => (
-                    <div key={item.id} className="bg-teal-400 bg-opacity-70 flex flex-col gap-2 rounded-custom p-3">
+                    <div key={item.id} className="bg-gray-600 bg-opacity-70 flex flex-col gap-2 rounded-custom p-3">
                         <div className="flex flex-row justify-between">
                             <Image src={item.imgUrl} width={40} height={40} className="rounded-custom" alt={item.title} />
                             {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
