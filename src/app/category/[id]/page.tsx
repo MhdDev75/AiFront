@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CategoryPage = ({ id }: any) => {
+const CategoryPage = ({ params: { id } }: any) => {
     console.log(id);
 
 
@@ -17,7 +17,7 @@ const CategoryPage = ({ id }: any) => {
     const { setIsVisible } = useBackButton();
 
     useEffect(() => {
-        setIsVisible(false); // دکمه بازگشت را فعال کنید
+        setIsVisible(true); // دکمه بازگشت را فعال کنید
     }, []);
 
     return (
