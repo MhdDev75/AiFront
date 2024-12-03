@@ -14,6 +14,24 @@ export interface IContentSafeAreaInset {
   top: number
 }
 
+export interface ICategoryItemsProps {
+  id: number,
+  title: string,
+  description: string,
+  imgUrl:string
+}
+
+export interface ICategoryProps {
+  items: ICategoryModel
+}
+
+export interface ICategoryModel {
+  id: number,
+  title: string,
+  itemList: ICategoryItemsProps[]
+}
+
+
 export interface IWebApp {
   initData: string;
   initDataUnsafe: {
@@ -57,3 +75,6 @@ export interface IWebApp {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   HapticFeedback: any;
 }
+
+
+
