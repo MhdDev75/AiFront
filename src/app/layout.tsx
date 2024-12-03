@@ -9,7 +9,6 @@ import { cookies } from "next/headers";
 import { Toaster } from "sonner";
 import { PropsWithChildren, Suspense } from "react";
 import Loading from "./loading";
-import Header from "./header";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import { TelegramProvider } from "@/core/telegram/TelegramProvider";
@@ -49,7 +48,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <BackButtonProvider>
             <I18nProvider>
               <div className="flex flex-col h-screen main-div">
-                <Header />
                 <main className="relative flex-1 overflow-y-auto">
                   <Suspense fallback={<Loading />}>{children}</Suspense>
                   <Toaster dir="rtl" position="top-center" richColors />
