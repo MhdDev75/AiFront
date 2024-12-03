@@ -2,11 +2,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-// import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { ICategoryProps } from "@/lib/type";
-import seed from "@/seeds/mockdata.json"
-import { ArrowUpLeft, ArrowUpRight, Star } from "lucide-react";
+import seed from "@/seeds/mockData.json"
+import { ArrowUpLeft, ArrowUpRight, StarIcon } from "lucide-react";
 import { useLocale } from "next-intl";
 import { locales } from "@/core/i18n/config";
 import Image from "next/image";
@@ -17,7 +17,7 @@ const CategoryPage = ({ params: { id } }: any) => {
     const locale = useLocale();
     const isIr = locale == locales[0] ? true : false;
     console.log(router);
-    // const t = useTranslations("i18n");
+    const t = useTranslations("i18n");
     const { setIsVisible } = useBackButton();
     const [data, setData] = useState<ICategoryProps | null | undefined>(null);
 
@@ -33,7 +33,7 @@ const CategoryPage = ({ params: { id } }: any) => {
 
     return (
         <section className="px-5 h-full">
-            {data?.items.title}
+            <h1 className="text-lg">{t(data?.items.title)}</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6  gap-2">
                 {data?.items.itemList.map((item: any) => (
                     <div key={item.id} className="bg-gray-600 bg-opacity-70 flex flex-col gap-2 rounded-custom p-3">
@@ -44,10 +44,12 @@ const CategoryPage = ({ params: { id } }: any) => {
                         <span className="font-bold text-foreground">
                             {item.title.substring(0, 12)} {item.title.length > 12 && '...'}
                         </span>
-                        <div className="flex gap-2">
-                            <Star color="yellow" size={12} /> 
-                            <span>4.9</span>
-                            <span>{(10010).toLocaleString() + " Reviews"}</span>
+                        <div className="flex flex-row flex-nowrap items-center gap-2">
+                            <div className="bg-gray-500 bg-opacity-70 rounded-custom flex justify-center items-center">
+                                <StarIcon color="yellow" size={14} />
+                            </div>
+                            <span className="font-bold text-sm">4.9</span>
+                            <span className="text-xs text-gray-700/55">{(10010).toLocaleString() + " Reviews"}</span>
                         </div>
                         <p className="text-sm text-primary-foreground text-pretty">
                             {item.description.substring(0, 50)} {item.description.length > 50 && '...'}
