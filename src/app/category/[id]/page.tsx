@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { ICategoryProps } from "@/lib/type";
 import seed from "@/seeds/mockdata.json"
-import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight, Star } from "lucide-react";
 import { useLocale } from "next-intl";
 import { locales } from "@/core/i18n/config";
 import Image from "next/image";
@@ -36,8 +36,7 @@ const CategoryPage = ({ params: { id } }: any) => {
             {data?.items.title}
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6  gap-2">
                 {data?.items.itemList.map((item: any) => (
-                    <div key={item.id} className="bg-gray-600 bg-opacity-70 pattern-wavy pattern-blue-500  
-  pattern-size-20 pattern-opacity-10 flex flex-col gap-2 rounded-custom p-3">
+                    <div key={item.id} className="bg-gray-600 bg-opacity-70 flex flex-col gap-2 rounded-custom p-3">
                         <div className="flex flex-row justify-between">
                             <Image src={item.imgUrl} width={40} height={40} className="rounded-custom" alt={item.title} />
                             {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
@@ -45,6 +44,11 @@ const CategoryPage = ({ params: { id } }: any) => {
                         <span className="font-bold text-foreground">
                             {item.title.substring(0, 12)} {item.title.length > 12 && '...'}
                         </span>
+                        <div className="flex gap-2">
+                            <Star color="yellow" size={12} /> 
+                            <span>4.9</span>
+                            <span>{(10010).toLocaleString() + " Reviews"}</span>
+                        </div>
                         <p className="text-sm text-primary-foreground text-pretty">
                             {item.description.substring(0, 50)} {item.description.length > 50 && '...'}
                         </p>
