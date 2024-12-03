@@ -40,12 +40,12 @@ const CategoryPage = ({ params: { id } }: any) => {
                         <div className="flex flex-row justify-between">
                             <Image src={item.imgUrl} width={40} height={40} className="rounded-custom" alt={item.title} />
                             <div className="flex flex-col flex-nowrap justify-center items-start gap-1">
-                                <div className="bg-gray-500 bg-opacity-70 rounded-custom flex flex-row gap-1 flex-nowrap p-1 items-center">
+                                <div className="bg-gray-500 bg-opacity-70 rounded-custom flex flex-row gap-1 flex-nowrap px-1 items-center">
                                     <StarIcon color="yellow" size={12} />
                                     <span className="font-bold text-xs">4.9</span>
                                 </div>
-                                <div className="bg-gray-500 bg-opacity-70 rounded-custom flex flex-row gap-1 flex-nowrap p-1 items-center">
-                                    <BadgePlus color="primary" size={12} />
+                                <div className="bg-gray-500 bg-opacity-70 rounded-custom flex flex-row gap-1 flex-nowrap px-1 items-center">
+                                    <BadgePlus color="blue" size={12} />
                                     <span className=" text-xs text-gray-300">{(10010).toLocaleString()}</span>
                                 </div>
 
