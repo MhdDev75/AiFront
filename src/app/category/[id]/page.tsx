@@ -33,10 +33,11 @@ const CategoryPage = ({ params: { id } }: any) => {
 
   useEffect(() => {
     if (id) {
+      console.log(id);
       getData(id);
     }
     setIsVisible(true); // دکمه بازگشت را فعال کنید
-  }, []);
+  }, [id]);
 
   const getData = async (paramId: string) => {
     const response: ICategory = await getCategoryById(paramId);
