@@ -11,26 +11,36 @@ export interface IContentSafeAreaInset {
   bottom: number;
   left: number;
   right: number;
-  top: number
+  top: number;
 }
 
 export interface ICategoryItemsProps {
-  id: number,
-  title: string,
-  description: string,
-  imgUrl:string
+  id: number;
+  title: string;
+  description: string;
+  rate: string;
+  flowed: string;
+  imgUrl: string;
 }
 
-export interface ICategoryProps {
-  items: ICategoryModel
+export interface ICategory {
+  id: number;
+  title: string;
+  parent_id: number;
+  icon: string;
 }
 
-export interface ICategoryModel {
-  id: number,
-  title: string,
-  itemList: ICategoryItemsProps[]
+export interface ICategoryItems {
+  id: number;
+  category_Id: number;
+  itemList: ICategoryItemsProps[];
 }
 
+export interface IResponseCategoryItems {
+  id: number;
+  title: string | undefined;
+  itemList: ICategoryItemsProps[];
+}
 
 export interface IWebApp {
   initData: string;
@@ -75,6 +85,3 @@ export interface IWebApp {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   HapticFeedback: any;
 }
-
-
-
