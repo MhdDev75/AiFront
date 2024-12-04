@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import {
@@ -20,10 +19,8 @@ import {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CategoryPage = ({ params: { id } }: any) => {
-  const router = useRouter();
   const locale = useLocale();
   const isIr = locale == locales[0] ? true : false;
-  console.log(router);
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
   const [category, setCategory] = useState<ICategory | null | undefined>(null);
@@ -37,7 +34,7 @@ const CategoryPage = ({ params: { id } }: any) => {
       getData(id);
     }
     setIsVisible(true); // دکمه بازگشت را فعال کنید
-  }, [id]);
+  }, []);
 
   const getData = async (paramId: string) => {
     const response: ICategory = await getCategoryById(paramId);

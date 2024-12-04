@@ -5,7 +5,7 @@ import { ICategory, ICategoryItems, IResponseCategoryItems } from "@/lib/type";
 export const getCategoryById = async (categoryId: string) => {
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const category :ICategory | any = seeds.categoryList.find(
+    const category: ICategory | any = seeds.categoryList.find(
       (x) => x.id === Number(categoryId)
     );
 
@@ -16,28 +16,27 @@ export const getCategoryById = async (categoryId: string) => {
   }
 };
 
+export const mergeLists = (list1: ICategory[], list2: ICategoryItems[]): IResponseCategoryItems[] => 
+  { return list2.reduce<IResponseCategoryItems[]>((acc, item2) => { 
+    const match = list1.find(item1 => item2.category_Id === item1.id); 
+    if (match) { acc.push({ id: item2.id, title: match.title, itemList: item2.itemList }); 
+  } return acc; }, 
+    []);
+  }
+
 export const getCategoryItemListById = async (categoryId: string) => {
   try {
-
-    
-    const categoryItems: ICategoryItems[] = seeds.category.filter(
-      (x) => x.category_Id === Number(categoryId)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const category: ICategory[] | any = seeds.categoryList.filter(
+      (x) => x.parent_id === Number(categoryId)
     );
 
-    const category = seeds.categoryList
-    const response = new Array<IResponseCategoryItems>();
-
-    if (categoryItems !== undefined && categoryItems && category) {
-      categoryItems.forEach(({ id, category_Id, itemList }: ICategoryItems) => {
-        console.log(category_Id);
-        const parent = response.find(
-          (x) => x.id === Number(categoryId)
-        );
-        response.push({ id, title: parent?.title, itemList });
-      });
+    if (category && category != undefined) {
+      const categoryItems = mergeLists(category , seeds.category)
+      return categoryItems;
     }
 
-    return response;
+    return null;
   } catch (error) {
     console.error("Error creating user:", error);
     throw error;
