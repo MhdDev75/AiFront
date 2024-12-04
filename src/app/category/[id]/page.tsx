@@ -41,9 +41,13 @@ const CategoryPage = ({ params: { id } }: any) => {
   const getData = async (paramId: string) => {
     const response: ICategory = await getCategoryById(paramId);
     setCategory(response);
+    console.log("response", response);
+    console.log(category);
 
     const responseItem = await getCategoryItemListById(paramId);
     setData(responseItem);
+    console.log("responseItem", responseItem);
+    console.log(data);
 
     return (
       <section className="px-5 h-full">
