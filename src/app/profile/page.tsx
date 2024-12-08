@@ -80,7 +80,7 @@ const ProfilePage = () => {
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {localesMap.map((item) => (
-                  <Button className={`${hasLocale == item.key ? "bg-gray-500" : "bg-sky-500"} bg-opacity-35 `} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                  <Button className={`${hasLocale != item.key ? "bg-gray-500" : "bg-sky-500"} bg-opacity-35 `} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
                 ))}
               </div>
             </AccordionContent>
