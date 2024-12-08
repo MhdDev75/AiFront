@@ -36,11 +36,12 @@ const ProfilePage = () => {
     <section className="flex flex-col gap-2 px-4">
       <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
         {user && (
-          <div className="flex flex-col gap-2">
-            <Image src={user?.photo_url} width={70} height={70} className="rounded-full" alt="Avatar" />
-            <span>{t("Profile.Welcome")} </span>
-            <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
-            <span className="text-muted">{user?.username}</span>
+          <div className="flex flex-row gap-2">
+            <Image src={user?.photo_url} width={70} height={70} className="rounded-custom" alt="Avatar" />
+            <div className="flex flex-col gap-2">
+              <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
+              <span className="text-muted">{user?.username}</span>
+            </div>
           </div>
         )}
       </div>
@@ -70,12 +71,12 @@ const ProfilePage = () => {
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {localesMap.map((item) => (
-                  <Button variant={hasLocale == item.key ? "destructive" : "default"} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                  <Button className={`${hasLocale == item.key ? "bg-gray-500" : "bg-primary"} bg-opacity-35 `} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
                 ))}
               </div>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-2">
+          <AccordionItem value="item-3">
             <AccordionTrigger><span>{t("Profile.Region")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-row gap-2">
@@ -85,8 +86,8 @@ const ProfilePage = () => {
               </div>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-3">
-            <Button className="bg-red-600 rounded-custom" variant="destructive">حذف حساب کاربری</Button>
+          <AccordionItem value="item-4" className="flex justify-center items-center p-3">
+            <Button className="bg-red-600 bg-opacity-70 rounded-custom" variant="destructive">{t("Profile.DeleteAccount")}</Button>
           </AccordionItem>
         </Accordion>
       </div>

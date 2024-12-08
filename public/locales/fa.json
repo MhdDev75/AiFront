@@ -43,7 +43,8 @@
       "Language": "زبان",
       "Region": "ملیت",
       "English": "انگلیسی",
-      "Farsi": "فارسی"
+      "Farsi": "فارسی",
+      "DeleteAccount":"حذف حساب"
     },
     "see-all": "مشاهده همه",
     "Text": "متن",
