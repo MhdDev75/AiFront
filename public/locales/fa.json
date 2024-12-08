@@ -44,7 +44,9 @@
       "Region": "ملیت",
       "English": "انگلیسی",
       "Farsi": "فارسی",
-      "DeleteAccount":"حذف حساب"
+      "DeleteAccount":"حذف حساب",
+      "Iran":"ایرانی",
+      "England":"انگلیس"
     },
     "see-all": "مشاهده همه",
     "Text": "متن",

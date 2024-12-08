@@ -44,7 +44,9 @@
       "Region": "Region",
       "English": "English",
       "Farsi": "Farsi",
-      "DeleteAccount":"Delete Account"
+      "DeleteAccount": "Delete Account",
+      "Iran": "Iran",
+      "England": "English"
     },
     "see-all": "See All",
     "Text": "Text",

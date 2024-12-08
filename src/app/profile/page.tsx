@@ -14,6 +14,7 @@ import {
 import { Locale } from "@/core/i18n/types";
 import { setLocale } from "@/core/i18n/locale";
 import { localesMap, regionsMap } from "@/core/i18n/config";
+import { Flag, Languages, LucideUserRoundCheck } from "lucide-react";
 
 const ProfilePage = () => {
 
@@ -37,7 +38,7 @@ const ProfilePage = () => {
       <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
         {user && (
           <div className="flex flex-row gap-2">
-            <Image src={user?.photo_url} width={70} height={70} className="rounded-custom" alt="Avatar" />
+            <Image src={user?.photo_url} width={70} height={70} className="rounded-custom border-1 border-sky-400" alt="Avatar" />
             <div className="flex flex-col gap-2">
               <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
               <span className="text-muted">{user?.username}</span>
@@ -48,7 +49,7 @@ const ProfilePage = () => {
       <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger><span>{t("Profile.UserInfo")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2"><LucideUserRoundCheck size={30} />{t("Profile.UserInfo")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row justify-between">
@@ -67,21 +68,21 @@ const ProfilePage = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger><span>{t("Profile.Language")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2"><Languages size={30} />{t("Profile.Language")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {localesMap.map((item) => (
-                  <Button className={`${hasLocale == item.key ? "bg-gray-500" : "bg-primary"} bg-opacity-35 `} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                  <Button className={`${hasLocale == item.key ? "bg-gray-500" : "bg-sky-500"} bg-opacity-35 `} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
                 ))}
               </div>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger><span>{t("Profile.Region")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2"><Flag size={30} />{t("Profile.Region")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {regionsMap.map((item) => (
-                  <Button onClick={() => onChange(item.key)} variant={"default"} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                  <Button onClick={() => onChange(item.key)} className="bg-sky-500 rounded-custom" key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
                 ))}
               </div>
             </AccordionContent>

@@ -12,6 +12,6 @@ export const localesMap = [
 ];
 
 export const regionsMap = [
-  { key: 'en', title: 'English' },
-  { key: 'fa', title: 'Farsi' },
+  { key: 'en', title: 'England' },
+  { key: 'fa', title: 'Iran' },
 ];
