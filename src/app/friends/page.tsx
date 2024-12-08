@@ -1,5 +1,5 @@
 "use client"
-import { Copy, Gift, Rocket, UserCircle2Icon } from 'lucide-react'
+import { Copy, Gift, UserCircle2Icon } from 'lucide-react'
 import React from 'react'
 import {
   Tabs,
