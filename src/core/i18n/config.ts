@@ -7,11 +7,11 @@ export const timeZone = 'Asia/Tehran';
 export const locales = [defaultLocale, 'en'] as const;
 
 export const localesMap = [
-  { key: 'en', title: 'انگلیسی' },
-  { key: 'fa', title: 'فارسی' },
+  { key: 'en', title: 'English' },
+  { key: 'fa', title: 'Farsi' },
 ];
 
 export const regionsMap = [
-  { key: 'en', title: 'انگلیس' },
-  { key: 'fa', title: 'ایران' },
+  { key: 'en', title: 'English' },
+  { key: 'fa', title: 'Farsi' },
 ];
