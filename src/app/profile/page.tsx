@@ -47,9 +47,9 @@ const ProfilePage = () => {
         )}
       </div>
       <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
-        <Accordion type="single" className="w-full">
+        <Accordion type="single" className="w-full" collapsible >
           <AccordionItem value="item-1">
-            <AccordionTrigger><span className="flex flex-row gap-2">
+            <AccordionTrigger><span className="flex flex-row gap-2 items-center">
               <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
                 <LucideUserRoundCheck size={20} />
               </div>
@@ -72,7 +72,7 @@ const ProfilePage = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger><span className="flex flex-row gap-2">
+            <AccordionTrigger><span className="flex flex-row gap-2 items-center">
               <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
                 <Languages size={20} />
               </div>
@@ -86,7 +86,7 @@ const ProfilePage = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger><span className="flex flex-row gap-2">
+            <AccordionTrigger><span className="flex flex-row gap-2 items-center">
               <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
                 <Flag size={20} />
               </div>
