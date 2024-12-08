@@ -47,11 +47,11 @@ function FriendsPage() {
           با دعوت از دوستان خود به ازای هر دعوت مقدار {(50000).toLocaleString()} تومان جایزه نقدی دریافت کنید
         </div>
       </div>
-      <div className='w-full flex gap-1'>
+      <div className='w-full flex gap-1 rounded-custom'>
         <button onClick={() => app.switchInlineQuery('share', ["users", "bots", "groups", "channels"])} className='bg-cyan-800 w-full p-3 rounded-2xl text-2xl font-bold '>
           دعوت دوستان
         </button>
-        <button className='bg-cyan-800  p-3 rounded-2xl animate-pulse'>
+        <button className='bg-cyan-800  p-3 rounded-custom animate-pulse'>
           <Copy size={38} />
         </button>
       </div>
@@ -59,9 +59,9 @@ function FriendsPage() {
       <TabsContent value="Friends">
       <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 overflow-y-scroll'>
         {friendList.map((item) => (
-          <div className='grid grid-cols-4 items-center rounded-2xl gap-3 w-full bg-slate-600 bg-opacity-40 p-2' key={item.id}>
+          <div className='grid grid-cols-4 items-center rounded-custom gap-3 w-full bg-slate-600 bg-opacity-40 p-2' key={item.id}>
             <div className='col-span-1'>
-              <div className=' bg-slate-800 rounded-2xl flex items-end justify-center py-3'>
+              <div className=' bg-slate-800 rounded-custom flex items-end justify-center py-3'>
                 <UserCircle2Icon size={35} />
               </div>
             </div>
