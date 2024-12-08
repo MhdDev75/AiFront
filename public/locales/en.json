@@ -34,6 +34,17 @@
       "How": "How may I Help You Today,",
       "Dear": "Dear"
     },
+    "Profile": {
+      "Welcome": "welcome",
+      "UserInfo": "User Info",
+      "Name": "Name",
+      "LastName": "LastName",
+      "PhoneNumber": "Phone Number",
+      "Language": "Language",
+      "Region": "Region",
+      "English": "English",
+      "Farsi": "Farsi"
+    },
     "see-all": "See All",
     "Text": "Text",
     "Image": "Image",

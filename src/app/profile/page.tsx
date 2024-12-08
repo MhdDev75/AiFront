@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/accordion"
 import { Locale } from "@/core/i18n/types";
 import { setLocale } from "@/core/i18n/locale";
-import {  localesMap, regionsMap } from "@/core/i18n/config";
+import { localesMap, regionsMap } from "@/core/i18n/config";
 
 const ProfilePage = () => {
 
@@ -32,62 +32,64 @@ const ProfilePage = () => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
   }, []);
 
-  console.log(user);
-
   return (
     <section className="flex flex-col gap-2 px-4">
-      <div>
+      <div className="bg-slate-800 bg-opacity-45 rounded-custom">
         {user && (
           <div className="flex flex-col gap-2">
-             <Image src={user?.photo_url} width={70} height={70} className="rounded-full" alt="Avatar" />
-             <span>{t("profile.Welcome")} </span>
+            <Image src={user?.photo_url} width={70} height={70} className="rounded-full" alt="Avatar" />
+            <span>{t("Profile.Welcome")} </span>
             <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
             <span className="text-muted">{user?.username}</span>
-         
-
           </div>
-        ) }
+        )}
       </div>
-      <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>{t("profile.UserInfo")}اطلاعات فردی</AccordionTrigger>
-          <AccordionContent>
-            <div className="flex flex-col gap-1">
-              <div className="flex flex-row justify-between">
-                <div>{t("profile.Name")}</div>
-                <div>{user?.first_name}</div>
+      <div className="bg-slate-800 bg-opacity-45 rounded-custom">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger><span>{t("Profile.UserInfo")}</span></AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-col gap-1">
+                <div className="flex flex-row justify-between">
+                  <div>{t("Profile.Name")}</div>
+                  <div>{user?.first_name}</div>
+                </div>
+                <div className="flex flex-row justify-between">
+                  <div>{t("Profile.LastName")}</div>
+                  <div>{user?.last_name}</div>
+                </div>
+                <div className="flex flex-row justify-between">
+                  <div>{t("Profile.PhoneNumber")}</div>
+                  <div>**********</div>
+                </div>
               </div>
-              <div className="flex flex-row justify-between">
-                <div>{t("profile.LastName")}</div>
-                <div>{user?.last_name}</div>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger><span>{t("Profile.Language")}</span></AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-row gap-2">
+                {localesMap.map((item) => (
+                  <Button variant={hasLocale == item.key ? "destructive" : "default"} onClick={() => onChange(item.key)} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                ))}
               </div>
-              <div className="flex flex-row justify-between">
-                <div>{t("profile.PhoneNumber")}</div>
-                <div>**********</div>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger><span>{t("Profile.Region")}</span></AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-row gap-2">
+                {regionsMap.map((item) => (
+                  <Button onClick={() => onChange(item.key)} variant={"default"} key={item.key}>{t(`Profile.${item.title}`)}{ }</Button>
+                ))}
               </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger>{t("profile.Language")}</AccordionTrigger>
-          <AccordionContent>
-           {localesMap.map((item)=>(
-            <Button variant={hasLocale == item.key ? "destructive" :"ghost"} onClick={()=>onChange(item.key)}  key={item.key}>{t(`profile.${item.title}`)}{}</Button>
-           ))}
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger>{t("profile.Region")}</AccordionTrigger>
-          <AccordionContent>
-           {regionsMap.map((item)=>(
-            <Button onClick={()=>onChange(item.key)} variant={"default"} key={item.key}>{t(`profile.${item.title}`)}{}</Button>
-           ))}
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-          <Button variant="destructive">حذف حساب کاربری</Button>
-        </AccordionItem>
-      </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <Button className="bg-red-600 rounded-custom" variant="destructive">حذف حساب کاربری</Button>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </section>
   );
 };
