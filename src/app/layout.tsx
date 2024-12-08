@@ -11,8 +11,8 @@ import { PropsWithChildren, Suspense } from "react";
 import Loading from "./loading";
 import Footer from "./footer";
 import "@telegram-apps/telegram-ui/dist/styles.css";
-// import { TelegramProvider } from "@/core/telegram/TelegramProvider";
-// import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
+import { TelegramProvider } from "@/core/telegram/TelegramProvider";
+import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,8 +44,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           locale == locales[0] ? iranSans.className : geistSans.variable
         }   antialiased`}
       >
-        {/* <TelegramProvider>
-          <BackButtonProvider> */}
+        <TelegramProvider>
+          <BackButtonProvider>
             <I18nProvider>
               <div className="flex flex-col h-screen main-div">
                 <main className="relative flex-1 overflow-y-auto">
@@ -55,8 +55,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
                 <Footer />
               </div>
             </I18nProvider>
-          {/* </BackButtonProvider>
-        </TelegramProvider> */}
+          </BackButtonProvider>
+        </TelegramProvider>
       </body>
       <GoogleAnalytics gaId="G-286074ML3H" />
     </html>
