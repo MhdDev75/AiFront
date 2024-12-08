@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { useEffect } from "react";
+import Image from "next/image";
 
 const ProfilePage = () => {
   interface cmb {
@@ -51,7 +52,8 @@ const ProfilePage = () => {
           <div>
             <h1>Welcome {user?.username}</h1>
             {user?.first_name + " " + user?.last_name}
-            user?.photo_url
+            <Image src={user?.photo_url}  width={50} height={50} className="rounded-full" alt="Avatar" />
+            
           </div>
         ) : (
           <div>Make sure web app is opened from telegram client</div>
