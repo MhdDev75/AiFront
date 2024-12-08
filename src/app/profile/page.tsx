@@ -47,9 +47,13 @@ const ProfilePage = () => {
         )}
       </div>
       <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger><span className="flex flex-row gap-2"><LucideUserRoundCheck size={30} />{t("Profile.UserInfo")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2">
+              <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
+                <LucideUserRoundCheck size={20} />
+              </div>
+              {t("Profile.UserInfo")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row justify-between">
@@ -68,7 +72,11 @@ const ProfilePage = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger><span className="flex flex-row gap-2"><Languages size={30} />{t("Profile.Language")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2">
+              <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
+                <Languages size={20} />
+              </div>
+              {t("Profile.Language")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {localesMap.map((item) => (
@@ -78,7 +86,11 @@ const ProfilePage = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger><span className="flex flex-row gap-2"><Flag size={30} />{t("Profile.Region")}</span></AccordionTrigger>
+            <AccordionTrigger><span className="flex flex-row gap-2">
+              <div className="p-2 rounded-custom bg-slate-800 bg-opacity-35">
+                <Flag size={20} />
+              </div>
+              {t("Profile.Region")}</span></AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-row gap-2">
                 {regionsMap.map((item) => (

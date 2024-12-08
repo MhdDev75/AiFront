@@ -17,14 +17,14 @@ function Footer() {
   const footerButton = [
     { id: 1, name: "Home", icon: <Home size={26} />, pathName: "/home" },
     { id: 2, name: "Task", icon: <ListTodo size={26} />, pathName: "/task" },
-    { id: 3, name: "Setting", icon: <User size={26} />, pathName: "/profile" },
-    { id: 4, name: "Friends", icon: <Users size={26} />, pathName: "/friends" },
     {
-      id: 5,
+      id: 3,
       name: "Wallet",
       icon: <WalletMinimal size={26} />,
       pathName: "/wallet",
     },
+    { id: 4, name: "Friends", icon: <Users size={26} />, pathName: "/friends" },
+    { id: 5, name: "Setting", icon: <User size={26} />, pathName: "/profile" },
   ];
 
   function handelClickRoute(path: string) {
