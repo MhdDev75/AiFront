@@ -51,6 +51,7 @@ const ProfilePage = () => {
           <div>
             <h1>Welcome {user?.username}</h1>
             {user?.first_name + " " + user?.last_name}
+            user?.photo_url
           </div>
         ) : (
           <div>Make sure web app is opened from telegram client</div>
