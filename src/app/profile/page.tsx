@@ -34,7 +34,7 @@ const ProfilePage = () => {
 
   return (
     <section className="flex flex-col gap-2 px-4">
-      <div className="bg-slate-800 bg-opacity-45 rounded-custom">
+      <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
         {user && (
           <div className="flex flex-col gap-2">
             <Image src={user?.photo_url} width={70} height={70} className="rounded-full" alt="Avatar" />
@@ -44,7 +44,7 @@ const ProfilePage = () => {
           </div>
         )}
       </div>
-      <div className="bg-slate-800 bg-opacity-45 rounded-custom">
+      <div className="bg-slate-800 bg-opacity-45 rounded-custom p-3">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger><span>{t("Profile.UserInfo")}</span></AccordionTrigger>
