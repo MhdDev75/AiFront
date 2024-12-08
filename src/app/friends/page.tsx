@@ -33,7 +33,7 @@ function FriendsPage() {
     <section className='mx-5 flex flex-col gap-5 relative h-full '>
 
 <Tabs defaultValue="Referrals">
-      <TabsList className="grid w-full grid-cols-2">
+      <TabsList className="grid w-full grid-cols-3 bg-slate-700 bg-opacity-70 mb-3">
         <TabsTrigger value="Referrals">Your Referrals</TabsTrigger>
         <TabsTrigger value="Friends">Invited Friends</TabsTrigger>
         <TabsTrigger disabled value="Leader">Leader Board</TabsTrigger>
@@ -97,3 +97,4 @@ function FriendsPage() {
 }
 
 export default FriendsPage
+
