@@ -1,8 +1,12 @@
 "use client"
-import { Copy, Gift, Rocket } from 'lucide-react'
+import { Copy, Gift, Rocket, UserCircle2Icon } from 'lucide-react'
 import React from 'react'
-import {switchInlineQuery } from '@telegram-apps/sdk-react';
-
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
 
 const today = new Date();
 const dd = today.getDate() + 1;
@@ -23,9 +27,18 @@ const friendList = [
 
 
 function FriendsPage() {
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const app = (window as any).Telegram?.WebApp;
   return (
     <section className='mx-5 flex flex-col gap-5 relative h-full '>
+
+<Tabs defaultValue="Referrals">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="Referrals">Your Referrals</TabsTrigger>
+        <TabsTrigger value="Friends">Invited Friends</TabsTrigger>
+        <TabsTrigger disabled value="Leader">Leader Board</TabsTrigger>
+      </TabsList>
+      <TabsContent value="Referrals">
       <div className='grid grid-cols-3 bg-slate-600 bg-opacity-40 items-center justify-center gap-3 p-3 rounded-2xl'>
         <div className='col-span-1 flex items-center justify-center h-full bg-slate-800 rounded-2xl'>
           <Gift size={56} />
@@ -34,16 +47,22 @@ function FriendsPage() {
           با دعوت از دوستان خود به ازای هر دعوت مقدار {(50000).toLocaleString()} تومان جایزه نقدی دریافت کنید
         </div>
       </div>
-      <div>
-        دوستان شما
+      <div className='w-full flex gap-1'>
+        <button onClick={() => app.switchInlineQuery('share', ["users", "bots", "groups", "channels"])} className='bg-cyan-800 w-full p-3 rounded-2xl text-2xl font-bold '>
+          دعوت دوستان
+        </button>
+        <button className='bg-cyan-800  p-3 rounded-2xl animate-pulse'>
+          <Copy size={38} />
+        </button>
       </div>
-      <div className='flex flex-col gap-3 overflow-y-scroll'>
+      </TabsContent>
+      <TabsContent value="Friends">
+      <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 overflow-y-scroll'>
         {friendList.map((item) => (
           <div className='grid grid-cols-4 items-center rounded-2xl gap-3 w-full bg-slate-600 bg-opacity-40 p-2' key={item.id}>
             <div className='col-span-1'>
               <div className=' bg-slate-800 rounded-2xl flex items-end justify-center py-3'>
-                <Rocket size={35} />
-
+                <UserCircle2Icon size={35} />
               </div>
             </div>
             <div className='col-span-2 flex flex-col gap-1'>
@@ -64,14 +83,14 @@ function FriendsPage() {
 
         </div>
       </div>
-      <div className='absolute bottom-0 w-full flex gap-1'>
-        <button onClick={() => switchInlineQuery('share', ["users", "bots", "groups", "channels"])} className='bg-cyan-800 w-full p-3 rounded-2xl text-2xl font-bold  animate-bounce'>
-          دعوت دوستان
-        </button>
-        <button className='bg-cyan-800  p-3 rounded-2xl animate-pulse'>
-          <Copy size={38} />
-        </button>
-      </div>
+      </TabsContent>
+      <TabsContent value="Leader">
+        
+        </TabsContent>
+    </Tabs>
+
+     
+    
 
     </section>
   )
