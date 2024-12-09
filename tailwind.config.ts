@@ -9,17 +9,6 @@ export default {
   darkMode: ["selector", "class"],
   theme: {
   	extend: {
-  		borderRadius: {
-  			none: '0',
-  			sm: 'calc(var(--radius) - 4px)',
-  			md: 'calc(var(--radius) - 2px)',
-  			lg: 'var(--radius)',
-  			xl: 'calc(var(--border-radius-size) * 4)',
-  			'2xl': 'calc(var(--border-radius-size) * 5)',
-  			'3xl': 'calc(var(--border-radius-size) * 6)',
-  			full: '9999px',
-  			custom: '12px'
-  		},
   		colors: {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',

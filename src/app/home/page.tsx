@@ -35,7 +35,7 @@ const HomePage = () => {
     <section className="flex flex-col gap-2 px-4">
       <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{isIr && (<span className="text-primary font-bold"> {user?.first_name + " " + user?.last_name + " " + t("Home.Dear")} </span>)}  {t("Home.How")}   {!isIr && (<span className="text-primary font-bold"> {t("Home.Dear") + " " + user?.first_name + " " + user?.last_name + '?'}</span>)}   </div>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:col-span-4 gap-2">
-        <div onClick={() => router.push("category/1")} className="bg-primary rounded-custom flex flex-col gap-4 justify-between w-full p-3 shadow-md">
+        <div onClick={() => router.push("category/1")} className="bg-primary rounded-md flex flex-col gap-4 justify-between w-full p-3 shadow-md">
           <div className="flex flex-row justify-between">
             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
               <Text size={20} />
@@ -44,7 +44,7 @@ const HomePage = () => {
           </div>
           <span className="text-lg">{t("Home.Chat")} <br /> {t("Home.WithAi")}</span>
         </div>
-        <div onClick={() => router.push("category/2")} className="bg-slate-700 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+        <div onClick={() => router.push("category/2")} className="bg-slate-700 rounded-md flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
           <div className="flex flex-row justify-between">
             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
               <Image size={20} />
@@ -53,7 +53,7 @@ const HomePage = () => {
           </div>
           <span className="text-lg"> {t("Home.Image")} <br /> {t("Home.WithAi")}</span>
         </div>
-        <div onClick={() => router.push("category/3")} className="bg-red-500 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+        <div onClick={() => router.push("category/3")} className="bg-red-500 rounded-md flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
           <div className="flex flex-row justify-between">
             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
               <Video size={20} />
@@ -62,7 +62,7 @@ const HomePage = () => {
           </div>
           <span className="text-lg">{t("Home.Video")} <br /> {t("Home.WithAi")}</span>
         </div>
-        <div onClick={() => router.push("category/4")} className="bg-purple-600 rounded-custom flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
+        <div onClick={() => router.push("category/4")} className="bg-purple-600 rounded-md flex flex-col gap-4 justify-between  w-full p-3 shadow-md">
           <div className="flex flex-row justify-between">
             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
               <Speaker size={20} />
@@ -75,7 +75,7 @@ const HomePage = () => {
       <div className="text-start">{t("Home.HotFeatures")} </div>
       <div className="grid grid-cols-3  md:grid-cols-6 lg:col-span-6 gap-2">
         {feature.map((item) => (
-          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
+          <div onClick={() => router.push(item.url)} className="flex flex-col gap-3 bg-secondary p-3 rounded-md shadow-md" key={item.id}>
             <div className="flex">
               <div className=" bg-slate-600 bg-opacity-35 p-2 rounded-full">
                 {item.icon}
@@ -89,7 +89,7 @@ const HomePage = () => {
       <div className="text-start">{t("Home.QuickPrompts")}</div>
       <div className="grid grid-cols-1  md:grid-cols-3 lg:col-span-3 gap-2">
         {feature.map((item) => (
-          <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-custom shadow-md" key={item.id}>
+          <div onClick={() => router.push(item.url)} className="flex flex-row justify-between  items-center  gap-3 bg-secondary p-3 rounded-md shadow-md" key={item.id}>
             <div className="flex flex-row gap-3 justify-start items-center">
               <div>
                 <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>

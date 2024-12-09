@@ -46,7 +46,9 @@
       "Farsi": "فارسی",
       "DeleteAccount":"حذف حساب",
       "Iran":"ایرانی",
-      "England":"انگلیس"
+      "England":"انگلیس",
+      "FontSize":"تغییر فونت",
+      "Theme":"تغییر قالب"
     },
     "see-all": "مشاهده همه",
     "Text": "متن",

@@ -46,7 +46,9 @@
       "Farsi": "Farsi",
       "DeleteAccount": "Delete Account",
       "Iran": "Iran",
-      "England": "English"
+      "England": "English",
+      "FontSize":"Font Size",
+      "Theme":"Theme"
     },
     "see-all": "See All",
     "Text": "Text",

@@ -5,17 +5,17 @@
 /* Your base theme settings */
 @layer base {
   :root {
-    --background: 0, 0%, 98%;
-    --foreground: 0, 0%, 20%;
+    --background: #333;
+    --foreground: #fff;
     --card: 0, 0%, 100%;
     --card-foreground: 0, 0%, 10%;
     --popover: 0, 0%, 95%;
     --popover-foreground: 0, 0%, 15%;
-    --primary: 210, 100%, 56%;
-    --primary-foreground: 0, 0%, 100%;
-    --secondary: 180, 100%, 50%;
+    --primary: #3f34b9;
+    --primary-foreground: #dad8ee;
+    --secondary: #9694a5;
     --secondary-foreground: 0, 0%, 100%;
-    --muted: 0, 0%, 80%;
+    --muted: #9694a576;
     --muted-foreground: 0, 0%, 40%;
     --accent: 340, 100%, 50%;
     --accent-foreground: 0, 0%, 100%;
@@ -29,10 +29,9 @@
     --chart-3: 120, 100%, 50%;
     --chart-4: 180, 100%, 50%;
     --chart-5: 240, 100%, 50%;
-    --radius: 5px;
     --inset-right: 0px;
     --inset-left: 0px;
-    --inset-top: 0px;
+    --inset-top: 56px;
     --inset-bottom: 0px;
   }
   /* .dark {

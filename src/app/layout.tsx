@@ -10,7 +10,6 @@ import { Toaster } from "sonner";
 import { PropsWithChildren, Suspense } from "react";
 import Loading from "./loading";
 import Footer from "./footer";
-import "@telegram-apps/telegram-ui/dist/styles.css";
 import { TelegramProvider } from "@/core/telegram/TelegramProvider";
 import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
 

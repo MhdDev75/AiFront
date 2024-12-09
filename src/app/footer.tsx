@@ -35,7 +35,7 @@ function Footer() {
     <>
       {pathname !== "/" && pathname !== "/welcome" && (
         <footer className="p-2">
-          <div className="grid grid-cols-5 text-gray-500  rounded-custom  z-10 bg-slate-900 bg-opacity-50 shadow-sm shadow-gray-500/45  text-center">
+          <div className="grid grid-cols-5 text-gray-500  rounded-md  z-10 bg-slate-900 bg-opacity-50 shadow-sm shadow-gray-500/45  text-center">
             {footerButton.map((item) => (
               <button
                 key={item.id}
@@ -43,7 +43,7 @@ function Footer() {
                   handelClickRoute(item.pathName);
                 }}
                 className={`${item.pathName === pathname && "bg-slate-900 text-white"
-                  } p-1 py-2 rounded-custom flex flex-col gap-1 items-center justify-center`}
+                  } p-1 py-2 rounded-md flex flex-col gap-1 items-center justify-center`}
               >
                 {item.icon}
                 <h3 className="text-sm">{t(`Footer.${item.name}`)}</h3>
