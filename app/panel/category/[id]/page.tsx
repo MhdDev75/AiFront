@@ -12,11 +12,11 @@ import {
   getCategoryItemListById,
 } from "@/api/categoryActions";
 import { useParams } from "next/navigation";
-import { CategoryList } from "@/components/Category/CategoryList";
+import CategoryListComponent from "@/components/panel/CategoryListComponent";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CategoryPage = () => {
-  
+
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
   const [category, setCategory] = useState<ICategory | null | undefined>(null);
@@ -40,11 +40,11 @@ const CategoryPage = () => {
   };
 
   return (
-    <section className="px-5 h-full">
+    <section className="h-full">
       <h1 className="text-lg">{t(category?.title)}</h1>
-      <div className="grid    gap-2">
+      <div className="grid gap-2">
         {data?.map((category: IResponseCategoryItems) => (
-          <CategoryList
+          <CategoryListComponent
             id={category.id}
             itemList={category.itemList}
             title={category.title}

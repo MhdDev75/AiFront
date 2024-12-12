@@ -15,8 +15,8 @@ const nextConfig: NextConfig = {
           },
           {
             protocol:"https",
-            hostname:"www.techiyan.com",
-            pathname:"/wp-content/**",
+            hostname:"qph.cf2.poecdn.net",
+            pathname:"/**",
             port:""
           }
         ],
