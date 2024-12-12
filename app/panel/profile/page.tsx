@@ -80,7 +80,7 @@ const ProfilePage = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-2rounded-md">
+      <div className="flex flex-col gap-2">
         <div className="bg-base-200 collapse">
           <input type="checkbox" className="peer" />
           <div

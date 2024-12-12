@@ -29,7 +29,7 @@ export default function HomePage() {
 
       if (currentStep >= steps) {
         clearInterval(timer);
-        router.push("/panel/home"); // هدایت به صفحه اصلی
+        router.push("/welcome"); // هدایت به صفحه اصلی
       }
     }, increment);
 
@@ -50,7 +50,7 @@ export default function HomePage() {
             <span className=" absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0 h-4/4 w-4/4 rounded-full bg-base-300 opacity-35"></span>
             <span className="animate-ping absolute -z-30 shadow-lg  m-auto left-0 right-0 top-0 bottom-0  h-3/4 w-3/4  rounded-full bg-base-300 opacity-35"></span>
           </span>
-          <h1 className="text-2xl text-white font-extrabold text-center">
+          <h1 className="text-2xl text-primary font-extrabold text-center">
             {t("welcome")}
           </h1>
           <progress className="progress progress-success w-56" value={progress} max="100"></progress>

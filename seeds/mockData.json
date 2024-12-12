@@ -3,7 +3,7 @@
       { "id": 1, "title": "Text", "parent_id": null, "icon": null },
       { "id": 2, "title": "Image", "parent_id": null, "icon": null },
       { "id": 3, "title": "Video", "parent_id": null, "icon": null },
-      { "id": 4, "title": "Sound", "parent_id": 1, "icon": null },
+      { "id": 4, "title": "Sound", "parent_id": null, "icon": null },
       { "id": 5, "title": "OneCategory", "parent_id": 1, "icon": null },
       { "id": 6, "title": "OneVideo", "parent_id": 3, "icon": null },
       { "id": 7, "title": "OneImage", "parent_id": 2, "icon": null },
