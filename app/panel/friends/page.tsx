@@ -8,7 +8,8 @@ import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
 const FriendsPage = () => {
 
   const [tab, setTab] = useState(1)
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const app = (window as any).Telegram?.WebApp;
   const today = new Date();
   const dd = today.getDate() + 1;
   const mm = today.getMonth() + 1;
@@ -99,7 +100,7 @@ const FriendsPage = () => {
           ))}
         </div>
       )}
-      
+
       <button onClick={() => app.switchInlineQuery('share', ["users", "bots", "groups", "channels"])} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
         اشتراک گزاری کد دعوت
       </button>
