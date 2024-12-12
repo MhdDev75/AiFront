@@ -1,5 +1,6 @@
 "use client"
 import { locales } from '@/core/i18n/config';
+import { useTelegram } from '@/core/telegram/TelegramProvider';
 import { ArrowUpLeft, ArrowUpRight, Earth, Image, Speaker, Tent, Text, ToyBrickIcon, Video } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -11,7 +12,8 @@ function HomePage() {
     const t = useTranslations("i18n");
     const locale = useLocale();
     const isIr = locale == locales[0] ? true : false;
-    //  const { user } = useTelegram();
+    const { user } = useTelegram();
+
 
     const router = useRouter()
 
@@ -25,7 +27,7 @@ function HomePage() {
     ]
     return (
         <section className="flex flex-col gap-2">
-            <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{isIr && (<span className="text-primary font-bold"> {"user?.first_name" + " " + "user?.last_name" + " " + t("Home.Dear")} </span>)}  {t("Home.How")}   {!isIr && (<span className="text-primary font-bold"> {t("Home.Dear") + " " + "user?.first_name" + " " + "user?.last_name" + '?'}</span>)}   </div>
+            <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{isIr && (<span className="text-primary font-bold"> {user?.first_name + " " + user?.last_name + " " + t("Home.Dear")} </span>)}  {t("Home.How")}   {!isIr && (<span className="text-primary font-bold"> {t("Home.Dear") + " " + user?.first_name + " " + user?.last_name + '?'}</span>)}   </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:col-span-4 gap-2">
                 <button onClick={() => router.push("category/1")} className="btn btn-lg btn-primary h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md">
                     <div className='flex flex-col gap-4 justify-between  w-full'>
