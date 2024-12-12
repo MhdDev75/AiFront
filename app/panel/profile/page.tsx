@@ -69,10 +69,10 @@ const ProfilePage = () => {
 
   return (
     <section className="flex flex-col gap-2">
-      <div className="bg-muted bg-opacity-45 rounded-md p-3">
+      <div className="bg-base-200 rounded-md p-3">
         {user && (
           <div className="flex flex-row gap-2">
-            <Image src={user?.photo_url} width={70} height={70} className="rounded-md border-1 border-sky-400" alt="Avatar" />
+            <Image src={user?.photo_url} width={60} height={60} className="rounded-2xl border-1 border-sky-400" alt="Avatar" />
             <div className="flex flex-col gap-2">
               <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
               <span className="text-muted">{user?.username}</span>
@@ -80,7 +80,7 @@ const ProfilePage = () => {
           </div>
         )}
       </div>
-      <div className="bg-base-200 flex flex-col gap-2 bg-opacity-45 rounded-md p-3">
+      <div className="flex flex-col gap-2rounded-md">
         <div className="bg-base-200 collapse">
           <input type="checkbox" className="peer" />
           <div
