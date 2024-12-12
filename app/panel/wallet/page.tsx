@@ -16,11 +16,11 @@ const WalletPage = () => {
         { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "Check", type: true },
         { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "Check", type: true },
         { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "Check", type: true },
-        { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "ArchiveX", type: false },
+        { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "X", type: false },
         { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "Check", type: true },
         { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "Check", type: true },
-        { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "ArchiveX", type: false },
-        { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "ArchiveX", type: false }
+        { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "X", type: false },
+        { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "X", type: false }
     ]
 
 
