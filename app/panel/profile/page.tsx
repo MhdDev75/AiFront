@@ -2,7 +2,7 @@
 // import { useLocale, useTranslations } from "next-intl";
 // import { Button } from "@/components/ui/button";
 import { useTelegram } from "@/core/telegram/TelegramProvider";
-import Image from "next/image";
+// import Image from "next/image";
 import { Bell, Languages, LetterText, LucideUserRoundCheck, Palette } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { localesMap } from "@/core/i18n/config";
@@ -72,7 +72,7 @@ const ProfilePage = () => {
       <div className="bg-base-200 rounded-md p-3">
         {user && (
           <div className="flex flex-row gap-2">
-            <Image src={user?.photo_url} width={60} height={60} className="rounded-2xl border-1 border-sky-400" alt="Avatar" />
+            {/* <Image src={user?.photo_url} width={60} height={60} className="rounded-2xl border-1 border-sky-400" alt="Avatar" /> */}
             <div className="flex flex-col gap-2">
               <span className="font-bold text-xl">{user?.first_name + " " + user?.last_name}</span>
               <span className="text-muted">{user?.username}</span>

@@ -48,7 +48,7 @@ function Footer() {
               >
                 <div className="flex flex-col gap-1 items-center justify-center">
                   {item.icon}
-                  <h3 className="text-sm text-nowrap">{t(`Footer.${item.name}`)}</h3>
+                  <h3 className="text-xs text-nowrap">{t(`Footer.${item.name}`)}</h3>
                 </div>
               </button>
             ))}
