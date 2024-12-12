@@ -17,16 +17,17 @@ export const BackButtonProvider: React.FC<React.PropsWithChildren> = ({ children
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    if (window.Telegram?.WebApp) {
-      const { WebApp } = window.Telegram;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const app = (window as any).Telegram?.WebApp;
+    if (app) {
 
       if (isVisible) {
-        WebApp.BackButton.show();
+        app.BackButton.show();
       } else {
-        WebApp.BackButton.hide();
+        app.BackButton.hide();
       }
 
-      WebApp.BackButton.onClick(() => {
+      app.BackButton.onClick(() => {
         if (isVisible) {
           // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           router.back();
