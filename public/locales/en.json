@@ -14,7 +14,7 @@
       "Home": "Home",
       "Wallet": "Wallet",
       "Setting": "Setting",
-      "Task": "Task",
+      "Tasks": "Tasks",
       "Friends": "Friends"
     },
     "Home": {
@@ -34,6 +34,12 @@
       "How": "How may I Help You Today,",
       "Dear": "Dear"
     },
+    "wallet": {
+      "TotalAssets": "Total Assets",
+      "Currency":"USDT",
+      "TopUp":"Top Up",
+      "Last":"Last transaction"
+    },
     "Profile": {
       "Welcome": "welcome",
       "UserInfo": "User Info",
@@ -47,8 +53,9 @@
       "DeleteAccount": "Delete Account",
       "Iran": "Iran",
       "England": "English",
-      "FontSize":"Font Size",
-      "Theme":"Theme"
+      "FontSize": "Font Size",
+      "Theme": "Theme",
+      "Notification": "Notification"
     },
     "see-all": "See All",
     "Text": "Text",
