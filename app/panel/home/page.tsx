@@ -1,19 +1,23 @@
 "use client"
 import { locales } from '@/core/i18n/config';
+import { useBackButton } from '@/core/telegram/BackButtonProvider';
 import { useTelegram } from '@/core/telegram/TelegramProvider';
 import { ArrowUpLeft, ArrowUpRight, Earth, Image, Speaker, Tent, Text, ToyBrickIcon, Video } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 function HomePage() {
-    // const { setIsVisible } = useBackButton();
+    const { setIsVisible } = useBackButton();
     const t = useTranslations("i18n");
     const locale = useLocale();
     const isIr = locale == locales[0] ? true : false;
     const { user } = useTelegram();
 
+    useEffect(() => {
+        setIsVisible(false); // دکمه بازگشت را فعال کنید
+    }, []);
 
     const router = useRouter()
 

@@ -36,9 +36,25 @@
     },
     "wallet": {
       "TotalAssets": "Total Assets",
-      "Currency":"USDT",
-      "TopUp":"Top Up",
-      "Last":"Last transaction"
+      "Currency": "USDT",
+      "TopUp": "Top Up",
+      "Last": "Last transaction",
+      "Transaction": "Transaction",
+      "Transfer": "Transfer",
+      "Withdraw": "Withdraw",
+      "Value": "Value",
+      "EnterAmount": "Enter Amount",
+      "CreateReceipt": "Create a Receipt",
+      "EnterYourAmount": "Enter Your Amount"
+    },
+    "Task": {
+      "DailyTask": "Daily Task",
+      "OneTimeTask": "One-Time Task",
+      "SponsorTask": "Sponsor Task",
+      "VipTask": "Vip Task",
+      "NoTask": "There is no task to display.",
+      "Increase": "Increase",
+      "YourRate":"Your Rate"
     },
     "Profile": {
       "Welcome": "welcome",
@@ -57,6 +73,19 @@
       "Theme": "Theme",
       "Notification": "Notification"
     },
+    "Friend": {
+      "YourReferrals": "Your Referrals",
+      "InvitedFriends": "Invited Friends",
+      "LeaderBoard": "Leader Board",
+      "description": "By inviting your friends, receive a cash reward of 0.2 USDT for each invitation.",
+      "InvitationCode": "Your invitation code",
+      "InviteFriends": "Invite Friends",
+      "InviteFriendsDesc": "Share your invitation code with your friends.",
+      "FreePoints": "Get free points",
+      "FreePointsDesc": "You can get free points when your friends join.",
+      "Share": "Share invitation code"
+    },
+    "Soon": "Soon",
     "see-all": "See All",
     "Text": "Text",
     "Image": "Image",

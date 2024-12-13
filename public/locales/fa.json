@@ -36,10 +36,25 @@
     },
     "wallet": {
       "TotalAssets": "دارایی شما",
-      "Currency":"تومان",
-      "TopUp":"شارژ",
-      "Last":"آخرین تراکنش"
-
+      "Currency": "تومان",
+      "TopUp": "شارژ",
+      "Last": "آخرین تراکنش",
+      "Transaction": "تراکنش های اخیر",
+      "Transfer": "انتقال",
+      "Withdraw": "برداشت",
+      "Value":"مقدار",
+      "EnterAmount":"مقدار دلخواه",
+      "CreateReceipt":"ایجاد رسید",
+      "EnterYourAmount":"مقدار خود رو وارد کنید"
+    },
+    "Task": {
+      "DailyTask": "ماموریت روزانه",
+      "OneTimeTask": "مارموریت های ثابت",
+      "SponsorTask": "ماموریت اسپانسر ها",
+      "VipTask": "ماموریت ویژه",
+      "NoTask":"ماموریتی برای نمایش وجود ندارد",
+       "Increase": "امتیاز خود را",
+      "YourRate":"افزایش دهید"
     },
     "Profile": {
       "Welcome": "خوش امدی",
@@ -51,14 +66,28 @@
       "Region": "ملیت",
       "English": "انگلیسی",
       "Farsi": "فارسی",
-      "DeleteAccount":"حذف حساب",
-      "Iran":"ایرانی",
-      "England":"انگلیس",
-      "FontSize":"تغییر فونت",
-      "Theme":"تغییر قالب",
-      "Notification":"اعلانات"
+      "DeleteAccount": "حذف حساب",
+      "Iran": "ایرانی",
+      "England": "انگلیس",
+      "FontSize": "تغییر فونت",
+      "Theme": "تغییر قالب",
+      "Notification": "اعلانات"
+    },
+    "Friend": {
+      "YourReferrals": "کد دعوت",
+      "InvitedFriends": "دوستان شما",
+      "LeaderBoard": "برترین ها",
+      "description": "با دعوت از دوستان خود به ازای هر دعوت مقدار 50,000 تومان جایزه نقدی دریافت کنید",
+      "InvitationCode": "کد دعوت شما",
+      "InviteFriends":"دعوت از دوستان",
+      "InviteFriendsDesc":" کد دعوت خود را با دوستانتان به اشتراک بگزارید",
+      "FreePoints":"امتیاز رایگان بگیرید",
+      "FreePointsDesc":"وقتی که دوستانتان عضو شدند میتوانید امتیاز رایگان دریافت کنید",
+      "Share":"اشتراک کد دعوت"
+
 
     },
+    "Soon":"بزودی",
     "see-all": "مشاهده همه",
     "Text": "متن",
     "Image": "تصویر",

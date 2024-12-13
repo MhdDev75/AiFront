@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import icon from "@/assets/images/icon-ai.gif";
 import { useTranslations } from "next-intl";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 
 
@@ -12,10 +13,13 @@ export default function HomePage() {
   const [progress, setProgress] = useState(0);
   const router = useRouter();
   const t = useTranslations("i18n")
+  const { setIsVisible } = useBackButton();
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cookie, setCookie] = useCookies(['token'])
+  const [cookie, setCookie] = useCookies(['token', "NewUser"])
+
   useEffect(() => {
-    // setIsVisible(false); // دکمه بازگشت را فعال کنید
+    setIsVisible(false); // دکمه بازگشت را فعال کنید
     const totalDuration = 10000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
@@ -29,7 +33,12 @@ export default function HomePage() {
 
       if (currentStep >= steps) {
         clearInterval(timer);
-        router.push("/welcome"); // هدایت به صفحه اصلی
+        if (cookie.NewUser == true) {
+          router.push("/panel/home");
+        }
+        else {
+          router.push("/welcome");
+        }
       }
     }, increment);
 

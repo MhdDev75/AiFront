@@ -1,12 +1,14 @@
 "use client"
 import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
-import { BackpackIcon, Banknote, CreditCard, Edit3 } from 'lucide-react'
+import { ArrowRightLeft, BackpackIcon, Banknote } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const WalletPage = () => {
 
-    const t = useTranslations("i18n")
+    const router = useRouter();
+    const t = useTranslations("i18n");
     const today = new Date();
     const dd = today.getDate() + 1;
     const mm = today.getMonth() + 1;
@@ -28,49 +30,49 @@ const WalletPage = () => {
         <div className='flex flex-col h-full gap-4'>
             <div className="card bg-base-300 h-52 shadow rounded-3xl">
                 <div className="card-body p-2 text-center">
-                 <div className='flex flex-col gap-2'>
-                 <span className="text-sm">{t("wallet.TotalAssets")} ({t("wallet.Currency")})</span>
-                    <span className="card-title text-3xl font-bold justify-center">{(1200000).toLocaleString()} </span>
-                    <p className='text-success'> {t("wallet.Last")} {(1000).toLocaleString()} + </p>
-                    <div className="card-actions justify-evenly">
-                        <div className=' flex flex-col gap-1'>
-                            <button className="btn  rounded-full h-14 w-14  btn-primary animate-pulse">
-                                <Banknote color='white' />
-                            </button>
-                            <span className='font-bold text-primary'>
-                                {t("wallet.TopUp")}
-                            </span>
-                        </div>
-                        <div className=' flex flex-col gap-1'>
-                            <button className="btn btn-success rounded-full h-14 w-14  ">
-                                <CreditCard />
-                            </button>
-                            <span className='font-bold'>
-                                Send
-                            </span>
-                        </div>
-                        <div className=' flex flex-col gap-1'>
-                            <button className="btn btn-error rounded-full h-14 w-14 ">
-                                <BackpackIcon />
-                            </button>
-                            <span className='font-bold'>
-                                Request
-                            </span>
-                        </div>
-                        <div className=' flex flex-col gap-1'>
+                    <div className='flex flex-col gap-2'>
+                        <span className="text-sm">{t("wallet.TotalAssets")} ({t("wallet.Currency")})</span>
+                        <span className="card-title text-3xl font-bold justify-center">{(1200000).toLocaleString()} </span>
+                        <p className='text-success'> {t("wallet.Last")} {(1000).toLocaleString()} + </p>
+                        <div className="card-actions justify-evenly">
+                            <div className=' flex flex-col items-center gap-1'>
+                                <button onClick={()=>router.push("/panel/wallet/receipt")} className="btn  rounded-full h-14 w-14  btn-primary animate-pulse">
+                                    <Banknote color='white' />
+                                </button>
+                                <span className='font-bold text-primary'>
+                                    {t("wallet.TopUp")}
+                                </span>
+                            </div>
+                            <div className=' flex flex-col items-center gap-1'>
+                                <button className="btn btn-success rounded-full h-14 w-14  ">
+                                    <ArrowRightLeft />
+                                </button>
+                                <span className='font-bold'>
+                                    {t("wallet.Transfer")}
+                                </span>
+                            </div>
+                            <div className=' flex flex-col items-center gap-1'>
+                                <button className="btn btn-error rounded-full h-14 w-14 ">
+                                    <BackpackIcon />
+                                </button>
+                                <span className='font-bold'>
+                                    {t("wallet.Withdraw")}
+                                </span>
+                            </div>
+                            {/* <div className=' flex flex-col gap-1'>
                             <button disabled className="btn rounded-full h-14 w-14 ">
                                 <Edit3 />
                             </button>
                             <span className=' textarea-disabled font-bold'>
                                 More
                             </span>
+                        </div> */}
                         </div>
                     </div>
-                 </div>
                 </div>
             </div>
-            <div className='flex flex-col h-[calc(100%-14rem)] gap-2'>
-                <span className='text-lg font-extrabold'>Transaction</span>
+            <div className='flex flex-col h-[calc(100%-14rem)] gap-3'>
+                <span className='text-lg font-extrabold'>{t("wallet.Transaction")}</span>
                 <div className='flex overflow-y-scroll flex-col gap-2'>
 
                     {friendList.map((item) => (

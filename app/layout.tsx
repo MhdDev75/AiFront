@@ -46,21 +46,23 @@ export default async function RootLayout({
       >
         <TelegramProvider>
           <BackButtonProvider>
-            <I18nProvider>
-              {children}
-            </I18nProvider>
-          </BackButtonProvider>
+        <I18nProvider>
+          {children}
+        </I18nProvider>
+        </BackButtonProvider>
         </TelegramProvider>
-        <ToastContainer autoClose={10000}
+        <ToastContainer autoClose={2000}
           hideProgressBar={true}
           stacked
           newestOnTop={true}
           closeOnClick
-          position="top-center"
+          position="bottom-center"
           rtl={locale == locales[0] ? true : false}
           draggable
           pauseOnHover
-          theme={theme?.value == "dark" ? 'dark' : 'light'}
+          closeButton={false}
+          className={`${locale == locales[0] ? iranSans.className : geistSans.variable}`}
+          theme="colored"
           transition={Zoom}
         />
       </body>
