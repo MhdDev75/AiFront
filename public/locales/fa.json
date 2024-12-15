@@ -71,7 +71,9 @@
       "England": "انگلیس",
       "FontSize": "تغییر فونت",
       "Theme": "تغییر قالب",
-      "Notification": "اعلانات"
+      "Notification": "اعلانات",
+       "light": "روشن",
+      "dark": "تیره"
     },
     "Friend": {
       "YourReferrals": "کد دعوت",

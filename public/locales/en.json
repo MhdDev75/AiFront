@@ -54,7 +54,7 @@
       "VipTask": "Vip Task",
       "NoTask": "There is no task to display.",
       "Increase": "Increase",
-      "YourRate":"Your Rate"
+      "YourRate": "Your Rate"
     },
     "Profile": {
       "Welcome": "welcome",
@@ -71,7 +71,9 @@
       "England": "English",
       "FontSize": "Font Size",
       "Theme": "Theme",
-      "Notification": "Notification"
+      "Notification": "Notification",
+      "light": "Light",
+      "dark": "Dark"
     },
     "Friend": {
       "YourReferrals": "Your Referrals",

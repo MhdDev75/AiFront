@@ -2,10 +2,12 @@
 import { locales } from '@/core/i18n/config';
 import { useBackButton } from '@/core/telegram/BackButtonProvider';
 import { useTelegram } from '@/core/telegram/TelegramProvider';
-import { ArrowUpLeft, ArrowUpRight, Earth, Image, Speaker, Tent, Text, ToyBrickIcon, Video } from 'lucide-react';
+import { ArrowUpLeft, ArrowUpRight, ChevronDown, Earth, Image, Mic, Tent, Text, ToyBrickIcon, Video } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
+import Images from "next/image";
+
 
 
 function HomePage() {
@@ -28,6 +30,45 @@ function HomePage() {
         { id: 4, title: "Four", icon: <ToyBrickIcon size={20} />, url: "/Game", color: "bg-green-500" },
         { id: 5, title: "Five", icon: <Earth size={20} />, url: "/fff", color: "bg-purple-500" },
         { id: 6, title: "Six", icon: <Tent size={20} />, url: "/other", color: "bg-sky-500" },
+    ]
+
+    const prompts = [
+        {
+            id: 1, title: "One", icon: <ToyBrickIcon size={20} />, url: "/Game", color: "bg-primary", imgList:
+                [
+                    { id: 1, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg" },
+                    { id: 2, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg" },
+                    { id: 3, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg" },
+                    { id: 4, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg" },
+                ]
+        },
+        {
+            id: 2, title: "Two", icon: <Earth size={20} />, url: "/fff", color: "bg-amber-500", imgList:
+                [
+                    { id: 1, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg" },
+                    { id: 2, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg" },
+                    { id: 3, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg" },
+                    { id: 4, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg" },
+                ]
+        },
+        {
+            id: 3, title: "Three", icon: <Tent size={20} />, url: "/other", color: "bg-red-600", imgList:
+                [
+                    { id: 1, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg" },
+                    { id: 2, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg" },
+                    { id: 3, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg" },
+                    { id: 4, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg" },
+                ]
+        },
+        {
+            id: 4, title: "Four", icon: <ToyBrickIcon size={20} />, url: "/Game", color: "bg-green-500", imgList:
+                [
+                    { id: 1, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg" },
+                    { id: 2, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg" },
+                    { id: 3, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg" },
+                    { id: 4, imageUrl: "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg" },
+                ]
+        }
     ]
     return (
         <section className="flex flex-col gap-2">
@@ -67,11 +108,11 @@ function HomePage() {
                         <span className="text-xl text-start">{t("Home.Video")} </span>
                     </div>
                 </button>
-                <button onClick={() => router.push("category/4")} className="btn btn-lg btn-warning h-auto rounded-3xl  shadow-md">
+                <button onClick={() => router.push("category/4")} className="btn btn-lg btn-neutral h-auto rounded-3xl  shadow-md">
                     <div className='flex flex-col gap-4 justify-between  w-full'>
                         <div className="flex flex-row justify-between">
                             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                                <Speaker size={20} />
+                                <Mic size={20} />
                             </div>
                             {isIr ? <ArrowUpLeft size={30} /> : <ArrowUpRight size={30} />}
                         </div>
@@ -97,20 +138,38 @@ function HomePage() {
             </div>
             <div className="text-start">{t("Home.QuickPrompts")}</div>
             <div className="grid grid-cols-1  md:grid-cols-3 lg:col-span-3 gap-2">
-                {feature.map((item) => (
-                    <div onClick={() => router.push(item.url)} className="btn btn-lg flex flex-row justify-between  items-center  gap-3 bg-base-200 p-2 rounded-full shadow-md" key={item.id}>
-                        <div className="flex flex-row gap-3 justify-start items-center">
-                            <div>
-                                <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
-                                    {item.icon}
+                {prompts.map((item, index) => (
+                    <div key={item.id} className="dropdown dropdown-top">
+                        <div tabIndex={index} role="button" className="btn  h-auto px-3 py-2 w-full flex justify-between rounded-full">
+                            <div className="flex flex-row gap-3 justify-start items-center">
+                                <div>
+                                    <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
+                                        {item.icon}
+                                    </div>
                                 </div>
+                                <span> {t(`Home.${item.title}`)} </span>
                             </div>
-                            <span> {t(`Home.${item.title}`)} </span>
+                            <div className="flex justify-end items-center">
+                                {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
+                            </div>
                         </div>
-                        <div className="flex justify-end items-center">
-                            {isIr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
-                        </div>
+                        <ul tabIndex={index} className="menu dropdown-content bg-base-300 rounded-full flex flex-row items-center gap-3  z-[1] w-auto p-2 shadow">
+                            {item.imgList.map((child) => (
+                                <li key={child.id}>
+                                    <div className='rounded-full bg-accent h-10 w-10 p-0'>
+                                        <Images className='rounded-full' src={child.imageUrl} alt={item.title} width={40} height={40} />
+                                    </div>
+                                </li>
+                            ))}
+                            <li><div className='bg-base-100 text-base-content rounded-full p-0 h-10 w-10 flex justify-center items-center'>
+                                <ChevronDown size={30} />
+                            </div></li>
+                        </ul>
                     </div>
+
+                    // <div onClick={() => router.push(item.url)} className="btn btn-lg flex flex-row justify-between  items-center  gap-3 bg-base-200 p-2 rounded-full shadow-md" key={item.id}>
+
+                    // </div>
                 ))}
 
             </div>
