@@ -43,7 +43,7 @@ export default function HomePage() {
     }, increment);
 
     return () => clearInterval(timer); // پاکسازی تایمر
-  }, [router]);
+  }, []);
 
   // const setCookies = async()=>{
   //   (await cookies()).set("token","ajsdasldjalksdjasd")

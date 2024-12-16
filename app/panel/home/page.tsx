@@ -108,7 +108,7 @@ function HomePage() {
                         <span className="text-xl text-start">{t("Home.Video")} </span>
                     </div>
                 </button>
-                <button onClick={() => router.push("category/4")} className="btn btn-lg btn-neutral h-auto rounded-3xl  shadow-md">
+                <button onClick={() => router.push("category/4")} className="btn btn-lg btn-neutral h-auto rounded-3xl flex flex-col gap-4 justify-between  w-full p-3 ">
                     <div className='flex flex-col gap-4 justify-between  w-full'>
                         <div className="flex flex-row justify-between">
                             <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">

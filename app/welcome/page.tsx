@@ -18,7 +18,6 @@ const WelcomePage = () => {
     const [progress, setProgress] = useState(0);
     const [currentStep, setCurrentStep] = useState(0);
     const { setIsVisible } = useBackButton();
-    setCookie('NewUser', true)
     const router = useRouter()
 
     const sliderList = [
@@ -42,6 +41,7 @@ const WelcomePage = () => {
             if (currentSteps >= steps) {
                 clearInterval(timer);
                 if (sliderList.length > current) {
+                    setCookie('NewUser', true)
                     const a = document.createElement('a');
                     a.href = `#slide${current + 2}`;
                     document.body.appendChild(a);

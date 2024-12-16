@@ -19,6 +19,7 @@ export default {
       },
       dark: {
         ...require("daisyui/src/theming/themes")["dark"],
+        "base-100":"#000",
         primary: "#c7ff80",
         secondary: "#c09ff8",
         accent:"#fec4dd",
