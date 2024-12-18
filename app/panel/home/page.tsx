@@ -126,7 +126,7 @@ function HomePage() {
                 {feature.map((item) => (
                     <div onClick={() => router.push(item.url)} className="btn btn-lg h-auto  bg-base-200  rounded-2xl p-0 shadow-md" key={item.id}>
                         <div className='flex flex-col gap-3 w-full p-3'>
-                        <div className="flex flex-row justify-between items-center w-full">
+                        <div className="flex flex-row justify-between items-start w-full">
                                 <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
                                     {item.icon}
                                 </div>
