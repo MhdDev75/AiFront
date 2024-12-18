@@ -15,6 +15,7 @@ export default {
         secondary: "#c09ff8",
         accent:"#fec4dd",
         neutral:"#87c1c4",
+        "secondary-content": "#000",
         "neutral-content":"#000"
       },
       dark: {

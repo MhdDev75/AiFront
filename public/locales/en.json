@@ -32,7 +32,10 @@
       "Five": "Five",
       "Six": "Six",
       "How": "How may I Help You Today,",
-      "Dear": "Dear"
+      "Dear": "Dear",
+      "Downloader":"Downloader",
+      "Convertor":"Convertor",
+      "Tools":"Tools"
     },
     "wallet": {
       "TotalAssets": "Total Assets",

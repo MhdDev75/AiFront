@@ -13,7 +13,7 @@ body[dir="rtl"] {
 }
 
 
-body::before {
+body[dir="rtl"]::before {
   content: '';
   width: 150px;
   height: 150px;
@@ -25,7 +25,7 @@ body::before {
   left: auto;
 }
 
-body[dir="rtl"]::before
+body::before
 {
   content: '';
   width: 150px;
@@ -38,7 +38,7 @@ body[dir="rtl"]::before
   right: auto;
 }
 
-body[dir="rtl"]>::after
+/* body[dir="rtl"]>::after
 {
   --secondary:"#12130f";
   content: '';
@@ -47,7 +47,6 @@ body[dir="rtl"]>::after
   height: 500px;
   width: 282px;
   background-size: contain;
-  /* fill: red; */
   z-index: -10;
   position: absolute;
   transform: rotate(360deg);
@@ -55,4 +54,4 @@ body[dir="rtl"]>::after
   top: 10%;
   right: 0px;
   left: auto;
-}
+} */
