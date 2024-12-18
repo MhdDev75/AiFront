@@ -2,19 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+  scrollbar-width: thin;
+}
 body {
   transition: all 1s ease-out;
   transition-property: color, background-color, border-radius;
 }
 
 body[dir="rtl"] {
-  --toastify-font-family: "iranSans" ;
+  --toastify-font-family: "iranSans";
   overflow: hidden;
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
 }
 
-
 body[dir="rtl"]::before {
-  content: '';
+  content: "";
   width: 150px;
   height: 150px;
   background-color: #c7ff80;
@@ -25,9 +31,8 @@ body[dir="rtl"]::before {
   left: auto;
 }
 
-body::before
-{
-  content: '';
+body::before {
+  content: "";
   width: 150px;
   height: 150px;
   background-color: #c7ff80;

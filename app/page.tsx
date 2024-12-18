@@ -12,17 +12,18 @@ import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 export default function HomePage() {
   const [progress, setProgress] = useState(0);
-  const [theme, setTheme] = useState("dark");
   const router = useRouter();
   const t = useTranslations("i18n")
   const { setIsVisible } = useBackButton();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cookie, setCookie] = useCookies(['token', "NewUser", "Theme"])
+  const [theme, setTheme] = useState("dark");
+
 
   useEffect(() => {
     setIsVisible(false); // دکمه بازگشت را فعال کنید
-    const totalDuration = 20000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+    const totalDuration = 4000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
 

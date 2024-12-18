@@ -72,7 +72,7 @@ function HomePage() {
         }
     ]
     return (
-        <section className="flex flex-col gap-2 pb-3">
+        <section className="flex flex-col gap-3 pb-3">
             <div className="text-start flex flex-wrap text-3xl mb-6 p-3">{isIr && (<span className="text-primary font-bold"> {user?.first_name + " " + user?.last_name + " " + t("Home.Dear")} </span>)}  {t("Home.How")}   {!isIr && (<span className="text-primary font-bold"> {t("Home.Dear") + " " + user?.first_name + " " + user?.last_name + '?'}</span>)}   </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:col-span-4 gap-2 ">
                 <button onClick={() => router.push("category/1")} className="btn btn-lg btn-primary h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md">
@@ -130,7 +130,10 @@ function HomePage() {
                                 <div className={`${item.color} bg-opacity-35 p-2 rounded-full`}>
                                     {item.icon}
                                 </div>
-                                <DotIcon color='red' size={30} className='animate-ping' />
+                                <div className='relative'>
+                                <DotIcon color='red' size={20} className='absolute mx-auto animate-ping' />
+                                <DotIcon color='red' size={20} className='' />
+                                </div>
                             </div>
                             <span className='self-end'>{t(`Home.${item.title}`)}</span>
                         </div>
