@@ -2,6 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { Unplug } from "lucide-react";
 
 const ReloadPage = () => {
   const t= useTranslations("i18n");
@@ -10,7 +11,8 @@ const ReloadPage = () => {
     <div className="flex flex-col h-screen main-div">
       <main className="container  mx-auto relative flex-1 overflow-y-auto px-4">
         <div className="flex flex-col gap-3   overflow-hidden h-full justify-center items-center">
-          <h1 className="text-2xl">{t("ReloadError")}</h1>
+          <Unplug scale={64} />
+          <h2 className="text-xl text-center">{t("ReloadError")}</h2>
           <button onClick={() => router.push("/")} className="btn btn-primary">
             {t("Reload")}
           </button>
