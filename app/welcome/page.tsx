@@ -1,9 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import slide1 from "../../..//assets/welcome/slide-1.webp"
-import slide2 from "../../..//assets/welcome/slide-2.webp"
-import slide3 from "../../..//assets/welcome/slide-3.webp"
-import slide4 from "../../..//assets/welcome/slide-4.webp"
+import slide1 from "../../../assets/welcome/slide-1.webp"
+import slide2 from "../../../assets/welcome/slide-2.webp"
+import slide3 from "../../../assets/welcome/slide-3.webp"
+import slide4 from "../../../assets/welcome/slide-4.webp"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useBackButton } from '../../core/telegram/BackButtonProvider'
