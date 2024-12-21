@@ -1,10 +1,10 @@
 "use client"
 import { Copy, Stars } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import friends from "../../../assets/friends/friends.png"
+import friends from "@/assets/friends/friends.png"
 import Image from 'next/image'
-import InlineBoxComponent from '../../../components/panel/InlineBoxComponent'
-import { useBackButton } from '../../../core/telegram/BackButtonProvider'
+import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
+import { useBackButton } from '@/core/telegram/BackButtonProvider'
 import { useTranslations } from 'next-intl'
 
 const FriendsPage = () => {

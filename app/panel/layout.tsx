@@ -1,4 +1,4 @@
-import Footer from '../../components/layout/footer';
+import Footer from '@/components/layout/footer';
 import React from 'react';
 
 const PanelLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

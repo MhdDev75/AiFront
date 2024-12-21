@@ -1,15 +1,14 @@
 // src/api/apiClient.js
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const apiClient = axios.create({
-  baseURL: "http://64.44.167.150:7001/", // آدرس پایه API
+  baseURL: process.env.BASE_URL || "http://64.44.167.150:7001/", // آدرس پایه API
   timeout: 20000, // زمان انتظار درخواست‌ها
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "*",
-    "Access-Control-Allow-Credentials": "true",
   },
 });
 
@@ -33,7 +32,9 @@ apiClient.interceptors.response.use(
       toast.error(error.response.data.detail);
     }
     if (error.response && error.response.status === 403) {
+      const router = useRouter()
       console.error("Error 403: Access forbidden. Redirecting to login...");
+      router.push("/")
       // مثلا کاربر را به صفحه لاگین هدایت کن
     }
     return Promise.reject(error); // خطا را به درخواست‌کننده برگردان

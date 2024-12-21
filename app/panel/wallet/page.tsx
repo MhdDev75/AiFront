@@ -1,11 +1,11 @@
 "use client"
-import InlineBoxComponent from '../../../components/panel/InlineBoxComponent'
+import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
 import { ArrowRightLeft, BackpackIcon, Banknote } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import iconLight from "../../../assets/images/Ai_Studio-light.svg";
-import iconDark from "../../../assets/images/Ai_Studio-dark.svg";
+import iconLight from "@/assets/images/Ai_Studio-light.svg";
+import iconDark from "@/assets/images/Ai_Studio-dark.svg";
 import { useCookies } from 'react-cookie'
 import Image from 'next/image'
 

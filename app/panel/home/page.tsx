@@ -1,6 +1,6 @@
 "use client";
-import { locales } from "../../../core/i18n/config";
-import { useBackButton } from "../../../core/telegram/BackButtonProvider";
+import { locales } from "@/core/i18n/config";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import {
   ArrowUpLeft,
   ArrowUpRight,
@@ -21,9 +21,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Images from "next/image";
-import { getMainCategory } from "../../../api/categoryActions";
-import { IApiUser, ICategory } from "../../../lib/type";
-import { getUser } from "../../../api/userActions";
+import { getMainCategory } from "@/api/categoryActions";
+import { IApiUser, ICategory } from "@/lib/type";
+import { getUser } from "@/api/userActions";
 
 function HomePage() {
   const { setIsVisible } = useBackButton();
