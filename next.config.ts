@@ -8,11 +8,19 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/api/:path*",
         headers: [
           {
-            key: "Referrer-Policy",
-            value: "no-referrer-when-downgrade",
+            key: "Access-Control-Allow-Origin",
+            value: "https://ai-front-6gal.vercel.app/", // Set your origin
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, PUT, DELETE, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "Content-Type, Authorization",
           },
         ],
       },
