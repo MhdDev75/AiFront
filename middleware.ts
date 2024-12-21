@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
   const cookiesList = await cookies();
   const token = cookiesList.get("token");
 
-  if (!token?.value) {
+  if (!token?.value || token?.value === 'null') {
     const url = req.nextUrl.clone();
     url.pathname = '/reload';
     return NextResponse.redirect(url);
