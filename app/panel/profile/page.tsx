@@ -8,15 +8,15 @@ import {
   Palette,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { localesMap } from "@/core/i18n/config";
-import { Locale } from "@/core/i18n/types";
-import { setLocale } from "@/core/i18n/locale";
-import { changeTheme } from "@/utils/helper";
+import { localesMap } from "../../../core/i18n/config";
+import { Locale } from "../../../core/i18n/types";
+import { setLocale } from "../../../core/i18n/locale";
+import { changeTheme } from "../../../utils/helper";
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
-import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { getUser } from "@/api/userActions";
-import { IApiUser } from "@/lib/type";
+import { useBackButton } from "../../../core/telegram/BackButtonProvider";
+import { getUser } from "../../../api/userActions";
+import { IApiUser } from "../../../lib/type";
 
 const ProfilePage = () => {
   const [user, setUser] = useState<IApiUser>();

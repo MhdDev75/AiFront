@@ -1,5 +1,5 @@
 "use client"
-import { locales } from '@/core/i18n/config'
+import { locales } from '../../../../core/i18n/config'
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'

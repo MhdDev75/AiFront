@@ -26,9 +26,7 @@ const nextConfig: NextConfig = {
         port: "",
       },
     ],
-  },
-  reactStrictMode: true,
-  swcMinify: true,
+  }
 };
 
 export default withNextIntl(nextConfig);

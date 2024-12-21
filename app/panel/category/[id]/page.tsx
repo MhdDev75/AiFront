@@ -2,17 +2,17 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useBackButton } from "@/core/telegram/BackButtonProvider";
+import { useBackButton } from "./../../../../core/telegram/BackButtonProvider";
 import {
   ICategory,
   IResponseCategoryItems,
-} from "@/lib/type";
+} from "../../../../lib/type";
 import {
   getCategoryById,
   getCategoryItemListById,
-} from "@/api/categoryActions";
+} from "../../../../api/categoryActions";
 import { useParams } from "next/navigation";
-import CategoryListComponent from "@/components/panel/CategoryListComponent";
+import CategoryListComponent from "./../../../../components/panel/CategoryListComponent";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CategoryPage = () => {

@@ -5,10 +5,10 @@ import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
-import { locales } from "@/core/i18n/config";
+import { locales } from "../../core/i18n/config";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { IResponseCategoryItems } from "@/lib/type";
+import { IResponseCategoryItems } from "../../lib/type";
 import { ArrowUpLeft, ArrowUpRight, BadgePlus, StarIcon } from "lucide-react";
 
 

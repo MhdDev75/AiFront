@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-import coins from "@/assets/tasks/coins.png"
+import coins from "../../../assets/tasks/coins.png"
 import { Coins, Flag, Medal, PopcornIcon } from 'lucide-react'
-import TaskBoxComponent from '@/components/panel/TaskBoxComponent'
+import TaskBoxComponent from '../../../components/panel/TaskBoxComponent'
 import { useTranslations } from 'next-intl'
 
 

@@ -2,7 +2,7 @@
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'
-import chip from "@/assets/wallet/chip.png"
+import chip from "../../..//assets/wallet/chip.png"
 import Image from 'next/image';
 import { UploadCloud } from 'lucide-react';
 import { toast } from 'react-toastify';

@@ -3,12 +3,12 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import iconLight from "@/assets/images/Ai_Studio-light.svg";
-import iconDark from "@/assets/images/Ai_Studio-dark.svg";
+import iconLight from "../assets/images/Ai_Studio-light.svg";
+import iconDark from "../assets/images/Ai_Studio-dark.svg";
 import { useTranslations } from "next-intl";
-import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { loginWithTelegram } from "@/api/userActions";
-import { useTelegram } from "@/core/telegram/TelegramProvider";
+import { useBackButton } from "../core/telegram/BackButtonProvider";
+import { loginWithTelegram } from "../api/userActions";
+import { useTelegram } from "../core/telegram/TelegramProvider";
 
 export default function HomePage() {
   const [progress, setProgress] = useState(0);

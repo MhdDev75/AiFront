@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import type { ITelegramUser, IWebApp } from "@/lib/type";
+import type { ITelegramUser, IWebApp } from "../../lib/type";
 import Script from "next/script";
 
 export interface ITelegramContext {

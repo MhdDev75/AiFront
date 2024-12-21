@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { I18nProvider } from "@/core/i18n/provider";
+import { I18nProvider } from "../core/i18n/provider";
 import { getLocale } from "next-intl/server";
-import { locales } from "@/core/i18n/config";
+import { locales } from "../core/i18n/config";
 import { cookies } from "next/headers";
 import localFont from "next/font/local";
 import { ToastContainer, Zoom } from "react-toastify";

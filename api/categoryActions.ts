@@ -1,6 +1,6 @@
 // src/api/actions/userActions.js
-import seeds from "@/seeds/mockData.json";
-import { ICategory, ICategoryItems, IResponseCategoryItems } from "@/lib/type";
+import seeds from "../seeds/mockData.json";
+import { ICategory, ICategoryItems, IResponseCategoryItems } from "../lib/type";
 import apiClient from "./apiClient";
 
 
