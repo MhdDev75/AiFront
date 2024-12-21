@@ -27,6 +27,7 @@ export default function HomePage() {
     const totalDuration = 4000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
+    setTheme(cookie.Theme);
 
     if (webApp) {
       loginUser(webApp?.initData);
@@ -45,7 +46,6 @@ export default function HomePage() {
           }
         }
       }, increment);
-      setTheme(cookie.Theme);
       return () => clearInterval(timer); // پاکسازی تایمر
     }
   }, []);
@@ -89,6 +89,7 @@ export default function HomePage() {
             value={progress}
             max="100"
           ></progress>
+          <span>V : 0.0.1</span>
         </div>
       </main>
     </div>
