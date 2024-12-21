@@ -32,7 +32,10 @@
       "Five": "Five",
       "Six": "Six",
       "How": "How may I Help You Today,",
-      "Dear": "Dear"
+      "Dear": "Dear",
+      "Downloader":"Downloader",
+      "Convertor":"Convertor",
+      "Tools":"Tools"
     },
     "wallet": {
       "TotalAssets": "Total Assets",
@@ -54,7 +57,7 @@
       "VipTask": "Vip Task",
       "NoTask": "There is no task to display.",
       "Increase": "Increase",
-      "YourRate":"Your Rate"
+      "YourRate": "Your Rate"
     },
     "Profile": {
       "Welcome": "welcome",
@@ -71,7 +74,9 @@
       "England": "English",
       "FontSize": "Font Size",
       "Theme": "Theme",
-      "Notification": "Notification"
+      "Notification": "Notification",
+      "light": "Light",
+      "dark": "Dark"
     },
     "Friend": {
       "YourReferrals": "Your Referrals",
@@ -85,6 +90,7 @@
       "FreePointsDesc": "You can get free points when your friends join.",
       "Share": "Share invitation code"
     },
+    "Toman":"T",
     "Soon": "Soon",
     "see-all": "See All",
     "Text": "Text",

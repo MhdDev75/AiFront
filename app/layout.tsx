@@ -46,10 +46,10 @@ export default async function RootLayout({
       >
         <TelegramProvider>
           <BackButtonProvider>
-        <I18nProvider>
-          {children}
-        </I18nProvider>
-        </BackButtonProvider>
+            <I18nProvider>
+              {children}
+            </I18nProvider>
+          </BackButtonProvider>
         </TelegramProvider>
         <ToastContainer autoClose={2000}
           hideProgressBar={true}

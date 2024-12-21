@@ -2,11 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+  scrollbar-width: thin;
+}
 body {
   transition: all 1s ease-out;
   transition-property: color, background-color, border-radius;
 }
 
 body[dir="rtl"] {
-  --toastify-font-family: "iranSans" ;
+  --toastify-font-family: "iranSans";
+  overflow: hidden;
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
 }
+
+body[dir="rtl"]::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-color: #c7ff80;
+  position: absolute;
+  filter: blur(100px);
+  top: 20%;
+  right: 0;
+  left: auto;
+}
+
+body::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-color: #c7ff80;
+  position: absolute;
+  filter: blur(100px);
+  top: 20%;
+  left: 0;
+  right: auto;
+}
+
+/* body[dir="rtl"]>::after
+{
+  --secondary:"#12130f";
+  content: '';
+  background-image: url("../assets/images/pattern.svg");
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 282px;
+  background-size: contain;
+  z-index: -10;
+  position: absolute;
+  transform: rotate(360deg);
+  transform:scaleX(-1);
+  top: 10%;
+  right: 0px;
+  left: auto;
+} */

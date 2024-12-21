@@ -32,7 +32,10 @@
       "Five": "پنج",
       "Six": "شش",
       "How": "امروز چطور میتونم بهت کمک کنم؟",
-      "Dear": "عزیز"
+      "Dear": "عزیز",
+      "Downloader": "بارگیرنده‌ها",
+      "Convertor": "مبدل‌ها",
+      "Tools":"ابزار ها"
     },
     "wallet": {
       "TotalAssets": "دارایی شما",
@@ -42,19 +45,19 @@
       "Transaction": "تراکنش های اخیر",
       "Transfer": "انتقال",
       "Withdraw": "برداشت",
-      "Value":"مقدار",
-      "EnterAmount":"مقدار دلخواه",
-      "CreateReceipt":"ایجاد رسید",
-      "EnterYourAmount":"مقدار خود رو وارد کنید"
+      "Value": "مقدار",
+      "EnterAmount": "مقدار دلخواه",
+      "CreateReceipt": "ایجاد رسید",
+      "EnterYourAmount": "مقدار خود رو وارد کنید"
     },
     "Task": {
       "DailyTask": "ماموریت روزانه",
       "OneTimeTask": "مارموریت های ثابت",
       "SponsorTask": "ماموریت اسپانسر ها",
       "VipTask": "ماموریت ویژه",
-      "NoTask":"ماموریتی برای نمایش وجود ندارد",
-       "Increase": "امتیاز خود را",
-      "YourRate":"افزایش دهید"
+      "NoTask": "ماموریتی برای نمایش وجود ندارد",
+      "Increase": "امتیاز خود را",
+      "YourRate": "افزایش دهید"
     },
     "Profile": {
       "Welcome": "خوش امدی",
@@ -71,7 +74,9 @@
       "England": "انگلیس",
       "FontSize": "تغییر فونت",
       "Theme": "تغییر قالب",
-      "Notification": "اعلانات"
+      "Notification": "اعلانات",
+      "light": "روشن",
+      "dark": "تیره"
     },
     "Friend": {
       "YourReferrals": "کد دعوت",
@@ -79,15 +84,14 @@
       "LeaderBoard": "برترین ها",
       "description": "با دعوت از دوستان خود به ازای هر دعوت مقدار 50,000 تومان جایزه نقدی دریافت کنید",
       "InvitationCode": "کد دعوت شما",
-      "InviteFriends":"دعوت از دوستان",
-      "InviteFriendsDesc":" کد دعوت خود را با دوستانتان به اشتراک بگزارید",
-      "FreePoints":"امتیاز رایگان بگیرید",
-      "FreePointsDesc":"وقتی که دوستانتان عضو شدند میتوانید امتیاز رایگان دریافت کنید",
-      "Share":"اشتراک کد دعوت"
-
-
+      "InviteFriends": "دعوت از دوستان",
+      "InviteFriendsDesc": " کد دعوت خود را با دوستانتان به اشتراک بگزارید",
+      "FreePoints": "امتیاز رایگان بگیرید",
+      "FreePointsDesc": "وقتی که دوستانتان عضو شدند میتوانید امتیاز رایگان دریافت کنید",
+      "Share": "اشتراک کد دعوت"
     },
-    "Soon":"بزودی",
+    "Toman":"ت",
+    "Soon": "بزودی",
     "see-all": "مشاهده همه",
     "Text": "متن",
     "Image": "تصویر",

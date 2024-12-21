@@ -31,18 +31,18 @@ const FriendsPage = () => {
   ]
 
   const friendList = [
-    { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true },
-    { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true },
-    { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true },
-    { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true },
-    { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true },
-    { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true },
-    { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true },
-    { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true },
-    { id: 9, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true },
-    { id: 10, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true },
-    { id: 11, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true },
-    { id: 12, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true }
+    { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 9, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 10, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 11, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
+    { id: 12, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" }
   ]
 
   return (
@@ -110,7 +110,8 @@ const FriendsPage = () => {
               price={item.gift}
               title={item.name}
               type={item.type}
-              icon={item.icons} />
+              icon={item.icons}
+              currency={item.currency} />
           ))}
         </div>
       )}

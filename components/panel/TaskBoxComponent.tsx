@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 export interface inlineBoxProps {
@@ -6,10 +7,12 @@ export interface inlineBoxProps {
     image: string,
     price: number,
     status: boolean,
+    currency: string
 
 }
 
-const TaskBoxComponent = ({ title, description, image, price, status }: inlineBoxProps) => {
+const TaskBoxComponent = ({ title, description, image, price, status , currency }: inlineBoxProps) => {
+    const t = useTranslations("i18n")
     return (
         <button disabled={status} className='card btn btn-lg shadow-2xl  bg-base-300  flex flex-row flex-nowrap justify-between items-center p-2 rounded-full'>
             <div className='flex gap-3'>
@@ -22,7 +25,7 @@ const TaskBoxComponent = ({ title, description, image, price, status }: inlineBo
                 </div>
             </div>
             <div>
-                <span className={`btn btn-xs btn-primary text-xs  rounded-full`}>+ {price.toLocaleString()}</span>
+                <span className={`btn btn-xs border-yellow-500 bg-base-100 text-xs text-nowrap  rounded-full`}>+ {price.toLocaleString()} {t(currency)}</span>
             </div>
         </button>
     )

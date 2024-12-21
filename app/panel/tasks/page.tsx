@@ -14,28 +14,28 @@ const TasksPage = () => {
     {
       id: 1, title: "DailyTask", icon: <Flag />, list:
         [
-          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true },
+          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true , currency:"Toman" },
         ]
     },
     {
       id: 2, title: "OneTimeTask", icon: <PopcornIcon />, list:
         [
-          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true },
-          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
+          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true , currency:"Toman" },
+          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
         ]
     },
     {
       id: 3, title: "SponsorTask", icon: <Coins />, list:
         [
-          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true },
-          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
-          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false },
+          { id: 1, title: "تسک اول", description: "تسکی که اولین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: true , currency:"Toman" },
+          { id: 2, title: "تسک دوم", description: "تسکی که دومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 3, title: "تسک سوم", description: "تسکی که سومین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
+          { id: 4, title: "تسک چهارم", description: "تسکی که چهارمین تسک است", image: "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256", price: 1000, status: false , currency:"Toman" },
         ]
     },
     { id: 4, title: "VipTask", icon: <Medal />, list: [] }
@@ -47,7 +47,7 @@ const TasksPage = () => {
         <span className='font-extrabold text-3xl text-wrap'>{t("Task.Increase")} <br /> {t("Task.YourRate")}</span>
         <Image src={coins} width={150} height={150} alt='coins' />
       </div>
-      <div className='flex flex-col bg-base-200 rounded-md p-3 h-[100%-14rem] overflow-y-auto gap-5'>
+      <div className='flex flex-col bg-base-200 rounded-3xl p-3 h-[100%-14rem] overflow-y-auto gap-5'>
         {taskList.map((item) => (
           <div key={item.id} className='flex flex-col gap-2'>
             <div className='flex flex-row justify-between'>
@@ -65,7 +65,9 @@ const TasksPage = () => {
                   description={child.description}
                   image={child.image}
                   price={child.price}
-                  status={child.status} />
+                  status={child.status}
+                  currency={child.currency}
+                  />
               ))
             ) : (
               <div className='flex justify-center items-center p-3 bg-base-100 rounded-full'>{t("Task.NoTask")}</div>

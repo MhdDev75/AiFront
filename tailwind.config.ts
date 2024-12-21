@@ -8,40 +8,28 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
-    ],
+    themes: [{
+      light: {
+        ...require("daisyui/src/theming/themes")["light"],
+        primary: "#c7ff80",
+        secondary: "#c09ff8",
+        accent:"#fec4dd",
+        neutral:"#87c1c4",
+        "secondary-content": "#000",
+        "neutral-content":"#000"
+      },
+      dark: {
+        ...require("daisyui/src/theming/themes")["dark"],
+        "base-100":"#000",
+        primary: "#c7ff80",
+        secondary: "#c09ff8",
+        accent:"#fec4dd",
+        neutral:"#87c1c4",
+        "neutral-content":"#000"
+      },
+    }
+    ]
+
   },
   plugins: [require('daisyui')],
 } satisfies Config;
