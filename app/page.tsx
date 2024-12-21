@@ -28,23 +28,22 @@ export default function HomePage() {
 
     if (webApp) {
       loginUser(webApp?.initData);
-
-      let currentStep = 0;
-      const timer = setInterval(() => {
-        currentStep++;
-        setProgress((currentStep / steps) * 100);
-
-        if (currentStep >= steps) {
-          clearInterval(timer);
-          if (cookie.NewUser == true) {
-            router.push("/panel/home");
-          } else {
-            router.push("/welcome");
-          }
-        }
-      }, increment);
-      return () => clearInterval(timer); // پاکسازی تایمر
     }
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      setProgress((currentStep / steps) * 100);
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        if (cookie.NewUser == true) {
+          router.push("/panel/home");
+        } else {
+          router.push("/welcome");
+        }
+      }
+    }, increment);
+    return () => clearInterval(timer); // پاکسازی تایمر
   }, []);
 
   const loginUser = async (initData: string) => {
@@ -66,7 +65,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col h-screen main-div">
-      <main className="container relative flex-1 overflow-y-auto px-4">
+      <main className="container  mx-auto relative flex-1 overflow-y-auto px-4">
         <div className="flex flex-col gap-3   overflow-hidden h-full justify-center items-center">
           <span className="relative flex justify-center  items-center h-52 w-52">
             <Image
