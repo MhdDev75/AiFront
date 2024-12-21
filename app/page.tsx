@@ -27,9 +27,8 @@ export default function HomePage() {
     setTheme(cookie.Theme);
 
     if (webApp) {
-     
+      loginUser(webApp?.initData);
     }
-    loginUser("webApp?.initData");
     let currentStep = 0;
     const timer = setInterval(() => {
       currentStep++;
