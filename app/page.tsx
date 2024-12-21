@@ -49,7 +49,6 @@ export default function HomePage() {
 
   const loginUser = async (initData: string) => {
     try {
-      initData = "query_id=AAGup4t6AgAAAK6ni3puISm_&user=%7B%22id%22%3A6350940078%2C%22first_name%22%3A%22Mhd%22%2C%22last_name%22%3A%22bus%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FciJ80wJsHBif2qtdCt_qxIvhx29_3NL0Y1dPOMxh89z2e0U9jAuqOILW_lRvAokq.svg%22%7D&auth_date=1734779172&signature=HFCI8c5iHPsutotK829rQxcbjW1VikQea_h3Tjjl8sO-5kVndYK2odf2IMsJaA9SoXsxFqVn92KLNlcMDSqPBA&hash=3b1ab73350c22c276ae95767e41a664476c44f7ccb526ae7f97c0f7c5a734fcd"
       const response = await loginWithTelegram(initData);
       console.log(response);
       setCookie("token", response.value.token);
