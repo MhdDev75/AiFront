@@ -7,7 +7,7 @@ export async function middleware(req: NextRequest) {
 
   if (!token || token === null) {
     const url = req.nextUrl.clone();
-    url.pathname = '/reload';
+    url.pathname = '/reload/2';
     return NextResponse.redirect(url);
   }
 

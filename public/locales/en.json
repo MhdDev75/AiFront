@@ -33,9 +33,9 @@
       "Six": "Six",
       "How": "How may I Help You Today,",
       "Dear": "Dear",
-      "Downloader":"Downloader",
-      "Convertor":"Convertor",
-      "Tools":"Tools"
+      "Downloader": "Downloader",
+      "Convertor": "Convertor",
+      "Tools": "Tools"
     },
     "wallet": {
       "TotalAssets": "Total Assets",
@@ -90,9 +90,10 @@
       "FreePointsDesc": "You can get free points when your friends join.",
       "Share": "Share invitation code"
     },
-    "ReloadError": "Your session has ended or the connection to the server has been lost.",
-    "Reload":"Reload again",
-    "Toman":"T",
+    "SessionError": "Your session has ended",
+    "Disconnected": "Error connecting to the server.",
+    "Reload": "Reload again",
+    "Toman": "T",
     "Soon": "Soon",
     "see-all": "See All",
     "Text": "Text",

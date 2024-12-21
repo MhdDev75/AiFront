@@ -34,7 +34,7 @@ apiClient.interceptors.response.use(
     if (error.response && error.response.status === 403) {
       const router = useRouter()
       console.error("Error 403: Access forbidden. Redirecting to login...");
-      router.push("/")
+      router.push("/reload/1");
       // مثلا کاربر را به صفحه لاگین هدایت کن
     }
     return Promise.reject(error); // خطا را به درخواست‌کننده برگردان
