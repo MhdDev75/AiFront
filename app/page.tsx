@@ -20,6 +20,8 @@ export default function HomePage() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
+
+    setCookie("token", null);
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     const totalDuration = 10000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
