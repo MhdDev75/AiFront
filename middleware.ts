@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { cookies } from 'next/headers';
 
 
 export async function middleware(req: NextRequest) {
-  const token = localStorage.getItem("token");
+  console.log(req);
 
-  if (!token || token === null) {
+  const cookiesList = await cookies();
+  const token = cookiesList.get("token");
+
+  if (!token?.value || token?.value === null) {
     const url = req.nextUrl.clone();
     url.pathname = '/reload/2';
     return NextResponse.redirect(url);

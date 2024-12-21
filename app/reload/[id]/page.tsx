@@ -12,16 +12,18 @@ const ReloadPage = () => {
   return (
     <div className="flex flex-col h-screen main-div">
       <main className="container  mx-auto relative flex-1 overflow-y-auto px-4">
-        <div className="flex flex-col gap-3   overflow-hidden h-full justify-center items-center">
+        <div className="flex flex-col gap-5   overflow-hidden h-full justify-center items-center">
 
           {params.id == "1" && (
-            <ShieldAlert scale={120} />)}
-          {params.id == "2" && (
-            <Unplug scale={120} />)}
-          {params.id == "1" &&
-            (<h2 className="text-xl text-center">{t("SessionError")}</h2>)}
-          {params.id == "2" && (
+            <Unplug size={80} />)}
+          {params.id == "1" && (
             <h2 className="text-xl text-center">{t("Disconnected")}</h2>)}
+
+          {params.id == "2" && (
+            <ShieldAlert size={80} />)}
+          {params.id == "2" &&
+            (<h2 className="text-xl text-center">{t("SessionError")}</h2>)}
+
           <button onClick={() => router.push("/")} className="btn btn-primary">
             {t("Reload")}
           </button>

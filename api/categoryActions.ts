@@ -4,7 +4,7 @@ import { ICategory, ICategoryItems, IResponseCategoryItems } from "../lib/type";
 import apiClient from "./apiClient";
 
 
-// گرفتن اطلاعات کاربر
+// گرفتن اطلاعات کتگوری
 export const getMainCategory = async () => {
   try {
     const response = await apiClient.get(`/AiApp/GetAiCategory`);
@@ -14,6 +14,30 @@ export const getMainCategory = async () => {
     throw error;
   }
 };
+// گرفتن اطلاعات ساب کتگوری 
+export const getSubCategory = async (categoryId :string) => {
+  try {
+    const response = await apiClient.get(`/AiApp/GetAiSubCategory?aiCategoryId=${categoryId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
+
+// گرفتن اطلاعات ساب کتگوری 
+export const getCategoryApplication = async (subCategoryId :string) => {
+  try {
+    const response = await apiClient.get(`/AiApp/GetAiApplication?aiSubCategoryId=${subCategoryId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
+
+
+
 
 export const getCategoryById = async (categoryId: string) => {
   try {

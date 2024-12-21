@@ -283,7 +283,7 @@ function HomePage() {
           category.map((item) => (
             <button
               key={item.id}
-              onClick={() => router.push(`/category/${item.id}`)}
+              onClick={() => router.push(`/panel/category/${item.id}`)}
               className={`btn btn-lg ${getColor(
                 item.id
               )} h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md`}
