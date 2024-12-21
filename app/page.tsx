@@ -15,10 +15,7 @@ export default function HomePage() {
   const router = useRouter();
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
-
   const { webApp } = useTelegram();
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cookie, setCookie] = useCookies(["token", "NewUser", "Theme"]);
   const [theme, setTheme] = useState("dark");
 

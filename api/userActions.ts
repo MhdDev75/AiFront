@@ -5,8 +5,11 @@ import apiClient from "./apiClient";
 export const loginWithTelegram = async (initData: string) => {
   try {
     const response = await apiClient.get(`/User/login?${initData}`);
+    console.log(response);
+    
     return response.data;
   } catch (error) {
+    console.log(error);
     console.error("Error login user:", error);
     throw error;
   }
