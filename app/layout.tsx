@@ -39,7 +39,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} data-theme={theme?.value ? theme?.value : 'dark'} className="h-full">
-      <head><meta name="referrer" content="origin" /></head>
+      <head><meta name="referrer" content="no-referrer" /></head>
       <body
         dir={locale == locales[0] ? "rtl" : "ltr"}
         className={`${locale == locales[0] ? iranSans.className : geistSans.variable
