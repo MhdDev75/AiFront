@@ -21,24 +21,24 @@ body[dir="rtl"] {
 
 body[dir="rtl"]::before {
   content: "";
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 20rem;
   background-color: #c7ff80;
   position: absolute;
   filter: blur(100px);
-  top: 20%;
+  top: 30%;
   right: 0;
   left: auto;
 }
 
 body::before {
   content: "";
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 20rem;
   background-color: #c7ff80;
   position: absolute;
   filter: blur(100px);
-  top: 20%;
+  top: 30%;
   left: 0;
   right: auto;
 }
