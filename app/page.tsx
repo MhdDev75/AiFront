@@ -20,8 +20,7 @@ export default function HomePage() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-
-    setCookie("token", null);
+    localStorage.clear();
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     const totalDuration = 10000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
@@ -51,19 +50,13 @@ export default function HomePage() {
   const loginUser = async (initData: string) => {
     try {
       const response = await loginWithTelegram(initData);
-      console.log(response);
-      setCookie("token", response.value.token);
       setCookie("NewUser", response.value.isNew);
       localStorage.setItem("token", response.value.token);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
+    } catch (err: Error | any) {
       console.log(err.message);
     }
   };
-
-  // const setCookies = async()=>{
-  //   (await cookies()).set("token","ajsdasldjalksdjasd")
-  // }
 
   return (
     <div className="flex flex-col h-screen main-div">
