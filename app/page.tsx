@@ -24,7 +24,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setIsVisible(false); // دکمه بازگشت را فعال کنید
-    const totalDuration = 4000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+    const totalDuration = 10000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
     const steps = totalDuration / increment;
     setTheme(cookie.Theme);
