@@ -8,11 +8,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:path*",
+        source: "/:path*",
+        destination: 'http://64.44.167.150:7001/:path*' ,// آدرس سرور API
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "http://64.44.167.150:7001/", // Set your origin
+            value: "https://your-vercel-app.vercel.app", // Set your origin
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -21,6 +22,10 @@ const nextConfig: NextConfig = {
           {
             key: "Access-Control-Allow-Headers",
             value: "Content-Type, Authorization",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "no-referrer-when-downgrade",
           },
         ],
       },
