@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://ai-front-6gal.vercel.app/", // Set your origin
+            value: "http://64.44.167.150:7001/", // Set your origin
           },
           {
             key: "Access-Control-Allow-Methods",

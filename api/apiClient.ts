@@ -7,7 +7,6 @@ const apiClient = axios.create({
   timeout: 20000, // زمان انتظار درخواست‌ها
   headers: {
     'Content-Type': 'application/json',
-    'Referrer-Policy': 'no-referrer-when-downgrade'
   },
 });
 
