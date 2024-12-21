@@ -5,28 +5,41 @@ const withNextIntl = createNextIntlPlugin("./core/i18n/i18n.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-    images: {
-        remotePatterns: [
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
           {
-            protocol: 'https',
-            hostname: 'cdn.iconscout.com',
-            port: '',
-            pathname: '/**',
+            key: "Referrer-Policy",
+            value: "no-referrer-when-downgrade",
           },
-          {
-            protocol: 'https',
-            hostname: 't.me/i/userpic',
-            port: '',
-            pathname: '/**',
-          },
-          {
-            protocol:"https",
-            hostname:"qph.cf2.poecdn.net",
-            pathname:"/**",
-            port:""
-          }
         ],
       },
+    ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.iconscout.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "t.me/i/userpic",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "qph.cf2.poecdn.net",
+        pathname: "/**",
+        port: "",
+      },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);
