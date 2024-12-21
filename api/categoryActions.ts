@@ -1,6 +1,19 @@
 // src/api/actions/userActions.js
 import seeds from "@/seeds/mockData.json";
 import { ICategory, ICategoryItems, IResponseCategoryItems } from "@/lib/type";
+import apiClient from "./apiClient";
+
+
+// گرفتن اطلاعات کاربر
+export const getMainCategory = async () => {
+  try {
+    const response = await apiClient.get(`/AiApp/GetAiCategory`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
 
 export const getCategoryById = async (categoryId: string) => {
   try {

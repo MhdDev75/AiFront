@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
             pathname: '/**',
           },
           {
+            protocol: 'https',
+            hostname: 't.me/i/userpic',
+            port: '',
+            pathname: '/**',
+          },
+          {
             protocol:"https",
             hostname:"qph.cf2.poecdn.net",
             pathname:"/**",

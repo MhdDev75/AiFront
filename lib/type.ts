@@ -8,6 +8,14 @@ export interface ITelegramUser {
   photo_url:string
 }
 
+export interface IApiUser {
+  firstName: string;
+  lastName: string;
+  username: string;
+  languageCode: string;
+  photoUrl:string
+}
+
 export interface IContentSafeAreaInset {
   bottom: number;
   left: number;
