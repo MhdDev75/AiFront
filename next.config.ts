@@ -5,11 +5,18 @@ const withNextIntl = createNextIntlPlugin("./core/i18n/i18n.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "http://64.44.167.150:7001/:path*", // آدرس سرور API
+      },
+    ];
+  },
   async headers() {
     return [
       {
         source: "/:path*",
-        destination: 'http://64.44.167.150:7001/:path*' ,// آدرس سرور API
         headers: [
           {
             key: "Access-Control-Allow-Origin",
