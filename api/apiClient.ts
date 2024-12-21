@@ -7,9 +7,9 @@ const apiClient = axios.create({
   timeout: 20000, // زمان انتظار درخواست‌ها
   headers: {
     "Content-Type": "application/json",
-    "x-apikey": "7556441314:AAGBrndqfIexz1QUKzbVXG7kfpS6ALZE1ak",
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Allow-Credentials": "true",
   },
 });
 
