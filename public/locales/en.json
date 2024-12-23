@@ -103,6 +103,7 @@
     "Cancel": "Cancel",
     "welcome": "The Ai Studio",
     "header": "Application supports i18n",
-    "footer": "You can select a different language from the dropdown menu."
+    "footer": "You can select a different language from the dropdown menu.",
+    "Version": "Version"
   }
 }

@@ -8,33 +8,16 @@ import { useKeenSlider } from "keen-slider/react";
 import { locales } from "../../core/i18n/config";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { IResponseCategoryItems } from "../../lib/type";
+import { ISubCategoryWithApplication } from "../../lib/type";
 import { ArrowUpLeft, ArrowUpRight, BadgePlus, StarIcon } from "lucide-react";
 
 
 
-export interface CategoryItemsProps {
-  id: number;
-  title: string;
-  description: string;
-  imgUrl: string;
-}
-
-export interface CategoryProps {
-  items: category[];
-}
-
-export interface category {
-  id: number;
-  title: string;
-  itemList: CategoryItemsProps[];
-}
-
-const CategoryListComponent: React.FC<IResponseCategoryItems> = ({
+const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
   id,
-  itemList,
+  aiApplications,
   title,
-}: IResponseCategoryItems) => {
+}: ISubCategoryWithApplication) => {
   const t = useTranslations("i18n");
   const locale = useLocale();
   const isIr = locale == locales[0] ? true : false;
@@ -65,7 +48,7 @@ const CategoryListComponent: React.FC<IResponseCategoryItems> = ({
         </button>
       </div>
       <div ref={sliderRef} className="keen-slider">
-        {itemList.map((item) => (
+        {aiApplications.map((item) => (
           <div
             key={item.id}
             className="keen-slider__slide  bg-base-300 rounded-2xl flex flex-col gap-2 rounded-md p-3"

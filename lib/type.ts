@@ -35,16 +35,38 @@ export interface ICategoryItemsProps {
 export interface ICategory {
   id: number;
   titleFa: string;
-  parent_id: number;
   icon: string;
   color: string;
   titleEn: string;
 }
 
-export interface ICategoryItems {
+export interface ICategoryWithQuery {
   id: number;
-  category_Id: number;
-  itemList: ICategoryItemsProps[];
+  titleFa: string;
+  icon: string;
+  color: string;
+  titleEn: string;
+  aiSubCategories: ISubCategoryWithApplication[];
+}
+
+export interface ISubCategory {
+  id: number;
+  title: string;
+}
+
+export interface ISubCategoryWithApplication {
+  id: number;
+  title: string;
+  aiApplications:IApplication[]
+}
+
+export interface IApplication {
+  id: number;
+  title: string;
+  description: string;
+  rate: string;
+  flowed: string;
+  imgUrl: string;
 }
 
 export interface IResponseCategoryItems {
