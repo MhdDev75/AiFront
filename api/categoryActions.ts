@@ -56,7 +56,7 @@ export const getCategoryById = async (categoryId: string) => {
 export const mergeLists = (list1: ICategory[], list2: ICategoryItems[]): IResponseCategoryItems[] => 
   { return list2.reduce<IResponseCategoryItems[]>((acc, item2) => { 
     const match = list1.find(item1 => item2.category_Id === item1.id); 
-    if (match) { acc.push({ id: item2.id, title: match.title, itemList: item2.itemList }); 
+    if (match) { acc.push({ id: item2.id, title: match.titleEn, itemList: item2.itemList }); 
   } return acc; }, 
     []);
   }
