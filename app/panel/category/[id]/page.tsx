@@ -94,18 +94,18 @@ const CategoryPage = () => {
             </div>
           </div>
         </>
-        : <div>Loaded</div>}
-      <h1 className="text-lg">{categoryWithApplication?.titleEn}</h1>
-      <div className="grid gap-2">
-        {categoryWithApplication?.aiSubCategories?.map((category: ISubCategoryWithApplication) => (
-          <CategoryListComponent
-            id={category.id}
-            aiApplications={category.aiApplications}
-            title={category.title}
-            key={category.id}
-          />
-        ))}
-      </div>
+        : <><h1 className="text-lg">{categoryWithApplication?.titleEn}</h1>
+        <div className="grid gap-2">
+          {categoryWithApplication?.aiSubCategories?.map((category: ISubCategoryWithApplication) => (
+            <CategoryListComponent
+              id={category.id}
+              aiApplications={category.aiApplications}
+              title={category.title}
+              key={category.id}
+            />
+          ))}
+        </div></>}
+      
     </section>
   );
 };
