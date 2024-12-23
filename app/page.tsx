@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
@@ -39,8 +40,8 @@ export default function HomePage() {
 
   const loginUser = async () => {
     try {
-      if (webApp) {
-        const response = await loginWithTelegram(webApp.initData);
+      const app = (window as any).Telegram?.WebApp;
+        const response = await loginWithTelegram(app.initData);
         console.log(response);
 
         if (response.isSuccess) {
@@ -67,7 +68,6 @@ export default function HomePage() {
             }
           }, increment);
         }
-      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: Error | any) {
       console.log(err.message);
