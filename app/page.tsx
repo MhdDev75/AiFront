@@ -88,7 +88,7 @@ export default function HomePage() {
             value={progress}
             max="100"
           ></progress>
-          <span>V : 0.0.1</span>
+          <span>V : 0.0.2</span>
         </div>
       </main>
     </div>
