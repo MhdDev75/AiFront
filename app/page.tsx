@@ -25,43 +25,48 @@ export default function HomePage() {
     setCookie("token", null);
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     setTheme(cookie.Theme);
+    // loginUser(
+    //   "query_id=AAGup4t6AgAAAK6ni3q0ggRB&user=%7B%22id%22%3A6350940078%2C%22first_name%22%3A%22Mhd%22%2C%22last_name%22%3A%22bus%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FciJ80wJsHBif2qtdCt_qxIvhx29_3NL0Y1dPOMxh89z2e0U9jAuqOILW_lRvAokq.svg%22%7D&auth_date=1733768266&signature=V4iu8CF38EIvH6h-F_Og6cCR2NtziayXDq8tptZWImYfHs3AgOXqO1Zchi0smG7nEfqy-r5gbELu6LpTMeqWCA&hash=b1d9e3da0f79060c38e92ce1bb2c88f8f15af4d2e0c1786850124bad063d2878"
+    // );
+    loginUser()
     console.log(webApp);
-    if (webApp) {
-    console.log("it's ok");
+    //
+    // console.log("it's ok");
 
-      loginUser(webApp?.initData);
-    }
+    //   loginUser();
+    // }
   }, []);
 
-  const loginUser = async (initData: string) => {
+  const loginUser = async () => {
     try {
-      const response = await loginWithTelegram(initData);
-      console.log(response);
-      
-      if (response.isSuccess) {
-        console.log("PreLoad");
-        setCookie("NewUser", response.value.isNew);
-        console.log("NewUser", response.value.isNew);
+      if (webApp) {
+        const response = await loginWithTelegram(webApp.initData);
+        console.log(response);
 
-        setCookie("token", response.value.token);
-        localStorage.setItem("token", response.value.token);
-        const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
-        const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
-        const steps = totalDuration / increment;
-        let currentStep = 0;
-        const timer = setInterval(() => {
-          currentStep++;
-          setProgress((currentStep / steps) * 100);
+        if (response.isSuccess) {
+          console.log("PreLoad");
+          setCookie("NewUser", response.value.isNew);
+          console.log("NewUser", response.value.isNew);
+          setCookie("token", response.value.token);
+          localStorage.setItem("token", response.value.token);
+          const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+          const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
+          const steps = totalDuration / increment;
+          let currentStep = 0;
+          const timer = setInterval(() => {
+            currentStep++;
+            setProgress((currentStep / steps) * 100);
 
-          if (currentStep >= steps) {
-            clearInterval(timer);
-            if (response.value.isNew == true) {
-              router.push("/panel/home");
-            } else {
-              router.push("/welcome");
+            if (currentStep >= steps) {
+              clearInterval(timer);
+              if (response.value.isNew == false) {
+                router.push("/panel/home");
+              } else {
+                router.push("/welcome");
+              }
             }
-          }
-        }, increment);
+          }, increment);
+        }
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: Error | any) {
@@ -91,7 +96,7 @@ export default function HomePage() {
             value={progress}
             max="100"
           ></progress>
-          <span>V : 0.0.2</span>
+          <span>V : 0.0.3</span>
         </div>
       </main>
     </div>
