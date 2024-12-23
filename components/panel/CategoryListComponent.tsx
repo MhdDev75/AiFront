@@ -8,7 +8,7 @@ import { useKeenSlider } from "keen-slider/react";
 import { locales } from "../../core/i18n/config";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { ISubCategoryWithApplication } from "../../lib/type";
+import { IApplication, ISubCategoryWithApplication } from "../../lib/type";
 import { ArrowUpLeft, ArrowUpRight, BadgePlus, StarIcon } from "lucide-react";
 
 
@@ -16,7 +16,7 @@ import { ArrowUpLeft, ArrowUpRight, BadgePlus, StarIcon } from "lucide-react";
 const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
   id,
   aiApplications,
-  title,
+  title
 }: ISubCategoryWithApplication) => {
   const t = useTranslations("i18n");
   const locale = useLocale();
@@ -41,25 +41,25 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
     <>
       <div className="flex flex-row justify-between items-center">
         <span className="font-bold" key={id}>
-          {t(title)}
+          {title}
         </span>
         <button className="btn btn-ghost btn-sm text-primary" onClick={() => console.log(id)}>
           {t("see-all")}
         </button>
       </div>
       <div ref={sliderRef} className="keen-slider">
-        {aiApplications.map((item) => (
+        {aiApplications && aiApplications.map((item:IApplication) => (
           <div
             key={item.id}
-            className="keen-slider__slide  bg-base-300 rounded-2xl flex flex-col gap-2 rounded-md p-3"
+            className="keen-slider__slide  bg-base-300 rounded-3xl flex flex-col gap-2  p-3"
           >
             <div className="flex flex-row justify-between">
               <Image
-                src={item.imgUrl}
+                src={item.imageUrl}
                 width={40}
                 height={40}
                 className="rounded-2xl"
-                alt={item.title}
+                alt={item.name}
               />
               <div className="flex flex-col flex-nowrap justify-center items-start gap-1">
                 <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
@@ -80,8 +80,8 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
               )}
             </div>
             <span className="font-bold text-foreground">
-              {item.title.substring(0, 12)}{" "}
-              {item.title.length > 12 && "..."}
+              {item.name.substring(0, 12)}{" "}
+              {item.name.length > 12 && "..."}
             </span>
 
             <p className="text-sm text-primary-foreground text-pretty">

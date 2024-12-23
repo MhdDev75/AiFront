@@ -62,11 +62,11 @@ export interface ISubCategoryWithApplication {
 
 export interface IApplication {
   id: number;
-  title: string;
+  name: string;
   description: string;
   rate: string;
   flowed: string;
-  imgUrl: string;
+  imageUrl: string;
 }
 
 export interface IResponseCategoryItems {

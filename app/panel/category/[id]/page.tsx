@@ -31,8 +31,7 @@ const CategoryPage = () => {
     setLoading(true);
     const response = await GetAllAiCategoriesQuery(paramId);
     if (response.isSuccess) {
-      setCategoryWithApplication(response as ICategoryWithQuery);
-      console.log(response as ICategoryWithQuery);
+      setCategoryWithApplication(response.value[0] as ICategoryWithQuery);
       setLoading(false)
     }
   };
@@ -70,17 +69,19 @@ const CategoryPage = () => {
             </div>
           </div>
         </>
-        : <><h1 className="text-lg">{categoryWithApplication?.titleEn}</h1>
+        : <>
+          <h1 className="text-lg">{categoryWithApplication?.titleEn}</h1>
           <div className="grid gap-2">
-            {categoryWithApplication?.aiSubCategories?.map((category: ISubCategoryWithApplication) => (
+            {categoryWithApplication?.aiSubCategories?.map((item: ISubCategoryWithApplication) => (
               <CategoryListComponent
-                id={category.id}
-                aiApplications={category.aiApplications}
-                title={category.title}
-                key={category.id}
+                id={item.id}
+                aiApplications={item.aiApplications}
+                title={item.title}
+                key={item.id}
               />
             ))}
-          </div></>}
+          </div>
+        </>}
 
     </section>
   );
