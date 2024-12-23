@@ -27,6 +27,8 @@ export default function HomePage() {
     setTheme(cookie.Theme);
     console.log(webApp);
     if (webApp) {
+    console.log("it's ok");
+
       loginUser(webApp?.initData);
     }
   }, []);
