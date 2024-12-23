@@ -11,6 +11,7 @@ import {
   Factory,
   Hammer,
   Image,
+  LucideBatteryWarning,
   Mic,
   Tent,
   Text,
@@ -65,41 +66,22 @@ function HomePage() {
     }
   };
 
-  const getColor = (id: number) => {
+  const getIcon = (id: string) => {
     switch (id) {
-      case 1:
-        return "btn-neutral";
-
-      case 2:
-        return "btn-secondary";
-
-      case 3:
-        return "btn-accent";
-
-      case 4:
-        return "btn-neutral";
-
-      default:
-        return "btn-warning";
-    }
-  };
-
-  const getIcon = (id: number) => {
-    switch (id) {
-      case 1:
+      case "Text":
         return <Text size={20} />;
 
-      case 2:
+      case "Image":
         return <Image size={20} />;
 
-      case 3:
+      case "Video":
         return <Video size={20} />;
 
-      case 4:
+      case "Mic":
         return <Mic size={20} />;
 
       default:
-        return "btn-warning";
+        return <LucideBatteryWarning size={20} />;
     }
   };
 
@@ -284,14 +266,12 @@ function HomePage() {
             <button
               key={item.id}
               onClick={() => router.push(`/panel/category/${item.id}`)}
-              className={`btn btn-lg ${getColor(
-                item.id
-              )} h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md`}
+              className={`btn btn-lg ${item.color} h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md`}
             >
               <div className="flex flex-col gap-4 justify-between  w-full">
                 <div className="flex flex-row justify-between w-full">
                   <div className="p-2 rounded-full bg-slate-800 bg-opacity-35">
-                    {getIcon(item.id)}
+                    {getIcon(item.icon)}
                   </div>
                   {isIr ? (
                     <ArrowUpLeft size={30} />
@@ -299,7 +279,7 @@ function HomePage() {
                     <ArrowUpRight size={30} />
                   )}
                 </div>
-                <span className="text-xl text-start">{item.title}</span>
+                <span className="text-xl text-start">{t(item.titleEn)}</span>
               </div>
             </button>
           ))}

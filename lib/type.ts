@@ -34,9 +34,11 @@ export interface ICategoryItemsProps {
 
 export interface ICategory {
   id: number;
-  title: string;
+  titleFa: string;
   parent_id: number;
   icon: string;
+  color: string;
+  titleEn: string;
 }
 
 export interface ICategoryItems {
