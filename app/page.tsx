@@ -25,6 +25,7 @@ export default function HomePage() {
     setCookie("token", null);
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     setTheme(cookie.Theme);
+    console.log(webApp);
     if (webApp) {
       loginUser(webApp?.initData);
     }
