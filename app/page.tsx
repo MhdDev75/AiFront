@@ -34,8 +34,13 @@ export default function HomePage() {
     try {
       const response = await loginWithTelegram(initData);
       if (response.isSuccess) {
+        console.log("PreLoad");
         setCookie("NewUser", response.value.isNew);
+        console.log("NewUser", response.value.isNew);
+
         setCookie("token", response.value.token);
+        console.log("token", response.value.token);
+
         localStorage.setItem("token", response.value.token);
         const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
@@ -47,7 +52,7 @@ export default function HomePage() {
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            if (cookie.NewUser == true) {
+            if (response.value.isNew == true) {
               router.push("/panel/home");
             } else {
               router.push("/welcome");
