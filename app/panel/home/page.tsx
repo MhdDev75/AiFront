@@ -85,6 +85,26 @@ function HomePage() {
     }
   };
 
+  
+  const getColor = (id: string) => {
+    switch (id) {
+      case "btn-primary":
+        return "btn-primary";
+
+      case "btn-secondary":
+        return "btn-secondary";
+
+      case "btn-accent":
+        return "btn-accent";
+
+      case "btn-neutral":
+        return "btn-neutral";
+
+      default:
+        return "btn-warning";
+    }
+  };
+
   const router = useRouter();
 
   const feature = [
@@ -266,7 +286,7 @@ function HomePage() {
             <button
               key={item.id}
               onClick={() => router.push(`/panel/category/${item.id}`)}
-              className={`btn btn-lg ${item.color} h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md`}
+              className={`btn btn-lg ${getColor(item.color)} h-auto rounded-3xl flex flex-col gap-4 justify-between w-full p-3 shadow-md`}
             >
               <div className="flex flex-col gap-4 justify-between  w-full">
                 <div className="flex flex-row justify-between w-full">
