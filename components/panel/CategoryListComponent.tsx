@@ -51,27 +51,30 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
       <div ref={sliderRef} className="keen-slider">
         {aiApplications && aiApplications.map((item: IApplication) => (
           <div
+            onClick={() => router.push(`/panel/chat/${item.id}`)}
             key={item.id}
-            className="keen-slider__slide  bg-base-300 rounded-3xl flex flex-col gap-2  p-3"
+            className="keen-slider__slide btn h-auto items-start  bg-base-300 rounded-3xl flex flex-col gap-2  p-3"
           >
-            <div className="flex flex-row justify-between">
-              <Image
-                src={item.imageUrl}
-                width={40}
-                height={40}
-                className="rounded-2xl"
-                alt={item.name}
-              />
-              <div className="flex flex-col flex-nowrap justify-center items-start gap-1">
-                <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
-                  <StarIcon color="yellow" size={12} />
-                  <span className="font-bold text-xs">4.9</span>
-                </div>
-                <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
-                  <BadgePlus color="blue" size={12} />
-                  <span className=" text-xs text-gray-300">
-                    {(10010).toLocaleString()}
-                  </span>
+            <div className="flex flex-row justify-between w-full">
+              <div className="flex flex-row gap-2">
+                <Image
+                  src={item.imageUrl}
+                  width={40}
+                  height={40}
+                  className="rounded-2xl"
+                  alt={item.name}
+                />
+                <div className="flex flex-col flex-nowrap justify-center items-start gap-1">
+                  <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
+                    <StarIcon color="yellow" size={12} />
+                    <span className="font-bold text-xs">{item.rate}</span>
+                  </div>
+                  <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
+                    <BadgePlus color="blue" size={12} />
+                    <span className=" text-xs text-gray-300">
+                      {(Number(item.flowed)).toLocaleString()}
+                    </span>
+                  </div>
                 </div>
               </div>
               {isIr ? (
@@ -85,7 +88,7 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
               {item.name.length > 12 && "..."}
             </span>
 
-            <p className="text-sm text-primary-foreground text-pretty">
+            <p className="text-sm text-start text-primary-foreground text-pretty">
               {item.description.substring(0, 50)}{" "}
               {item.description.length > 50 && "..."}
             </p>

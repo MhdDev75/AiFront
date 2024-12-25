@@ -1,4 +1,6 @@
+"use client"
 import { GetAiApplication } from '@/api/categoryActions';
+import ApplicationLBoxComponent from '@/components/panel/ApplicationLBoxComponent';
 import { useBackButton } from '@/core/telegram/BackButtonProvider';
 import { IApplication } from '@/lib/type';
 import { useParams } from 'next/navigation';
@@ -9,10 +11,10 @@ const SubCategoryAppPage = () => {
     const { setIsVisible } = useBackButton();
     const [loading, setLoading] = useState(false);
     const [application, setApplication] = useState<IApplication[]>();
-    const params = useParams<{ sub: string }>();
+    const params = useParams<{ id: string }>();
     useEffect(() => {
         if (params) {
-            getData(params.sub);
+            getData(params.id);
         }
         setIsVisible(true); // دکمه بازگشت را فعال کنید
     }, []);
@@ -21,7 +23,7 @@ const SubCategoryAppPage = () => {
         setLoading(true);
         const response = await GetAiApplication(paramId);
         if (response.isSuccess) {
-            setApplication(response.value[0] as IApplication[]);
+            setApplication(response.value as IApplication[]);
             setLoading(false)
         }
     };
@@ -53,17 +55,17 @@ const SubCategoryAppPage = () => {
                             <span className="font-bold text-foreground">
                                 <div className="skeleton h-4 w-20"></div>
                             </span>
-                            <p className="text-sm text-primary-foreground text-pretty">
+                            <div className="text-sm text-primary-foreground text-pretty">
                                 <div className="skeleton h-8 w-20"></div>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </>
                 : <>
                     <h1 className="text-lg">{"sssss"}</h1>
                     <div className="grid grid-cols-2 gap-2">
-                        {application?.map((item: IApplication) => (
-                            <div key={item.id}>{item.name}</div>
+                        {application && application?.map((item: IApplication, index) => (
+                           <ApplicationLBoxComponent key={index} {...item} />
                         ))}
                     </div>
                 </>}

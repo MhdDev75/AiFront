@@ -63,9 +63,9 @@ const CategoryPage = () => {
               <span className="font-bold text-foreground">
                 <div className="skeleton h-4 w-20"></div>
               </span>
-              <p className="text-sm text-primary-foreground text-pretty">
+              <div className="text-sm text-primary-foreground text-pretty">
                 <div className="skeleton h-8 w-20"></div>
-              </p>
+              </div>
             </div>
           </div>
         </>
