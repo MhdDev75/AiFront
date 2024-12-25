@@ -80,7 +80,10 @@ const DownloaderConfirmPage = () => {
     },
   ];
 
-  const getLink = async (id: string) => {
+  const getLink = async (
+    event: React.FormEvent<HTMLFormElement>,
+    id: string
+  ) => {
     const link: ILinkItems | undefined = await downloader.find(
       (x) => x.id == Number(id)
     );
@@ -88,11 +91,17 @@ const DownloaderConfirmPage = () => {
       setDownloadUrl(link);
     }
   };
+
+  const handleSubmitWrapper =
+    (additionalParam: string) => (event: React.FormEvent<HTMLFormElement>) => {
+      getLink(event, additionalParam);
+    };
+
   return (
     <section className="flex flex-col gap-3 pb-3">
       <div className="card bg-base-300 w-full shadow-xl">
         <div className="card-body ">
-          <form onSubmit={() => getLink(params.id)}>
+          <form onSubmit={() => handleSubmitWrapper(params.id)}>
             <div className="label">
               <span className="label-text-alt">{t("Downloader.Input")}</span>
             </div>
@@ -120,9 +129,7 @@ const DownloaderConfirmPage = () => {
               {downloadUrl.linkList.map((item) => (
                 <button
                   className="btn btn-primary"
-                  onClick={() =>
-                    app.downloadFile({ url: item.url}, path)
-                  }
+                  onClick={() => app.downloadFile({ url: item.url }, path)}
                   key={item.id}
                 >
                   {item.title}
