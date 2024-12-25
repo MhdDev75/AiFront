@@ -12,13 +12,10 @@ const DownloaderConfirmPage = () => {
   const [downloadUrl, setDownloadUrl] = useState<ILinkItems>();
   const path = usePathname();
   const { setIsVisible } = useBackButton();
-
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
   }, []);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const app = (window as any).Telegram?.WebApp;
-
+  // ss
   const downloader: ILinkItems[] = [
     {
       id: 1,
@@ -103,6 +100,13 @@ const DownloaderConfirmPage = () => {
       getLink(event, additionalParam);
     };
 
+  const handelDownload = (url: string) => {
+    console.log(window);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const app = (window as any).Telegram?.WebApp;
+    console.log(app);
+    app.downloadFile({ url: url }, path);
+  };
   return (
     <section className="flex flex-col gap-3 pb-3">
       <div className="card bg-base-300 w-full shadow-xl">
@@ -135,7 +139,7 @@ const DownloaderConfirmPage = () => {
               {downloadUrl.linkList.map((item) => (
                 <button
                   className="btn btn-primary"
-                  onClick={() => app.downloadFile({ url: item.url }, path)}
+                  onClick={() => handelDownload(item.url)}
                   key={item.id}
                 >
                   {item.title}
