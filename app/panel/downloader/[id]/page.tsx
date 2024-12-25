@@ -1,9 +1,10 @@
 "use client";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { ILinkItems } from "@/lib/type";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useParams, usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const DownloaderConfirmPage = () => {
   const t = useTranslations("i18n");
@@ -12,6 +13,12 @@ const DownloaderConfirmPage = () => {
   const params = useParams<{ id: string }>();
   const [downloadUrl, setDownloadUrl] = useState<ILinkItems>();
   const path = usePathname();
+  const { setIsVisible } = useBackButton();
+
+  useEffect(() => {
+      setIsVisible(true); // دکمه بازگشت را فعال کنید
+    }, []);
+  
 
   const downloader: ILinkItems[] = [
     {
