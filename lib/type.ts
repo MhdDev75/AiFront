@@ -76,14 +76,24 @@ export interface IResponseCategoryItems {
 }
 
 export interface ILink {
-  id: number;
-  title: string;
   url: string;
+  quality: string;
+  extension: string;
+  size: 8599363;
+  formattedSize: string;
+  videoAvailable: boolean;
+  audioAvailable: boolean;
+  chunked: boolean;
+  cached: boolean;
 }
+
 export interface ILinkItems {
-  id: number;
-  title: string ;
-  linkList: ILink[];
+  url: string;
+  title: string;
+  thumbnail: string;
+  duration: null;
+  source: string;
+  media: ILink[];
 }
 
 export interface IWebApp {
