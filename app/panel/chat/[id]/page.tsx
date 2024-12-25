@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useRef, useState } from "react";
-import { Star } from "lucide-react";
+import { Mic, Star } from "lucide-react";
 
 
 const ChatPage = () => {
@@ -25,7 +25,7 @@ const ChatPage = () => {
         mediaRecorderRef.current.onstop = () => {
             const audioBlob = new Blob(audioChunks.current, { type: 'audio/wav' });
             const audioUrl = URL.createObjectURL(audioBlob); setAudioURL(audioUrl);
-            chatMessage.push({ id: chatMessage.length + 1, message: audioUrl, type: "َaudio", sender: "user" })
+            chatMessage.unshift({ id: chatMessage.length + 1, message: audioUrl, type: "َaudio", sender: "user" })
             audioChunks.current = [];
         };
         mediaRecorderRef.current.start();
@@ -37,11 +37,8 @@ const ChatPage = () => {
         }
     }
     const sendMessage = () => {
-        console.log("sdsdsd");
-
-        chatMessage.push({ id: chatMessage.length + 1, message: String(chatInput), type: "text", sender: "user" })
+        chatMessage.unshift({ id: chatMessage.length + 1, message: String(chatInput), type: "text", sender: "user" })
         setChatInput("")
-
     }
     return (
         <section className="h-full pb-3 flex flex-col gap-2 overflow-hidden">
@@ -72,7 +69,7 @@ const ChatPage = () => {
             </div>
 
             <div className="chat-box w-full h-full overflow-y-auto pb-12 relative">
-                <div className="messages bg-base-300 h-full  rounded-3xl p-3 scroll overflow-y-scroll flex flex-col-reverse ">
+                <div className="messages bg-base-300 h-full  rounded-3xl p-3 scroll overflow-y-auto  flex flex-col-reverse ">
                     {/* Messages will be displayed here */}
                     {chatMessage && chatMessage.map((message) => (
                         <div key={message.id} className={`chat  ${message.sender === "user" ? "chat-start" : "chat-end"}`}>
@@ -84,12 +81,14 @@ const ChatPage = () => {
 
                 </div>
                 <div className="flex absolute w-full bottom-0 start-0 flex-row gap-2 mt-2 h-auto">
-                    <input type="text" onChange={(e) => setChatInput(e.target.value)} placeholder="Type a message..." className="input h-10 input-bordered w-full" />
+                    <input type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder="Type a message..." className="input h-10 input-bordered w-full" />
 
 
                     {!recording ?
-                        <button onClick={startRecording} disabled={recording}>شروع ضبط</button>: 
-                        <button onClick={stopRecording} disabled={!recording}>پایان ضبط</button>}
+                        <button onClick={startRecording} disabled={recording}>
+                            <Mic size={30} />
+                        </button> :
+                        <button onClick={stopRecording} disabled={!recording}><Mic color="red" className="animate-pulse" size={30} /></button>}
                     <button onClick={sendMessage} className="btn z-10 btn-primary btn-sm h-10">Send</button>
                 </div>
             </div>

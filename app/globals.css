@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-*{
+* {
   scrollbar-width: thin;
 }
 body {
@@ -41,6 +40,14 @@ body::before {
   top: 30%;
   left: 0;
   right: auto;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+  background-color: #c7ff80;
+  color: #000;
+  border-radius: 0px;
+  padding: 0;
 }
 
 /* body[dir="rtl"]>::after
