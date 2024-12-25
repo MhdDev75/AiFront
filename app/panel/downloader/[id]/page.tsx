@@ -87,7 +87,6 @@ const DownloaderConfirmPage = () => {
     if (link) {
       setDownloadUrl(link);
     }
-    alert(`ready ${params.id}`);
   };
   return (
     <section className="flex flex-col gap-3 pb-3">
@@ -122,7 +121,7 @@ const DownloaderConfirmPage = () => {
                 <button
                   className="btn btn-primary"
                   onClick={() =>
-                    app.downloadFile({ url: item.url, file_name: "test" }, path)
+                    app.downloadFile({ url: item.url}, path)
                   }
                   key={item.id}
                 >
