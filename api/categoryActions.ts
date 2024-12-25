@@ -44,6 +44,17 @@ export const GetAllAiCategoriesQuery = async (categoryId :string) => {
   }
 };
 
+// گرفتن اطلاعات اپلیکیشن های ساب کتگوری 
+export const GetAiApplication = async (subCategoryId :string) => {
+  try {
+    const response = await apiClient.get(`/AiApp/GetAiApplication?aiSubCategoryId=${subCategoryId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
+
 
 
 

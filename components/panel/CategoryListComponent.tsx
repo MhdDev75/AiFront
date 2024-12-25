@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React from "react";
 
 import "keen-slider/keen-slider.min.css";
@@ -10,6 +9,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { IApplication, ISubCategoryWithApplication } from "../../lib/type";
 import { ArrowUpLeft, ArrowUpRight, BadgePlus, StarIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
 
@@ -21,6 +21,7 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
   const t = useTranslations("i18n");
   const locale = useLocale();
   const isIr = locale == locales[0] ? true : false;
+  const router = useRouter()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sliderRef, instanceRef] = useKeenSlider(
     {
@@ -43,12 +44,12 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
         <span className="font-bold" key={id}>
           {title}
         </span>
-        <button className="btn btn-ghost btn-sm text-primary" onClick={() => console.log(id)}>
+        <button className="btn btn-ghost btn-sm text-primary" onClick={() => router.push(`/panel/application/${id}`)}>
           {t("see-all")}
         </button>
       </div>
       <div ref={sliderRef} className="keen-slider">
-        {aiApplications && aiApplications.map((item:IApplication) => (
+        {aiApplications && aiApplications.map((item: IApplication) => (
           <div
             key={item.id}
             className="keen-slider__slide  bg-base-300 rounded-3xl flex flex-col gap-2  p-3"
