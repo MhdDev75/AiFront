@@ -90,6 +90,9 @@
       "FreePointsDesc": "You can get free points when your friends join.",
       "Share": "Share invitation code"
     },
+    "Downloader":{
+      "Input":"Input Address"
+    },
     "SessionError": "Your session has ended",
     "Disconnected": "Error connecting to the server.",
     "Reload": "Reload again",

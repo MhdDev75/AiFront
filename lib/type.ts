@@ -5,7 +5,7 @@ export interface ITelegramUser {
   last_name: string;
   username: string;
   language_code: string;
-  photo_url:string
+  photo_url: string;
 }
 
 export interface IApiUser {
@@ -13,7 +13,7 @@ export interface IApiUser {
   lastName: string;
   username: string;
   languageCode: string;
-  photoUrl:string
+  photoUrl: string;
 }
 
 export interface IContentSafeAreaInset {
@@ -57,7 +57,7 @@ export interface ISubCategory {
 export interface ISubCategoryWithApplication {
   id: number;
   title: string;
-  aiApplications:IApplication[]
+  aiApplications: IApplication[];
 }
 
 export interface IApplication {
@@ -73,6 +73,17 @@ export interface IResponseCategoryItems {
   id: number;
   title: string | undefined;
   itemList: ICategoryItemsProps[];
+}
+
+export interface ILink {
+  id: number;
+  title: string;
+  url: string;
+}
+export interface ILinkItems {
+  id: number;
+  title: string ;
+  linkList: ILink[];
 }
 
 export interface IWebApp {
