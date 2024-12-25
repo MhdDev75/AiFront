@@ -8,17 +8,16 @@ import React, { useEffect, useState } from "react";
 
 const DownloaderConfirmPage = () => {
   const t = useTranslations("i18n");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const app = (window as any).Telegram?.WebApp;
   const params = useParams<{ id: string }>();
   const [downloadUrl, setDownloadUrl] = useState<ILinkItems>();
   const path = usePathname();
   const { setIsVisible } = useBackButton();
 
   useEffect(() => {
-      setIsVisible(true); // دکمه بازگشت را فعال کنید
-    }, []);
-  
+    setIsVisible(true); // دکمه بازگشت را فعال کنید
+  }, []);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const app = (window as any).Telegram?.WebApp;
 
   const downloader: ILinkItems[] = [
     {
