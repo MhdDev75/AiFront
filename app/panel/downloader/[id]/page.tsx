@@ -87,6 +87,7 @@ const DownloaderConfirmPage = () => {
     event: React.FormEvent<HTMLFormElement>,
     id: string
   ) => {
+    event.preventDefault();
     const link: ILinkItems | undefined = await downloader.find(
       (x) => x.id == Number(id)
     );
@@ -97,6 +98,7 @@ const DownloaderConfirmPage = () => {
 
   const handleSubmitWrapper =
     (additionalParam: string) => (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
       getLink(event, additionalParam);
     };
 
