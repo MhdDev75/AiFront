@@ -25,3 +25,25 @@ export const getUser = async () => {
     throw error;
   }
 };
+
+// گرفتن اطلاعات کاربر
+export const getRegion = async () => {
+  try {
+    const response = await apiClient.get(`/Region/Region`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
+
+// گرفتن اطلاعات کاربر
+export const getUserRegion = async () => {
+  try {
+    const response = await apiClient.get(`/Region/UserRegion`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};

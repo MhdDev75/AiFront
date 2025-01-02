@@ -5,6 +5,8 @@ import apiClient from "./apiClient";
 export const getMainCategory = async () => {
   try {
     const response = await apiClient.get(`/AiApp/GetAiCategory`);
+    console.log(response.data.value);
+
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -15,6 +17,8 @@ export const getMainCategory = async () => {
 export const getSubCategory = async (categoryId :string) => {
   try {
     const response = await apiClient.get(`/AiApp/GetAiSubCategory?aiCategoryId=${categoryId}`);
+    console.log(response);
+    
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -26,6 +30,8 @@ export const getSubCategory = async (categoryId :string) => {
 export const getCategoryApplication = async (subCategoryId :string) => {
   try {
     const response = await apiClient.get(`/AiApp/GetAiApplication?aiSubCategoryId=${subCategoryId}`);
+    console.log(response.data.value);
+
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
