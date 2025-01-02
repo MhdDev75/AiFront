@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const apiClient = axios.create({
-  baseURL: process.env.BASE_URL || "https://api.the-ai.studio/", // آدرس پایه API
+  baseURL: process.env.BASE_URL || "https://api.the-ai.studio:2443/", // آدرس پایه API
   timeout: 20000, // زمان انتظار درخواست‌ها
   headers: {
     "Content-Type": "application/json",
