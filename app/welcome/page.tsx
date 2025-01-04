@@ -72,7 +72,7 @@ const WelcomePage = () => {
               id={`slide${item.id}`}
               className="carousel-item relative w-full"
             >
-              <Image src={item.imgUrl} alt={`slide${item.id}`} />
+              <Image src={item.imgUrl} alt={`slide${item.id}`} className="w-full" />
             </div>
           ))}
           {current < sliderList.length && currentStep != 100 && (
