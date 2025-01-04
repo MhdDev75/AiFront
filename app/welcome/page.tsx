@@ -20,18 +20,18 @@ const WelcomePage = () => {
   const t = useTranslations("i18n");
   const router = useRouter();
   const local = useLocale();
+  // eslint-disable-next-line @typescript-eslint/no-array-constructor
+  const sliderList = new Array();
 
-  const sliderList = [
-    {
+  useEffect(() => {
+    sliderList.push({
       id: 1,
       imgUrl: `/assets/welcome/${local}-${cookie.Theme}-${
         cookie.Platform == "tdesktop" ? "d" : "m"
       }.mp4`,
       time: 15000,
-    },
-  ];
+    });
 
-  useEffect(() => {
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     const totalDuration = sliderList[current]?.time; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
     const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
