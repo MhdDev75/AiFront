@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ITelegramUser, IWebApp } from "../../lib/type";
 import Script from "next/script";
+import { useCookies } from "react-cookie";
 
 export interface ITelegramContext {
   webApp?: IWebApp;
@@ -17,7 +18,7 @@ export const TelegramProvider = ({
   children: React.ReactNode;
 }) => {
   const [webApp, setWebApp] = useState<IWebApp | null>(null);
-
+  const [cookie, setCookie] = useCookies(["Theme"]);
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
@@ -25,9 +26,12 @@ export const TelegramProvider = ({
 
     if (app) {
       // app.platform !== "tdesktop" && app.requestFullscreen();
-
+      if (!cookie.Theme) {
+        console.log(app.colorScheme);
+        setCookie("Theme", app.colorScheme )
+      }
       app.requestFullscreen();
-      app.disableVerticalSwipes()
+      app.disableVerticalSwipes();
       app.enableClosingConfirmation();
       app.ready();
       setWebApp(app);
@@ -39,10 +43,10 @@ export const TelegramProvider = ({
   const value = useMemo(() => {
     return webApp
       ? {
-        webApp,
-        unsafeData: webApp.initDataUnsafe,
-        user: webApp.initDataUnsafe.user,
-      }
+          webApp,
+          unsafeData: webApp.initDataUnsafe,
+          user: webApp.initDataUnsafe.user,
+        }
       : {};
   }, [webApp]);
 
