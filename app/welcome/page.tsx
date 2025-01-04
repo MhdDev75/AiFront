@@ -27,7 +27,7 @@ const WelcomePage = () => {
       id: 1,
       imgUrl: `/assets/welcome/${local}-${cookie.Theme}-${
         cookie.Platform == "tdesktop" ? "d" : "m"
-      }.mp4`,
+      }.webp`,
       time: 15000,
     },
   ];
