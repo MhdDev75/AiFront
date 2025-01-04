@@ -53,6 +53,10 @@ const WelcomePage = () => {
           setCurrent(current + 1);
         }
       }
+      console.log(current);
+      console.log(sliderList.length);
+      console.log(progress);
+      
       if (current == sliderList.length && progress == 100) {
         router.push("/panel/home")
       }
