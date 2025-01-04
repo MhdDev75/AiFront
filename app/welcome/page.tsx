@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { useCookies } from "react-cookie";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
 const WelcomePage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -71,14 +72,12 @@ const WelcomePage = () => {
               id={`slide${item.id}`}
               className="carousel-item relative w-full"
             >
-              <video autoPlay playsInline preload="auto" className="w-full">
-                <source src={item.imgUrl} type="video/mp4" />
-              </video>
+              <Image src={item.imgUrl} alt={`slide${item.id}`} />
             </div>
           ))}
           {current < sliderList.length && currentStep != 100 && (
             <progress
-              className="absolute top-0 rounded-none mx-auto right-0 left-0 z-20 progress progress-primary w-full "
+              className="absolute top-0 h-1 rounded-none mx-auto right-0 left-0 z-20 progress progress-primary w-full "
               value={progress}
               max="100"
             ></progress>
