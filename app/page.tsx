@@ -51,11 +51,12 @@ export default function HomePage() {
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            if (response.value.isNew == false) {
-              router.push("/panel/home");
-            } else {
-              router.push("/welcome");
-            }
+            router.push("/welcome");
+            // if (response.value.isNew == false) {
+            //   router.push("/panel/home");
+            // } else {
+            //   router.push("/welcome");
+            // }
           }
         }, increment);
       }
