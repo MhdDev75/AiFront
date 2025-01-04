@@ -71,7 +71,9 @@ const WelcomePage = () => {
               id={`slide${item.id}`}
               className="carousel-item relative w-full"
             >
-              <video autoPlay src={item.imgUrl} className="w-full" />
+              <video autoPlay playsInline preload="auto" className="w-full">
+                <source src={item.imgUrl} type="video/mp4" />
+              </video>
             </div>
           ))}
           {current < sliderList.length && currentStep != 100 && (
