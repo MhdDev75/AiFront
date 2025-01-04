@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { useCookies } from "react-cookie";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const WelcomePage = () => {
@@ -18,7 +18,6 @@ const WelcomePage = () => {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const { setIsVisible } = useBackButton();
-  const t = useTranslations("i18n");
   const router = useRouter();
   const local = useLocale();
   // eslint-disable-next-line @typescript-eslint/no-array-constructor
@@ -54,6 +53,9 @@ const WelcomePage = () => {
           setCurrent(current + 1);
         }
       }
+      if (current == sliderList.length && progress == 100) {
+        router.push("/panel/home")
+      }
     }, increment);
 
     return () => clearInterval(timer); // پاکسازی تایمر
@@ -81,14 +83,6 @@ const WelcomePage = () => {
               value={progress}
               max="100"
             ></progress>
-          )}
-          {current == sliderList.length && (
-            <button
-              onClick={() => router.push("/panel/home")}
-              className="btn btn-primary btn-md  mx-auto right-0 left-0 w-52 z-20 absolute bottom-10 text-2xl"
-            >
-              {t("LetsGo")}
-            </button>
           )}
         </div>
       </main>
