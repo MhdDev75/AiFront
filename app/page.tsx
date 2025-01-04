@@ -36,7 +36,8 @@ export default function HomePage() {
 
       if (response.isSuccess) {
         console.log("PreLoad");
-        setCookie("NewUser", response.value.isNew);
+        // response.value.isNew
+        setCookie("NewUser", false );
         console.log("NewUser", response.value.isNew);
         setCookie("token", response.value.token);
         localStorage.setItem("token", response.value.token);
