@@ -8,19 +8,29 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { useCookies } from "react-cookie";
+import { useLocale, useTranslations } from "next-intl";
 
 const WelcomePage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cookie, setCookie] = useCookies(["NewUser", "Theme"]);
+  const [cookie, setCookie] = useCookies(["NewUser", "Theme", "Platform"]);
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const { setIsVisible } = useBackButton();
+  const t = useTranslations("i18n");
   const router = useRouter();
+  const local = useLocale();
 
   const sliderList = [
-    { id: 1, imgUrl: "/assets/welcome/en-dark-d.mp4", time: 15000 },
+    {
+      id: 1,
+      imgUrl: `/assets/welcome/${local}-${cookie.Theme}-${
+        cookie.Platform == "tdesktop" ? "d" : "m"
+      }.mp4`,
+      time: 15000,
+    },
   ];
+
   useEffect(() => {
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     const totalDuration = sliderList[current]?.time; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
@@ -51,7 +61,7 @@ const WelcomePage = () => {
 
   return (
     <div className="flex flex-col h-screen main-div">
-      <main className="container relative flex-1 overflow-hidden">
+      <main className="relative flex-1 overflow-hidden">
         <div
           dir="ltr"
           className="carousel w-full h-dvh bg-base-100 overflow-hidden"
@@ -77,7 +87,7 @@ const WelcomePage = () => {
               onClick={() => router.push("/panel/home")}
               className="btn btn-primary btn-md  mx-auto right-0 left-0 w-52 z-20 absolute bottom-10 text-2xl"
             >
-              برو بریم !
+              {t("LetsGo")}
             </button>
           )}
         </div>

@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ITelegramUser, IWebApp } from "../../lib/type";
 import Script from "next/script";
 import { useCookies } from "react-cookie";
-import { changeTheme } from "@/utils/helper";
+import { changeTheme , setPlatform } from "@/utils/helper";
 
 
 export interface ITelegramContext {
@@ -32,6 +32,7 @@ export const TelegramProvider = ({
       if (!cookie.Theme) {
         changeTheme(app.colorScheme)
       }
+      setPlatform(app.platform)
       app.requestFullscreen();
       app.disableVerticalSwipes();
       app.enableClosingConfirmation();
