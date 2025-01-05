@@ -6,7 +6,7 @@ export const loginWithTelegram = async (initData: string) => {
   try {
     const response = await apiClient.get(`/User/login?${initData}`);
     console.log(response);
-    
+
     return response.data;
   } catch (error) {
     console.log(error);
@@ -26,7 +26,7 @@ export const getUser = async () => {
   }
 };
 
-// گرفتن اطلاعات کاربر
+// گرفتن ملیت
 export const getRegion = async () => {
   try {
     const response = await apiClient.get(`/Region/Region`);
@@ -37,7 +37,7 @@ export const getRegion = async () => {
   }
 };
 
-// گرفتن اطلاعات کاربر
+// گرفتن اطلاعات ملیت کاربر
 export const getUserRegion = async () => {
   try {
     const response = await apiClient.get(`/Region/UserRegion`);
@@ -46,4 +46,22 @@ export const getUserRegion = async () => {
     console.error("Error fetching user:", error);
     throw error;
   }
+
 };
+
+// افزودن ملیت کاربر
+export const postUserRegion = async (region: string) => {
+  try {
+    const response = await apiClient.post(`/Region/AddUserRegion`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": region,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+
+}

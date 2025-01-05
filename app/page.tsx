@@ -35,7 +35,6 @@ export default function HomePage() {
       console.log(response);
 
       if (response.isSuccess) {
-        console.log("PreLoad");
         // response.value.isNew
         setCookie("NewUser", false );
         console.log("NewUser", response.value.isNew);

@@ -1,10 +1,17 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ShieldAlert, Unplug } from "lucide-react";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 const ReloadPage = () => {
+
+  const { setIsVisible } = useBackButton();
+
+  useEffect(() => {
+    setIsVisible(false); // دکمه بازگشت را فعال کنید
+  }, []);
   const t = useTranslations("i18n");
   const params = useParams<{ id: string }>();
   const router = useRouter();

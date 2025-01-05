@@ -64,8 +64,8 @@ const WelcomePage = () => {
   }, [current]);
 
   return (
-    <div className="flex flex-col h-screen main-div">
-      <main className="relative flex-1 overflow-hidden">
+    <div className="flex flex-col h-screen justify-center main-div">
+      <main className="relative flex-1 flex justify-center items-center overflow-hidden">
         <div
           dir="ltr"
           className="carousel w-full h-dvh bg-base-100 overflow-hidden"

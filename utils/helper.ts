@@ -9,3 +9,7 @@ export const setPlatform = async (platform: string) => {
   (await cookies()).set("Platform", platform);
 };
 
+export const setRegion = async (region: string) => {
+  (await cookies()).set("Region", region);
+};
+
