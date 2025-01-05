@@ -50,7 +50,7 @@ export default function HomePage() {
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            router.push("/welcome");
+            router.push("/region");
             // if (response.value.isNew == false) {
             //   router.push("/panel/home");
             // } else {
