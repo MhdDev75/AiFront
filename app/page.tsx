@@ -35,9 +35,7 @@ export default function HomePage() {
       console.log(response);
 
       if (response.isSuccess) {
-        // response.value.isNew
-        setCookie("NewUser", false );
-        console.log("NewUser", response.value.isNew);
+        setCookie("NewUser", response.value.isNew );
         setCookie("token", response.value.token);
         localStorage.setItem("token", response.value.token);
         const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
@@ -50,12 +48,11 @@ export default function HomePage() {
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            router.push("/region");
-            // if (response.value.isNew == false) {
-            //   router.push("/panel/home");
-            // } else {
-            //   router.push("/welcome");
-            // }
+            if (response.value.isNew == false) {
+              router.push("/panel/home");
+            } else {
+              router.push("/region");
+            }
           }
         }, increment);
       }

@@ -53,7 +53,7 @@ const WalletPage = () => {
         setLoading(true);
         const response = await getBalance();
         if (response.isSuccess) {
-            response.value.map((item: ITransaction) => {
+            response.value.forEach((item: ITransaction) => {
                 item.icons = item.type == "پرداختی" ? "Check" : "X"
                 const today = new Date(item.transactionDate);
                 const dd = today.getDate();
