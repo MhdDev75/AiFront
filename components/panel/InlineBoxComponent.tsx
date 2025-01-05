@@ -8,7 +8,7 @@ export interface inlineBoxProps {
     price: number,
     type: string,
     status: string,
-    currency:string
+    currency: string
 }
 
 const getIcon = (icon: string) => {
@@ -24,12 +24,12 @@ const getIcon = (icon: string) => {
     }
 }
 
-const InlineBoxComponent = ({ title, date, icon, price, type , currency }: inlineBoxProps) => {
+const InlineBoxComponent = ({ title, date, icon, price, type, status, currency }: inlineBoxProps) => {
     const t = useTranslations("i18n")
     return (
         <div className='card bg-base-300 shadow flex flex-row flex-nowrap justify-between items-center p-2 rounded-full'>
             <div className='flex gap-2'>
-                <div className={`${status =="موفق" ? 'bg-success' : 'bg-error'} h-14 w-14 rounded-full  flex justify-center items-center`}>
+                <div className={`${status == "موفق" ? 'bg-success' : 'bg-error'} h-14 w-14 rounded-full  flex justify-center items-center`}>
                     {getIcon(icon)}
                 </div>
                 <div className='flex flex-col gap-2'>
@@ -38,7 +38,7 @@ const InlineBoxComponent = ({ title, date, icon, price, type , currency }: inlin
                 </div>
             </div>
             <div>
-                <span className={`${status =="موفق" ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type ? "+" : "-") + " " + (price).toLocaleString()} {t(currency)}</span>
+                <span className={`${status == "موفق" ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type == "پرداختی" ? "+" : "-") + " " + (price).toLocaleString()} {t(currency)}</span>
             </div>
         </div>
     )
