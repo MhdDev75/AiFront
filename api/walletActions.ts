@@ -1,7 +1,7 @@
 // src/api/actions/userActions.js
 import apiClient from "./apiClient";
 
-// ورود کاربر
+// گرفتن کیف پول کاربر
 export const getBalance = async () => {
   try {
     const response = await apiClient.get(`/Account/Balance`);
@@ -15,10 +15,10 @@ export const getBalance = async () => {
   }
 };
 
-// گرفتن اطلاعات کاربر
-export const getUser = async () => {
+// گرفتن اطلاعات تراکنش کاربر
+export const getTransaction = async () => {
   try {
-    const response = await apiClient.get(`/User/Get`);
+    const response = await apiClient.get(`/Payment/Transactions`);
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);

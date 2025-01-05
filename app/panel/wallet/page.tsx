@@ -8,7 +8,7 @@ import iconLight from "@/assets/images/Ai_Studio-light.svg";
 import iconDark from "@/assets/images/Ai_Studio-dark.svg";
 import { useCookies } from 'react-cookie'
 import Image from 'next/image'
-import { getBalance } from '@/api/walletActions'
+import { getBalance, getTransaction } from '@/api/walletActions'
 import { toast } from 'react-toastify'
 import { IBalance, ITransaction } from '@/lib/type'
 import { useBackButton } from '@/core/telegram/BackButtonProvider'
@@ -51,9 +51,9 @@ const WalletPage = () => {
 
     const getTransactionClient = async () => {
         setLoading(true);
-        const response = await getBalance();
+        const response = await getTransaction();
         if (response.isSuccess) {
-            response.value.forEach((item: ITransaction) => {
+            response.value.map((item: ITransaction) => {
                 item.icons = item.type == "پرداختی" ? "Check" : "X"
                 const today = new Date(item.transactionDate);
                 const dd = today.getDate();
