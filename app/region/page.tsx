@@ -1,7 +1,7 @@
 "use client"
 import { getRegion, postUserRegion } from '@/api/userActions'
+import { locales } from '@/core/i18n/config'
 import { setLocale } from '@/core/i18n/locale'
-import { Locale } from '@/core/i18n/types'
 import { IRegion } from '@/lib/type'
 import { setRegion } from '@/utils/helper'
 import { useRouter } from 'next/navigation'
@@ -20,7 +20,7 @@ const RegionPage = () => {
     const [regionServer, setRegionServer] = useState<IRegion[]>()
     const handleRegion = () => {
         if (regionServer) {
-            const regionName = isActive == 1 ? "Fa" : "En"
+            const regionName = isActive == 1 ? locales[0] : locales[1]
 
             if (regionName) {
                 postRegion(regionName)
@@ -46,9 +46,8 @@ const RegionPage = () => {
         const response = await postUserRegion(isActive);
         if (response.isSuccess) {
             setRegion(region)
-            const locale = region.toLowerCase() as Locale;
-            setLocale(locale);
-            toast.success(response.message)
+            setLocale(region);
+            toast.success(response.successes)
             router.push("/welcome")
             setLoading(false)
         }
