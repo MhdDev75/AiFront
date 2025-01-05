@@ -6,9 +6,9 @@ export interface inlineBoxProps {
     date: string,
     icon: string,
     price: number,
-    type: boolean,
+    type: string,
+    status: string,
     currency:string
-
 }
 
 const getIcon = (icon: string) => {
@@ -29,7 +29,7 @@ const InlineBoxComponent = ({ title, date, icon, price, type , currency }: inlin
     return (
         <div className='card bg-base-300 shadow flex flex-row flex-nowrap justify-between items-center p-2 rounded-full'>
             <div className='flex gap-2'>
-                <div className={`${type ? 'bg-success' : 'bg-error'} h-14 w-14 rounded-full  flex justify-center items-center`}>
+                <div className={`${status =="موفق" ? 'bg-success' : 'bg-error'} h-14 w-14 rounded-full  flex justify-center items-center`}>
                     {getIcon(icon)}
                 </div>
                 <div className='flex flex-col gap-2'>
@@ -38,7 +38,7 @@ const InlineBoxComponent = ({ title, date, icon, price, type , currency }: inlin
                 </div>
             </div>
             <div>
-                <span className={`${type ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type ? "+" : "-") + " " + (price).toLocaleString()} {t(currency)}</span>
+                <span className={`${status =="موفق" ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type ? "+" : "-") + " " + (price).toLocaleString()} {t(currency)}</span>
             </div>
         </div>
     )

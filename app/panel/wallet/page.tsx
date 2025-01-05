@@ -8,6 +8,9 @@ import iconLight from "@/assets/images/Ai_Studio-light.svg";
 import iconDark from "@/assets/images/Ai_Studio-dark.svg";
 import { useCookies } from 'react-cookie'
 import Image from 'next/image'
+import { getBalance } from '@/api/walletActions'
+import { toast } from 'react-toastify'
+import { IBalance, ITransaction } from '@/lib/type'
 
 const WalletPage = () => {
 
@@ -16,38 +19,65 @@ const WalletPage = () => {
     const [theme, setTheme] = useState("dark");
     const router = useRouter();
     const t = useTranslations("i18n");
-    const today = new Date();
-    const dd = today.getDate() + 1;
-    const mm = today.getMonth() + 1;
-    const yyyy = today.getFullYear();
 
-    const friendList = [
-        { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "Check", type: true, currency: "Toman" },
-        { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "Check", type: true, currency: "Toman" },
-        { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "Check", type: true, currency: "Toman" },
-        { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "X", type: false, currency: "Toman" },
-        { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "Check", type: true, currency: "Toman" },
-        { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "Check", type: true, currency: "Toman" },
-        { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "X", type: false, currency: "Toman" },
-        { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "X", type: false, currency: "Toman" }
-    ]
+    const [loading, setLoading] = useState(false)
+    const [balanceServer, setBalanceServer] = useState<IBalance>()
+    const [transactionServer, setTransactionServer] = useState<ITransaction[]>()
+
 
 
     useEffect(() => {
         setTheme(cookie.Theme)
+        getBalanceClient()
+        getTransactionClient()
     }, [cookie.Theme])
 
+    const getBalanceClient = async () => {
+        setLoading(true);
+        const response = await getBalance();
+        if (response.isSuccess) {
+            setBalanceServer(response.value)
+            setLoading(false)
+        }
+        else {
+            toast.error(response.message)
+            setLoading(false)
+        }
+    };
+
+
+    const getTransactionClient = async () => {
+        setLoading(true);
+        const response = await getBalance();
+        if (response.isSuccess) {
+            response.value.map((item: ITransaction) => {
+                item.icons = item.type == "پرداختی" ? "Check" : "X"
+                const today = new Date(item.transactionDate);
+                const dd = today.getDate();
+                const mm = today.getMonth();
+                const yyyy = today.getFullYear();
+                item.transactionDate = dd + '/' + mm + '/' + yyyy
+            })
+            setTransactionServer(response.value)
+            setLoading(false)
+        }
+        else {
+            toast.error(response.message)
+            setLoading(false)
+        }
+    };
     return (
         <div className='flex flex-col h-full gap-4'>
             <div className="card bg-base-300 shadow rounded-3xl overflow-hidden">
                 <div className="card-body p-2 text-center">
-                <div className='absolute end-2 top-2 opacity-35'>
-                        <Image src={theme === "light" ? iconLight : iconDark} alt="welcome" width={30} />
-                        </div>
+                    <div className='absolute end-2 top-2 opacity-35'>
+                        {loading ?
+                            (<span className="loading loading-spinner"></span>) :
+                            (<Image src={theme === "light" ? iconLight : iconDark} alt="welcome" width={30} />)}
+                    </div>
                     <div className='flex flex-col gap-2'>
-                       
                         <span className="text-sm">{t("wallet.TotalAssets")} ({t("wallet.Currency")})</span>
-                        <span className="card-title text-3xl font-bold justify-center">{(1200000).toLocaleString()} </span>
+                        <span className="card-title text-3xl font-bold justify-center">{balanceServer ? (Number(balanceServer.amount)).toLocaleString() : 0} </span>
                     </div>
                 </div>
             </div>
@@ -81,13 +111,14 @@ const WalletPage = () => {
                 <span className='text-lg font-extrabold'>{t("wallet.Transaction")}</span>
                 <div className='flex overflow-y-scroll flex-col gap-2'>
 
-                    {friendList.map((item) => (
+                    {transactionServer && transactionServer.map((item, index) => (
                         <InlineBoxComponent
-                            key={item.id}
-                            date={item.datetime}
-                            price={item.gift}
-                            title={item.name}
+                            key={index}
+                            date={item.transactionDate}
+                            price={item.amount}
+                            title={item.description}
                             type={item.type}
+                            status={item.status}
                             icon={item.icons}
                             currency={item.currency} />
                     ))}

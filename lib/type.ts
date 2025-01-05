@@ -75,6 +75,21 @@ export interface IRegion {
   currency: string
 }
 
+export interface IBalance {
+  amount: number,
+}
+
+
+export interface ITransaction {
+  amount: number,
+  currency: string,
+  type: string,
+  icons: string,
+  description: string,
+  status: string,
+  transactionDate: string
+}
+
 export interface IResponseCategoryItems {
   id: number;
   title: string | undefined;
