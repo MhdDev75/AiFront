@@ -1,13 +1,21 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import coins from "@/assets/tasks/coins.png"
 import { Coins, Flag, Medal, PopcornIcon } from 'lucide-react'
 import TaskBoxComponent from '@/components/panel/TaskBoxComponent'
 import { useTranslations } from 'next-intl'
+import { useBackButton } from '@/core/telegram/BackButtonProvider'
 
 
 const TasksPage = () => {
 
+ const { setIsVisible } = useBackButton();
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+  
   const t= useTranslations("i18n")
   
   const taskList = [

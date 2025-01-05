@@ -1,10 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mic, Star } from "lucide-react";
+import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 
 const ChatPage = () => {
+
+    const { setIsVisible } = useBackButton();
+
+    useEffect(() => {
+        setIsVisible(true); // دکمه بازگشت را فعال کنید
+    }, []);
 
     const [chatInput, setChatInput] = useState<string>();
     const [chatMessage, setChatMessage] = useState([

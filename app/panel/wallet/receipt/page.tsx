@@ -1,8 +1,9 @@
 "use client"
 import { locales } from '@/core/i18n/config'
+import { useBackButton } from '@/core/telegram/BackButtonProvider'
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 const ReceiptPage = () => {
@@ -13,7 +14,11 @@ const ReceiptPage = () => {
   const local = useLocale()
   const router = useRouter()
   const t = useTranslations("i18n")
+  const { setIsVisible } = useBackButton();
 
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
   const topUpList = [
     { id: 1, price: 10000 },
     { id: 2, price: 20000 },

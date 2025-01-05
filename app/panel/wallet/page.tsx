@@ -11,6 +11,7 @@ import Image from 'next/image'
 import { getBalance } from '@/api/walletActions'
 import { toast } from 'react-toastify'
 import { IBalance, ITransaction } from '@/lib/type'
+import { useBackButton } from '@/core/telegram/BackButtonProvider'
 
 const WalletPage = () => {
 
@@ -24,9 +25,11 @@ const WalletPage = () => {
     const [balanceServer, setBalanceServer] = useState<IBalance>()
     const [transactionServer, setTransactionServer] = useState<ITransaction[]>()
 
+    const { setIsVisible } = useBackButton();
 
 
     useEffect(() => {
+        setIsVisible(true); // دکمه بازگشت را فعال کنید
         setTheme(cookie.Theme)
         getBalanceClient()
         getTransactionClient()
@@ -78,6 +81,9 @@ const WalletPage = () => {
                     <div className='flex flex-col gap-2'>
                         <span className="text-sm">{t("wallet.TotalAssets")} ({t("wallet.Currency")})</span>
                         <span className="card-title text-3xl font-bold justify-center">{balanceServer ? (Number(balanceServer.amount)).toLocaleString() : 0} </span>
+                    </div>
+                    <div className='flex flex-row justify-start gap-2'>
+                        نام و نام خانوادگی کاربر
                     </div>
                 </div>
             </div>
