@@ -50,14 +50,17 @@ export const getUserRegion = async () => {
 };
 
 // افزودن ملیت کاربر
-export const postUserRegion = async (region: string) => {
+export const postUserRegion = async (region: number) => {
   try {
     const response = await apiClient.post(`/Region/AddUserRegion`, {
-      headers: {
-        "Content-Type": "application/json",
-        "Accept-Language": region,
-      },
-    });
+      regionId: region
+    },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept-Language": region,
+        },
+      });
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);

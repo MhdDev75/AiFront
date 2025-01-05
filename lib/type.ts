@@ -69,6 +69,12 @@ export interface IApplication {
   imageUrl: string;
 }
 
+export interface IRegion {
+  id: number,
+  name: string,
+  currency: string
+}
+
 export interface IResponseCategoryItems {
   id: number;
   title: string | undefined;
