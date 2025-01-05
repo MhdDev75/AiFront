@@ -1,6 +1,6 @@
 import React from 'react'
 import { Check, CircleUserIcon, MessageCircleQuestionIcon, X } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
 export interface inlineBoxProps {
     title: string,
     date: string,
@@ -25,7 +25,7 @@ const getIcon = (icon: string) => {
 }
 
 const InlineBoxComponent = ({ title, date, icon, price, type, status, currency }: inlineBoxProps) => {
-    const t = useTranslations("i18n")
+    // const t = useTranslations("i18n")
     return (
         <div className='card bg-base-300 shadow flex flex-row flex-nowrap justify-between items-center p-2 rounded-full'>
             <div className='flex gap-2'>
@@ -38,7 +38,7 @@ const InlineBoxComponent = ({ title, date, icon, price, type, status, currency }
                 </div>
             </div>
             <div>
-                <span className={`${status == "موفق" ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type == "پرداختی" ? "+" : "-") + " " + (price).toLocaleString()} {t(currency)}</span>
+                <span className={`${status == "موفق" ? 'text-success' : 'text-error'} text-md text-nowrap font-bold px-3 `}>{(type == "پرداختی" ? "+" : "-") + " " + (price).toLocaleString()} {currency}</span>
             </div>
         </div>
     )

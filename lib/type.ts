@@ -84,6 +84,7 @@ export interface ITransaction {
   amount: number,
   currency: string,
   type: string,
+  typeTitle:string,
   icons: string,
   description: string,
   status: string,

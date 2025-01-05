@@ -122,7 +122,7 @@ const WalletPage = () => {
                             key={index}
                             date={item.transactionDate}
                             price={item.amount}
-                            title={item.description}
+                            title={item.typeTitle}
                             type={item.type}
                             status={item.status}
                             icon={item.icons}
