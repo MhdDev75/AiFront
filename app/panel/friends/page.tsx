@@ -109,7 +109,8 @@ const FriendsPage = () => {
               date={item.datetime}
               price={item.gift}
               title={item.name}
-              type={item.type}
+              type="پرداختی"
+              status='موفق'
               icon={item.icons}
               currency={item.currency} />
           ))}
