@@ -38,11 +38,9 @@ const ConfirmPage = () => {
         }
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handelClick = async (e: any) => {
+    const handelClick = async () => {
         console.log("handelClick");
         
-        e.preventDefault()
         if (!input && !file) {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
             return
@@ -80,7 +78,7 @@ const ConfirmPage = () => {
                 <div className='text-start'>مبلغ واریز</div>
                 <div className='text-end'>{Number(amount).toLocaleString()}</div>
             </div>
-            <form onSubmit={(e) => handelClick} className='flex flex-col gap-4'>
+            <form onSubmit={() => handelClick} className='flex flex-col gap-4'>
                 <div className="collapse collapse-plus  bg-base-300">
                     <input onClick={() => handelType("TEXT")} type="radio" name="my-accordion-3" defaultChecked />
                     <div className="collapse-title text-xl font-medium">متن</div>
