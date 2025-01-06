@@ -39,19 +39,15 @@ const ConfirmPage = () => {
     };
 
     const handelClick = async () => {
-        console.log("handelClick");
-        
         if (!input && !file) {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
             return
         }
         const inputs: IReceiptPayment = { amount: Number(amount), text: input, type: type }
-        console.log(inputs);
         const response = await postReceiptPayment(inputs, file)
         if (response.success) {
             toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
             router.push("/panel/wallet")
-            return
         }
 
     }
@@ -78,7 +74,6 @@ const ConfirmPage = () => {
                 <div className='text-start'>مبلغ واریز</div>
                 <div className='text-end'>{Number(amount).toLocaleString()}</div>
             </div>
-            <form onSubmit={() => handelClick} className='flex flex-col gap-4'>
                 <div className="collapse collapse-plus  bg-base-300">
                     <input onClick={() => handelType("TEXT")} type="radio" name="my-accordion-3" defaultChecked />
                     <div className="collapse-title text-xl font-medium">متن</div>
@@ -100,8 +95,7 @@ const ConfirmPage = () => {
                         </label>
                     </div>
                 </div>
-                <button type='submit' className='btn btn-primary rounded-3xl'>تایید و ارسال</button>
-            </form>
+                <button onClick={()=>handelClick()} className='btn btn-primary rounded-3xl'>تایید و ارسال</button>
         </div>
     )
 }

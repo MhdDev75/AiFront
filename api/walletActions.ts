@@ -30,8 +30,6 @@ export const getTransaction = async () => {
 // ارسال درخواست پرداخت
 export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) => {
   try {
-    console.log("aoi",inputs);
-    
     const formData = new FormData();
     if (inputs.type === "IMAGE") {
       if (file) {
