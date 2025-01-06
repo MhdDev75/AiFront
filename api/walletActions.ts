@@ -1,4 +1,5 @@
 // src/api/actions/userActions.js
+import { IReceiptPayment } from "@/lib/type";
 import apiClient from "./apiClient";
 
 // گرفتن کیف پول کاربر
@@ -26,10 +27,24 @@ export const getTransaction = async () => {
   }
 };
 
-// گرفتن ملیت
-export const getRegion = async () => {
+// ارسال درخواست پرداخت
+export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) => {
   try {
-    const response = await apiClient.get(`/Region/Region`);
+    const formData = new FormData();
+    if (inputs.type === "IMAGE") {
+      inputs.text = ""
+      if (file) {
+        formData.append("FILE", file);
+      }
+      else {
+        throw new Error("File is required");
+      }
+    } else {
+      if (!inputs.text) {
+        throw new Error("Text is required");
+      }
+    }
+    const response = await apiClient.post(`/Payment/ReceiptPayment?Amount=${Number(inputs.amount)}&Type=${inputs.type}&Text=${inputs.text}`, formData);
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);

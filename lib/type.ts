@@ -79,6 +79,12 @@ export interface IBalance {
   amount: number,
 }
 
+export interface IReceiptPayment {
+  amount: number,
+  type: "TEXT" | "IMAGE",
+  text?: string
+}
+
 
 export interface ITransaction {
   amount: number,
