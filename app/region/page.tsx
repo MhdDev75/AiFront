@@ -64,7 +64,7 @@ const RegionPage = () => {
                         <button onClick={() => setIsActive(item.id)} className={`btn  ${item.id === isActive ? 'btn-outline btn-primary' : 'btn-outline'}`} key={item.id}>{item.name}</button>
                     ))}
                 </div>
-                <button onClick={() => handleRegion()} className="btn btn-primary">
+                <button disabled={loading} onClick={() => handleRegion()} className="btn btn-primary">
                     {loading ? <span className="loading loading-spinner"></span> : ""}
                     Confirm</button>
             </main>

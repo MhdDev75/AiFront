@@ -32,46 +32,19 @@ export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) =
   try {
     const formData = new FormData();
     if (inputs.type === "IMAGE") {
-      if (file) {
-        formData.append("FILE", file);
+      if (file !== undefined) {
+        formData.append("File", file);
       }
     }
-    const response = await apiClient.post(`/Payment/ReceiptPayment?Amount=${Number(inputs.amount)}&Type=${inputs.type}&Text=${inputs.text}`, formData);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    throw error;
-  }
-};
-
-// گرفتن اطلاعات ملیت کاربر
-export const getUserRegion = async () => {
-  try {
-    const response = await apiClient.get(`/Region/UserRegion`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    throw error;
-  }
-
-};
-
-// افزودن ملیت کاربر
-export const postUserRegion = async (region: number) => {
-  try {
-    const response = await apiClient.post(`/Region/AddUserRegion`, {
-      regionId: region
-    },
+    const response = await apiClient.post(`/Payment/ReceiptPayment?Amount=${Number(inputs.amount)}&Type=${inputs.type}&Text=${inputs.text}`,
+      formData,
       {
-        headers: {
-          "Content-Type": "application/json",
-          "Accept-Language": region,
-        },
+        headers: { 'Content-Type': 'multipart/form-data', },
       });
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
     throw error;
   }
+};
 
-}

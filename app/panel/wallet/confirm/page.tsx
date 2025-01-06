@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import chip from "@/assets/wallet/chip.png"
 import Image from 'next/image';
 import { UploadCloud } from 'lucide-react';
@@ -18,7 +18,7 @@ const ConfirmPage = () => {
     const [type, setType] = useState<"TEXT" | "IMAGE">("TEXT")
     const [input, setInput] = useState<string>()
     const [file, setFile] = useState<File>()
-
+    const [loading, setLoading] = useState(false)
 
     const handelType = (input: "TEXT" | "IMAGE") => {
         setType(input)
@@ -32,6 +32,8 @@ const ConfirmPage = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleFileChange = (e: any) => {
+        console.log(e.target.files);
+
         if (e.target.files) {
             setFile(e.target.files[0]);
             toast.success(`فایل ${e.target.files[0].name} انتخاب شد`);
@@ -39,23 +41,34 @@ const ConfirmPage = () => {
     };
 
     const handelClick = async () => {
-        if (type ==="TEXT"  &&  (!input || input =="")) {
+        setLoading(true)
+
+        if (type === "TEXT" && (!input || input == "")) {
             toast.error("متن را وارد نمایید  فرمایید")
+            setLoading(false)
+
             return
         }
 
-        if (type ==="IMAGE"  &&  (!file|| file ==undefined)) {
+        if (type === "IMAGE" && (!file || file == undefined)) {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
+            setLoading(false)
             return
         }
 
         const inputs: IReceiptPayment = { amount: Number(amount), text: input, type: type }
-        const response = await postReceiptPayment(inputs, file)
-        if (response.success) {
-            toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
-            router.replace("/panel/wallet")
+        try {
+            const response = await postReceiptPayment(inputs, file)
+            if (response.isSuccess) {
+                setLoading(false)
+                toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
+                router.replace("/panel/wallet")
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error(" بروز خطا در ارسال درخواست رخ داده است ")
+            setLoading(false)
         }
-
     }
     const { setIsVisible } = useBackButton();
 
@@ -80,28 +93,31 @@ const ConfirmPage = () => {
                 <div className='text-start'>مبلغ واریز</div>
                 <div className='text-end'>{Number(amount).toLocaleString()}</div>
             </div>
-                <div className="collapse collapse-plus  bg-base-300">
-                    <input onClick={() => handelType("TEXT")} type="radio" name="my-accordion-3" defaultChecked />
-                    <div className="collapse-title text-xl font-medium">متن</div>
-                    <div className="collapse-content ">
-                        <label className="form-control px-3">
-                            <textarea value={input} onChange={(e) => setInput(e.target.value)}
-                                className="textarea textarea-bordered h-16 w-full" placeholder="اطلاعات تراکنش را وارد  فرمایید"></textarea>
-                        </label>
-                    </div>
+            <div className="collapse collapse-plus  bg-base-300">
+                <input onClick={() => handelType("TEXT")} type="radio" name="my-accordion-3" defaultChecked />
+                <div className="collapse-title text-xl font-medium">متن</div>
+                <div className="collapse-content ">
+                    <label className="form-control px-3">
+                        <textarea value={input} onChange={(e) => setInput(e.target.value)}
+                            className="textarea textarea-bordered h-16 w-full" placeholder="اطلاعات تراکنش را وارد  فرمایید"></textarea>
+                    </label>
                 </div>
-                <div className="collapse collapse-plus bg-base-300">
-                    <input onClick={() => handelType("IMAGE")} type="radio" name="my-accordion-3" />
-                    <div className="collapse-title text-xl font-medium">عکس</div>
-                    <div className="collapse-content">
-                        <input type="file" id="file-input" onChange={() => handleFileChange} className="hidden" />
-                        <label htmlFor="file-input" className="btn btn-outline h-auto flex flex-col gap-3 btn-primary p-3">
-                            <UploadCloud size={40} />
-                            <span className="file-text">برای اپلود فایل کلیک کنید</span>
-                        </label>
-                    </div>
+            </div>
+            <div className="collapse collapse-plus bg-base-300">
+                <input onClick={() => handelType("IMAGE")} type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-xl font-medium">عکس</div>
+                <div className="collapse-content">
+                    <input type="file" id="file-input" onChange={handleFileChange} className="hidden" />
+                    <label htmlFor="file-input" className="btn btn-outline h-auto flex flex-col gap-3 btn-primary p-3">
+                        <UploadCloud size={40} />
+                        <span className="file-text">برای اپلود فایل کلیک کنید</span>
+                    </label>
                 </div>
-                <button onClick={()=>handelClick()} className='btn btn-primary rounded-3xl'>تایید و ارسال</button>
+            </div>
+            <button disabled={loading} onClick={() => handelClick()} className='btn btn-primary rounded-3xl'>
+                {loading ? <span className="loading loading-spinner"></span> : ""}
+                تایید و ارسال
+            </button>
         </div>
     )
 }
