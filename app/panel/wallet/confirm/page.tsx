@@ -39,10 +39,16 @@ const ConfirmPage = () => {
     };
 
     const handelClick = async () => {
-        if (!input && !file) {
+        if (type ==="TEXT"  &&  (!input || input =="")) {
+            toast.error("متن را وارد نمایید  فرمایید")
+            return
+        }
+
+        if (type ==="IMAGE"  &&  (!file|| file ==undefined)) {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
             return
         }
+        
         const inputs: IReceiptPayment = { amount: Number(amount), text: input, type: type }
         const response = await postReceiptPayment(inputs, file)
         if (response.success) {
