@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { use, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import chip from "@/assets/wallet/chip.png"
 import Image from 'next/image';
 import { UploadCloud } from 'lucide-react';
@@ -48,12 +48,12 @@ const ConfirmPage = () => {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
             return
         }
-        
+
         const inputs: IReceiptPayment = { amount: Number(amount), text: input, type: type }
         const response = await postReceiptPayment(inputs, file)
         if (response.success) {
             toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
-            router.push("/panel/wallet")
+            router.replace("/panel/wallet")
         }
 
     }
