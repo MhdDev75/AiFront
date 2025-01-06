@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import chip from "@/assets/wallet/chip.png"
 import Image from 'next/image';
 import { UploadCloud } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { postReceiptPayment } from '@/api/walletActions';
 import { IReceiptPayment } from '@/lib/type';
+import { useBackButton } from '@/core/telegram/BackButtonProvider';
 
 const ConfirmPage = () => {
     const searchParams = useSearchParams();
@@ -39,12 +40,15 @@ const ConfirmPage = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handelClick = async (e: any) => {
+        console.log("handelClick");
+        
         e.preventDefault()
         if (!input && !file) {
             toast.error("مقادیر ورودی را تکمیل فرمایید")
             return
         }
         const inputs: IReceiptPayment = { amount: Number(amount), text: input, type: type }
+        console.log(inputs);
         const response = await postReceiptPayment(inputs, file)
         if (response.success) {
             toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
@@ -53,6 +57,11 @@ const ConfirmPage = () => {
         }
 
     }
+    const { setIsVisible } = useBackButton();
+
+    useEffect(() => {
+        setIsVisible(true); // دکمه بازگشت را فعال کنید
+    }, [])
     return (
         <div className='flex flex-col  gap-4 overflow-y-auto'>
             <div className="card bg-base-300 h-48 shadow rounded-3xl">
