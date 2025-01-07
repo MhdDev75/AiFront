@@ -43,7 +43,7 @@ export const postReceiptPayment = async (
 
     const response = await axios({
       method: "post",
-      url: `${getDomain()}/Payment/ReceiptPayment?Amount=${Number(
+      url: `${getDomain()}Payment/ReceiptPayment?Amount=${Number(
         inputs.amount
       )}&Type=${inputs.type}&Text=${inputs.text}`,
       data: formData,
