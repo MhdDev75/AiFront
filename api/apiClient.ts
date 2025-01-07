@@ -48,4 +48,12 @@ apiClient.interceptors.response.use(
   }
 );
 
+export const getToken = () => {
+  return localStorage.getItem("token");
+};
+
+export const getDomain = () => {
+  return process.env.BASE_URL || "https://api.the-ai.studio/";
+};
+
 export default apiClient;

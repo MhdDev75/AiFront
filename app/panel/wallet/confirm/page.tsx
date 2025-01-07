@@ -107,7 +107,7 @@ const ConfirmPage = () => {
                 <input onClick={() => handelType("IMAGE")} type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">عکس</div>
                 <div className="collapse-content">
-                    <input type="file" id="file-input" onChange={handleFileChange} className="hidden" />
+                    <input type="file" id="file-input" accept="image/png" onChange={handleFileChange} className="hidden" />
                     <label htmlFor="file-input" className="btn btn-outline h-auto flex flex-col gap-3 btn-primary p-3">
                         <UploadCloud size={40} />
                         <span className="file-text">برای اپلود فایل کلیک کنید</span>

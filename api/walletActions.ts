@@ -1,6 +1,7 @@
 // src/api/actions/userActions.js
 import { IReceiptPayment } from "@/lib/type";
-import apiClient from "./apiClient";
+import apiClient, { getDomain, getToken } from "./apiClient";
+import axios from "axios";
 
 // گرفتن کیف پول کاربر
 export const getBalance = async () => {
@@ -28,7 +29,10 @@ export const getTransaction = async () => {
 };
 
 // ارسال درخواست پرداخت
-export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) => {
+export const postReceiptPayment = async (
+  inputs: IReceiptPayment,
+  file?: File
+) => {
   try {
     const formData = new FormData();
     if (inputs.type === "IMAGE") {
@@ -36,15 +40,23 @@ export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) =
         formData.append("File", file);
       }
     }
-    const response = await apiClient.post(`/Payment/ReceiptPayment?Amount=${Number(inputs.amount)}&Type=${inputs.type}&Text=${inputs.text}`,
-      formData,
-      {
-        headers: { 'Content-Type': 'multipart/form-data', },
-      });
+
+    const response = await axios({
+      method: "post",
+      url: `${getDomain()}/Payment/ReceiptPayment?Amount=${Number(
+        inputs.amount
+      )}&Type=${inputs.type}&Text=${inputs.text}`,
+      data: formData,
+      headers: {
+        Authorization: getToken(),
+        "Content-Type": "multipart/form-data",
+        "Accept-Language": "Fa", // زبان پیش‌فرض
+      },
+    });
+
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
     throw error;
   }
 };
-
