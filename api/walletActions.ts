@@ -48,7 +48,7 @@ export const postReceiptPayment = async (
       )}&Type=${inputs.type}&Text=${inputs.text}`,
       data: formData,
       headers: {
-        Authorization: getToken(),
+        Authorization: `Bearer ${getToken()}` ,
         "Content-Type": "multipart/form-data",
         "Accept-Language": "Fa", // زبان پیش‌فرض
       },
