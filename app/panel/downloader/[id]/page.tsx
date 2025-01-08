@@ -13,12 +13,12 @@ const DownloaderConfirmPage = () => {
   const [inputChange, setInputChange] = useState<string>("");
   const params = useParams<{ id: string }>();
   const [downloadUrl, setDownloadUrl] = useState<ILinkItems>();
-//   const path = usePathname();
+
   const { setIsVisible } = useBackButton();
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
   }, []);
-  // ss
+  
 
   const getLink = async (
    
