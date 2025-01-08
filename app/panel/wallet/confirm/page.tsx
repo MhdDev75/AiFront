@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import chip from "@/assets/wallet/chip.png"
 import Image from 'next/image';
-import { UploadCloud } from 'lucide-react';
+import { Delete, Trash, UploadCloud } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { postReceiptPayment } from '@/api/walletActions';
 import { IReceiptPayment } from '@/lib/type';
@@ -107,11 +107,22 @@ const ConfirmPage = () => {
                 <input onClick={() => handelType("IMAGE")} type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">عکس</div>
                 <div className="collapse-content">
-                    <input type="file" id="file-input" onChange={handleFileChange} className="hidden" />
-                    <label htmlFor="file-input" className="btn btn-outline h-auto flex flex-col gap-3 btn-primary p-3">
-                        <UploadCloud size={40} />
-                        <span className="file-text">برای اپلود فایل کلیک کنید</span>
-                    </label>
+                    {file ?
+                        <>
+                            <label onClick={()=>setFile(undefined)} className="btn  h-auto flex flex-col gap-3 btn-error p-3">
+                                <Trash size={40} />
+                                <span className="file-text">{file.name}</span>
+                                <span className="file-text"> برای حذف کلیک کنید</span>
+                            </label>
+                        </> :
+                        <>
+                            <input type="file" id="file-input" onChange={handleFileChange} className="hidden" />
+                            <label htmlFor="file-input" className="btn btn-outline h-auto flex flex-col gap-3 btn-primary p-3">
+                                <UploadCloud size={40} />
+                                <span className="file-text">برای اپلود فایل کلیک کنید</span>
+                            </label>
+                        </>
+                    }
                 </div>
             </div>
             <button disabled={loading} onClick={() => handelClick()} className='btn btn-primary rounded-3xl'>

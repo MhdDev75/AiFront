@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.7.9
         version: 1.7.9
+      convert-units:
+        specifier: 3.0.0-beta.7
+        version: 3.0.0-beta.7
       framer-motion:
         specifier: ^11.13.5
         version: 11.13.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -615,6 +618,9 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  convert-units@3.0.0-beta.7:
+    resolution: {integrity: sha512-14vv/OqGP/i70i0BICzGDHWVkgwoXG2ZBphsyhYdwUTEdl6x0NJJClC6hhxlu15kRNTTbkAF6xORdsdNQPBCiw==}
 
   cookie@0.7.2:
     resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
@@ -2377,6 +2383,8 @@ snapshots:
   commander@4.1.1: {}
 
   concat-map@0.0.1: {}
+
+  convert-units@3.0.0-beta.7: {}
 
   cookie@0.7.2: {}
 

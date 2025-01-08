@@ -90,8 +90,39 @@
       "FreePointsDesc": "You can get free points when your friends join.",
       "Share": "Share invitation code"
     },
-    "Downloader":{
-      "Input":"Input Address"
+    "Downloader": {
+      "Input": "Input Address"
+    },
+    "Convertor": {
+      "length": "length",
+      "area": "area",
+      "mass": "mass",
+      "volume": "volume",
+      "each": "each",
+      "temperature": "temperature",
+      "time": "time",
+      "digital": "digital",
+      "partsPer": "partsPer",
+      "speed": "speed",
+      "pace": "pace",
+      "pressure": "pressure",
+      "current": "current",
+      "voltage": "voltage",
+      "power": "power",
+      "reactivePower": "reactivePower",
+      "apparentPower": "apparentPower",
+      "energy": "energy",
+      "reactiveEnergy": "reactiveEnergy",
+      "volumeFlowRate": "volumeFlowRate",
+      "illuminance": "illuminance",
+      "frequency": "frequency",
+      "angle": "angle",
+      "acceleration": "acceleration",
+      "charge":"charge",
+      "force":"force",
+      "massFlowRate":"massFlowRate",
+      "pieces":"pieces",
+      "torque":"torque"
     },
     "SessionError": "Your session has ended",
     "Disconnected": "Error connecting to the server.",
@@ -108,6 +139,6 @@
     "header": "Application supports i18n",
     "footer": "You can select a different language from the dropdown menu.",
     "Version": "Version",
-    "LetsGo" :"Lets Go !"
+    "LetsGo": "Lets Go !"
   }
 }

@@ -85,6 +85,18 @@ export interface IReceiptPayment {
   text?: string
 }
 
+export interface IMeasures { 
+  id:number,
+  name:string,
+  icon:React.ReactNode,
+}
+
+export interface IMeasuresValue { 
+  id:number,
+  name:string,
+  value:number,
+}
+
 
 export interface ITransaction {
   amount: number,
