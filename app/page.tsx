@@ -36,7 +36,7 @@ export default function HomePage() {
         setCookie("NewUser", response.value.isNew );
         setCookie("token", response.value.token);
         localStorage.setItem("token", response.value.token);
-        const totalDuration = 5000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
+        const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
         const steps = totalDuration / increment;
         let currentStep = 0;
