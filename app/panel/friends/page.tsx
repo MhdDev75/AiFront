@@ -22,10 +22,15 @@ const FriendsPage = () => {
   }, []);
 
   const shareLink = () => {
+    const messageContent =
+    {
+      text: 'این یک پیام است که شامل یک لینک است',
+      url: affiliate?.url
+    };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
     if (app) {
-      app.shareMessage(affiliate?.url)
+      app.shareMessage(messageContent)
     }
   }
 
