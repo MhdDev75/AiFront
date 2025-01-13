@@ -18,15 +18,21 @@ const FriendsPage = () => {
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
     getAffiliateServer()
+
   }, []);
+
+  const shareLink = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const app = (window as any).Telegram?.WebApp;
+    if (app) {
+      app.shareMessage(affiliate?.url)
+    }
+  }
 
   const getAffiliateServer = async () => {
     try {
       const response = await getAffiliate();
-      if (response.isSuccess) {
-        setAffiliate(response.value as IAffiliate);
-      } else {
-      }
+      setAffiliate(response as IAffiliate);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.log(err.message);
@@ -34,7 +40,7 @@ const FriendsPage = () => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const app = (window as any).Telegram?.WebApp;
+  // const app = (window as any).Telegram?.WebApp;
   const today = new Date();
   const dd = today.getDate() + 1;
   const mm = today.getMonth() + 1;
@@ -133,8 +139,9 @@ const FriendsPage = () => {
         </div>
       )}
 
-      <button onClick={() =>  app.shareMessage({ text: 'این یک پیام است که شامل یک لینک است', url: affiliate?.url })} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
+      <button onClick={() => shareLink()} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
         {t("Friend.Share")}
+        { }
       </button>
     </section>
   )
