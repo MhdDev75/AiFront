@@ -63,7 +63,7 @@ const FriendsPage = () => {
 
   return (
     <section className="flex flex-col h-full gap-2">
-      
+
       <div className='grid grid-cols-3 h-12 gap-2 p-2 bg-base-300 rounded-full'>
         {tablist.map((item) => (
           <button onClick={() => setTab(item.id)}
@@ -133,7 +133,7 @@ const FriendsPage = () => {
         </div>
       )}
 
-      <button onClick={() =>affiliate && app.shareMessage(affiliate?.url)} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
+      <button onClick={() =>  app.shareMessage({ text: 'این یک پیام است که شامل یک لینک است', url: affiliate?.url })} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
         {t("Friend.Share")}
       </button>
     </section>
