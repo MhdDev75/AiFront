@@ -6,16 +6,32 @@ import Image from 'next/image'
 import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
 import { useBackButton } from '@/core/telegram/BackButtonProvider'
 import { useTranslations } from 'next-intl'
+import { getAffiliate } from '@/api/affiliate'
+import { IAffiliate } from '@/lib/type'
 
 const FriendsPage = () => {
 
   const [tab, setTab] = useState(1)
   const { setIsVisible } = useBackButton();
   const t = useTranslations("i18n")
-
+  const [affiliate, setAffiliate] = useState<IAffiliate>()
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
+    getAffiliateServer()
   }, []);
+
+  const getAffiliateServer = async () => {
+    try {
+      const response = await getAffiliate();
+      if (response.isSuccess) {
+        setAffiliate(response.value as IAffiliate);
+      } else {
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      console.log(err.message);
+    }
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const app = (window as any).Telegram?.WebApp;
@@ -31,23 +47,23 @@ const FriendsPage = () => {
   ]
 
   const friendList = [
-    { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 9, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 10, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 11, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" },
-    { id: 12, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true , currency:"Toman" }
+    { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 9, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 10, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 11, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
+    { id: 12, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" }
   ]
 
   return (
     <section className="flex flex-col h-full gap-2">
-
+      
       <div className='grid grid-cols-3 h-12 gap-2 p-2 bg-base-300 rounded-full'>
         {tablist.map((item) => (
           <button onClick={() => setTab(item.id)}
@@ -117,7 +133,7 @@ const FriendsPage = () => {
         </div>
       )}
 
-      <button onClick={() => app.switchInlineQuery('share', ["users", "bots", "groups", "channels"])} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
+      <button onClick={() =>affiliate && app.shareMessage(affiliate?.url)} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
         {t("Friend.Share")}
       </button>
     </section>

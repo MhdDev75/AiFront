@@ -85,16 +85,20 @@ export interface IReceiptPayment {
   text?: string
 }
 
-export interface IMeasures { 
-  id:number,
-  name:string,
-  icon:React.ReactNode,
+export interface IMeasures {
+  id: number,
+  name: string,
+  icon: React.ReactNode,
 }
 
-export interface IMeasuresValue { 
-  id:number,
-  name:string,
-  value:number,
+export interface IMeasuresValue {
+  id: number,
+  name: string,
+  value: number,
+}
+
+export interface IAffiliate {
+  url: string,
 }
 
 
@@ -102,7 +106,7 @@ export interface ITransaction {
   amount: number,
   currency: string,
   type: string,
-  typeTitle:string,
+  typeTitle: string,
   icons: string,
   description: string,
   status: string,
