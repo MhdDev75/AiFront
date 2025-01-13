@@ -17,3 +17,21 @@ export const getAffiliate = async () => {
     }
 
 }
+export const postAffiliate = async () => {
+    try {
+        const response = await apiClient.post(`/Affiliate`, {},
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept-Language": "Fa",
+                },
+            });
+        console.log(response.data);
+
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        throw error;
+    }
+
+}

@@ -97,10 +97,13 @@ export interface IMeasuresValue {
   value: number,
 }
 
-export interface IAffiliate {
+export interface IAffiliateUrl {
   url: string,
 }
 
+export interface IAffiliateCode {
+  code: string
+}
 
 export interface ITransaction {
   amount: number,

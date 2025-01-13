@@ -6,34 +6,68 @@ import Image from 'next/image'
 import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
 import { useBackButton } from '@/core/telegram/BackButtonProvider'
 import { useTranslations } from 'next-intl'
-import { getAffiliate } from '@/api/affiliate'
-import { IAffiliate } from '@/lib/type'
+import { getAffiliate, postAffiliate } from '@/api/affiliate'
+import { IAffiliateCode, IAffiliateUrl } from '@/lib/type'
+import { toast } from 'react-toastify'
 
 const FriendsPage = () => {
 
   const [tab, setTab] = useState(1)
   const { setIsVisible } = useBackButton();
   const t = useTranslations("i18n")
-  const [affiliate, setAffiliate] = useState<IAffiliate>()
+  const [affiliateUrl, setAffiliateUrl] = useState<IAffiliateUrl>()
+  const [affiliateCode, setAffiliateCode] = useState<IAffiliateCode>()
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
     getAffiliateServer()
+    postAffiliateServer()
 
   }, []);
 
   const shareLink = () => {
-  
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
     if (app) {
-      app.openTelegramLink(`https://t.me/share/url?url=${affiliate?.url}`)
+      app.openTelegramLink(`https://t.me/share/url?url=${affiliateUrl?.url}`)
     }
   }
+
+
+  const copyToClipboard = (text: string | undefined) => {
+    const tempInput = document.createElement("textarea");
+    tempInput.value = text ? text : '';
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  };
+
+  const handelCopy = async (value: string | undefined) => {
+    try {
+      copyToClipboard(value);
+      toast.success("Copied!");
+    } catch (err) {
+      console.log(err);
+      toast.error("Failed to copy!");
+    }
+  };
+
 
   const getAffiliateServer = async () => {
     try {
       const response = await getAffiliate();
-      setAffiliate(response as IAffiliate);
+      setAffiliateUrl(response as IAffiliateUrl);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      console.log(err.message);
+    }
+  };
+
+  const postAffiliateServer = async () => {
+    try {
+      const response = await postAffiliate();
+      setAffiliateCode(response.value as IAffiliateCode);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.log(err.message);
@@ -95,9 +129,9 @@ const FriendsPage = () => {
             </div>
             <div className='flex flex-col justify-center items-center  self-center bg-base-100 rounded-md w-2/3 p-1 pt-2'>
               <div className='text-xs'>{t("Friend.InvitationCode")}</div>
-              <div className='flex flex-row gap-2 items-center justify-center font-bold text-2xl text-primary'>WEEssty
+              <div className='flex flex-row gap-2 items-center justify-center font-bold text-2xl text-primary'>{affiliateCode?.code}
                 <button className='p-3 rounded-custom animate-pulse'>
-                  <Copy size={20} />
+                  <Copy onClick={() => handelCopy(affiliateUrl?.url)} size={20} />
                 </button>
               </div>
             </div>
@@ -142,7 +176,6 @@ const FriendsPage = () => {
 
       <button onClick={() => shareLink()} className='btn btn-primary w-full p-3 rounded-full animate-pulse'>
         {t("Friend.Share")}
-        { }
       </button>
     </section>
   )
