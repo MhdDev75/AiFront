@@ -1,16 +1,15 @@
-// src/api/actions/userActions.js
 import apiClient from "./apiClient";
 
 // ورود کاربر
 export const radioJavanDownloader = async (url: string) => {
   try {
+    const formData = new FormData();
+    formData.append("url", url);
+    formData.append("token", "18cf444ea2f1bd8608c8cc3bd8b5ad085bc0085dac000276ea0081ddebaa95cc");
+
     const response = await apiClient.post(
       `https://flydownloader.com/wp-json/aio-dl/video-data/`,
-      {
-        url: url,
-        token:
-          "e378cc7c022e18b2d32f984cd3fa25daa32828d18695ec7c7693a0f0ce495093",
-      }
+      formData
     );
     console.log(response);
 
@@ -22,13 +21,3 @@ export const radioJavanDownloader = async (url: string) => {
   }
 };
 
-// گرفتن اطلاعات کاربر
-export const getUser = async () => {
-  try {
-    const response = await apiClient.get(`/User/Get`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    throw error;
-  }
-};

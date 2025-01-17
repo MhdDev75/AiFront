@@ -16,7 +16,7 @@ import { useBackButton } from '@/core/telegram/BackButtonProvider'
 const WalletPage = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [cookie, setCookie] = useCookies(["Theme"])
+    const [cookie, setCookie] = useCookies(["Theme", "Region"])
     const [theme, setTheme] = useState("dark");
     const router = useRouter();
     const t = useTranslations("i18n");
@@ -53,13 +53,9 @@ const WalletPage = () => {
         setLoading(true);
         const response = await getTransaction();
         if (response.isSuccess) {
-            response.value.map((item: ITransaction) => {
-                item.icons = item.type == "پرداختی" ? "Check" : "X"
-                const today = new Date(item.transactionDate);
-                const dd = today.getDate();
-                const mm = today.getMonth();
-                const yyyy = today.getFullYear();
-                item.transactionDate = dd + '/' + mm + '/' + yyyy
+            response.value.map(async (item: ITransaction) => {
+                item.icons = item.type == "پرداختی" ? "Check" : item.type == "GIFT" ? "GIFT"  : "X"
+
             })
             setTransactionServer(response.value)
             setLoading(false)
@@ -71,7 +67,7 @@ const WalletPage = () => {
     };
     return (
         <div className='flex flex-col h-full gap-4'>
-            <div className="card bg-base-300 shadow rounded-3xl overflow-hidden">
+            <div className="card bg-base-300 shadow rounded-3xl p-2 overflow-hidden">
                 <div className="card-body p-2 text-center">
                     <div className='absolute end-2 top-2 opacity-35'>
                         {loading ?
@@ -79,34 +75,37 @@ const WalletPage = () => {
                             (<Image src={theme === "light" ? iconLight : iconDark} alt="welcome" width={30} />)}
                     </div>
                     <div className='flex flex-col gap-2'>
-                        <span className="text-sm">{t("wallet.TotalAssets")} ({t("wallet.Currency")})</span>
-                        <span className="card-title text-3xl font-bold justify-center">{balanceServer ? (Number(balanceServer.amount)).toLocaleString() : 0} </span>
+                        <span className="text-sm">{t("wallet.TotalAssets")}
+                            {balanceServer?.currency &&
+                                "(" + t(`${balanceServer.currency}`) + ")"
+                            } </span>
+                        <span className="card-title text-3xl font-bold justify-center">{balanceServer ? (Number(balanceServer.amount)).toLocaleString() + " " : 0}  </span>
                     </div>
                     <div className='flex flex-row justify-start gap-2'>
-                        نام و نام خانوادگی کاربر
+                        {balanceServer?.firstName + " " + balanceServer?.lastName}
                     </div>
                 </div>
             </div>
             <div className='flex flex-row justify-between px-3'>
                 <div className=' flex flex-col items-center gap-1'>
-                    <button onClick={() => router.push("/panel/wallet/receipt")} className="btn btn-sm rounded-full h-12 w-12  btn-primary animate-pulse">
-                        <Banknote size={40} />
+                    <button onClick={() => router.push("/panel/wallet/receipt")} className="btn btn-sm rounded-full h-12 w-12  btn-primary animate-pulse p-0">
+                        <Banknote size={30} />
                     </button>
                     <span className='font-bold text-sm '>
                         {t("wallet.TopUp")}
                     </span>
                 </div>
                 <div className=' flex flex-col items-center gap-1'>
-                    <button className="btn btn-success rounded-full h-12 w-12 ">
-                        <ArrowRightLeft size={40} />
+                    <button className="btn btn-success rounded-full h-12 w-12  p-0">
+                        <ArrowRightLeft size={25} />
                     </button>
                     <span className='font-bold text-sm'>
                         {t("wallet.Transfer")}
                     </span>
                 </div>
                 <div className=' flex flex-col items-center gap-1'>
-                    <button className="btn btn-error rounded-full h-12 w-12 ">
-                        <BackpackIcon size={40} />
+                    <button className="btn btn-error rounded-full h-12 w-12  p-0">
+                        <BackpackIcon size={25} />
                     </button>
                     <span className='font-bold text-sm'>
                         {t("wallet.Withdraw")}

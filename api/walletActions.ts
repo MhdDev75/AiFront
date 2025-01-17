@@ -1,4 +1,3 @@
-// src/api/actions/userActions.js
 import { IReceiptPayment } from "@/lib/type";
 import apiClient from "./apiClient";
 
@@ -6,12 +5,9 @@ import apiClient from "./apiClient";
 export const getBalance = async () => {
   try {
     const response = await apiClient.get(`/Account/Balance`);
-    console.log(response);
-
     return response.data;
   } catch (error) {
-    console.log(error);
-    console.error("Error login user:", error);
+    console.error("Error Get Balance:", error);
     throw error;
   }
 };
@@ -22,7 +18,7 @@ export const getTransaction = async () => {
     const response = await apiClient.get(`/Payment/Transactions`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error Get Transaction:", error);
     throw error;
   }
 };
@@ -43,7 +39,7 @@ export const postReceiptPayment = async (inputs: IReceiptPayment, file?: File) =
       });
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error Post Payment:", error);
     throw error;
   }
 };

@@ -3,13 +3,7 @@ import apiClient from "./apiClient";
 // دریافت کد دعوت
 export const getAffiliate = async () => {
     try {
-        const response = await apiClient.get(`/Affiliate`,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept-Language": "Fa",
-                },
-            });
+        const response = await apiClient.get(`/Affiliate`);
         return response.data;
     } catch (error) {
         console.error("Error fetching user:", error);
@@ -17,17 +11,11 @@ export const getAffiliate = async () => {
     }
 
 }
+
 export const postAffiliate = async () => {
     try {
-        const response = await apiClient.post(`/Affiliate`, {},
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept-Language": "Fa",
-                },
-            });
+        const response = await apiClient.post(`/Affiliate`, {});
         console.log(response.data);
-
         return response.data;
     } catch (error) {
         console.error("Error fetching user:", error);
@@ -35,3 +23,16 @@ export const postAffiliate = async () => {
     }
 
 }
+
+export const getInvitedList = async () => {
+    try {
+        const response = await apiClient.get(`/Affiliate/Invited`);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        throw error;
+    }
+
+}
+

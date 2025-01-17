@@ -3,12 +3,13 @@ import { Copy, Stars } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import friends from "@/assets/friends/friends.png"
 import Image from 'next/image'
-import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
+import InvitedBoxComponent from '@/components/panel/InvitedBoxComponent'
 import { useBackButton } from '@/core/telegram/BackButtonProvider'
 import { useTranslations } from 'next-intl'
-import { getAffiliate, postAffiliate } from '@/api/affiliate'
-import { IAffiliateCode, IAffiliateUrl } from '@/lib/type'
+import { getAffiliate, getInvitedList, postAffiliate } from '@/api/affiliate'
+import { IAffiliateCode, IAffiliateUrl, IInvitedFriend } from '@/lib/type'
 import { toast } from 'react-toastify'
+import { convertLocalizeDate } from '@/utils/helper'
 
 const FriendsPage = () => {
 
@@ -17,10 +18,13 @@ const FriendsPage = () => {
   const t = useTranslations("i18n")
   const [affiliateUrl, setAffiliateUrl] = useState<IAffiliateUrl>()
   const [affiliateCode, setAffiliateCode] = useState<IAffiliateCode>()
+  const [invitedFriend, setInvitedFriend] = useState<IInvitedFriend[]>()
+
   useEffect(() => {
     setIsVisible(true); // دکمه بازگشت را فعال کنید
     getAffiliateServer()
     postAffiliateServer()
+    getInvitedServer()
 
   }, []);
 
@@ -64,6 +68,23 @@ const FriendsPage = () => {
     }
   };
 
+  const getInvitedServer = async () => {
+    try {
+      const response = await getInvitedList();
+      response.value.forEach(async (item: IInvitedFriend) => {
+          item.dateString = (await convertLocalizeDate(item.date)).toString()
+       
+      });
+      console.log(response.value);
+
+      setInvitedFriend(response.value as IInvitedFriend[]);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      console.log(err.message);
+    }
+  };
+
+
   const postAffiliateServer = async () => {
     try {
       const response = await postAffiliate();
@@ -76,30 +97,12 @@ const FriendsPage = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // const app = (window as any).Telegram?.WebApp;
-  const today = new Date();
-  const dd = today.getDate() + 1;
-  const mm = today.getMonth() + 1;
-  const yyyy = today.getFullYear();
+
 
   const tablist = [
     { id: 1, title: "YourReferrals", status: true },
     { id: 2, title: "InvitedFriends", status: true },
     { id: 3, title: "LeaderBoard", status: false },
-  ]
-
-  const friendList = [
-    { id: 1, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 2, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 3, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 4, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 5, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 6, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 7, datetime: dd + '/' + mm + '/' + yyyy, name: "Ahmad Nori", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 8, datetime: dd + '/' + mm + '/' + yyyy, name: "Nazanin Shams", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 9, datetime: dd + '/' + mm + '/' + yyyy, name: "Mina Kaviyani", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 10, datetime: dd + '/' + mm + '/' + yyyy, name: "Goli Zarbaf", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 11, datetime: dd + '/' + mm + '/' + yyyy, name: "Hassan Kargar", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" },
-    { id: 12, datetime: dd + '/' + mm + '/' + yyyy, name: "Mohsen Nekoei", gift: 50000, icons: "CircleUser", type: true, currency: "Toman" }
   ]
 
   return (
@@ -160,15 +163,14 @@ const FriendsPage = () => {
 
       {tab == tablist[1].id && (
         <div className='flex flex-col gap-2 h-[100%-3rem] overflow-y-auto'>
-          {friendList.map((item) => (
-            <InlineBoxComponent
-              key={item.id}
-              date={item.datetime}
-              price={item.gift}
+          {invitedFriend && invitedFriend.map((item, index) => (
+            <InvitedBoxComponent
+              key={index}
+              date={item.dateString}
+              price={item.amount}
               title={item.name}
-              type="پرداختی"
               status='موفق'
-              icon={item.icons}
+              image={item.image}
               currency={item.currency} />
           ))}
         </div>

@@ -1,15 +1,11 @@
-// src/api/actions/userActions.js
 import apiClient from "./apiClient";
 
 // ورود کاربر
 export const loginWithTelegram = async (initData: string) => {
   try {
     const response = await apiClient.get(`/User/login?${initData}`);
-    console.log(response);
-
     return response.data;
   } catch (error) {
-    console.log(error);
     console.error("Error login user:", error);
     throw error;
   }
@@ -32,7 +28,7 @@ export const getRegion = async () => {
     const response = await apiClient.get(`/Region/Region`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error Get Region:", error);
     throw error;
   }
 };
@@ -43,7 +39,7 @@ export const getUserRegion = async () => {
     const response = await apiClient.get(`/Region/UserRegion`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error Get User Region:", error);
     throw error;
   }
 
@@ -63,7 +59,7 @@ export const postUserRegion = async (region: number) => {
       });
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Error Post User Region:", error);
     throw error;
   }
 

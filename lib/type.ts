@@ -77,6 +77,9 @@ export interface IRegion {
 
 export interface IBalance {
   amount: number,
+  currency: string,
+  firstName: string,
+  lastName: string
 }
 
 export interface IReceiptPayment {
@@ -105,6 +108,15 @@ export interface IAffiliateCode {
   code: string
 }
 
+export interface IInvitedFriend {
+  amount: number,
+  currency: string,
+  date: Date,
+  dateString: string,
+  image: string,
+  name: string
+}
+
 export interface ITransaction {
   amount: number,
   currency: string,
@@ -113,7 +125,8 @@ export interface ITransaction {
   icons: string,
   description: string,
   status: string,
-  transactionDate: string
+  transactionDate: Date
+  dateString: string,
 }
 
 export interface IResponseCategoryItems {
