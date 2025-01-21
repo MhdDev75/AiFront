@@ -27,7 +27,7 @@ const ChatPage = () => {
     const token = localStorage.getItem("token");
     if (token) {
       const connect = new HubConnectionBuilder()
-        .withUrl("https://api.the-ai.studio/hubs/openai", {
+        .withUrl("http://64.44.167.150:7001/hubs/openai", {
           accessTokenFactory: () => token,
         })
         .withAutomaticReconnect()
