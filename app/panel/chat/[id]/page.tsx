@@ -37,6 +37,8 @@ const ChatPage = () => {
       connect
         .start()
         .then(() => {
+          console.log("connected");
+          
           connect.on("ReceiveMessage", (user,message) => {
             setMessages((prev) => [...prev, { user, message }]);
           });
@@ -55,11 +57,11 @@ const ChatPage = () => {
     };
   }, []);
 
-  const sendMessage = async (message: string) => {
+  const sendMessage = async () => {
     if (connection) {
       try {
-        await connection.invoke("SendMessage", message);
-        console.log("Message sent: ", message);
+        await connection.invoke("SendMessage", chatInput);
+        console.log("Message sent: ", chatInput);
         setChatInput("");
       } catch (err) {
         console.error("Failed to send message: ", err);
