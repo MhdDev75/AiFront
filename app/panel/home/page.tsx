@@ -299,7 +299,7 @@ function HomePage() {
                     <ArrowUpRight size={30} />
                   )}
                 </div>
-                <span className="text-xl text-start">{t(item.titleEn)}</span>
+                <span className="text-xl text-start">{item.title}</span>
               </div>
             </button>
           ))}

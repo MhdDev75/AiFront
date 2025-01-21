@@ -34,10 +34,9 @@ export interface ICategoryItemsProps {
 
 export interface ICategory {
   id: number;
-  titleFa: string;
   icon: string;
   color: string;
-  titleEn: string;
+  title: string;
 }
 
 export interface ICategoryWithQuery {
@@ -146,6 +145,11 @@ export interface ILink {
   chunked: boolean;
   cached: boolean;
 }
+
+export interface IMessage {
+    sender: string;
+    message:string;
+  };
 
 export interface ILinkItems {
   url: string;

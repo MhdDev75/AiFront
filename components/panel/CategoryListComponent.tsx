@@ -44,7 +44,7 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
         <span className="font-bold" key={id}>
           {title}
         </span>
-        <button className="btn btn-ghost btn-sm text-primary" onClick={() => router.push(`/panel/application/${id}`)}>
+        <button className="btn btn-ghost btn-sm text-primary" onClick={() => router.push(`/panel/application/${id}/${encodeURIComponent(title)}`)}>
           {t("see-all")}
         </button>
       </div>

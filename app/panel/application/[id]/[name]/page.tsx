@@ -11,7 +11,7 @@ const SubCategoryAppPage = () => {
     const { setIsVisible } = useBackButton();
     const [loading, setLoading] = useState(false);
     const [application, setApplication] = useState<IApplication[]>();
-    const params = useParams<{ id: string }>();
+    const params = useParams<{ id: string , name :string  }>();
     useEffect(() => {
         if (params) {
             getData(params.id);
@@ -62,7 +62,7 @@ const SubCategoryAppPage = () => {
                     </div>
                 </>
                 : <>
-                    <h1 className="text-lg">{"sssss"}</h1>
+                    <h1 className="text-lg mb-3">{decodeURIComponent(params.name)}</h1>
                     <div className="grid grid-cols-2 gap-2">
                         {application && application?.map((item: IApplication, index) => (
                            <ApplicationLBoxComponent key={index} {...item} />

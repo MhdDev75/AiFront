@@ -36,7 +36,7 @@ export const getCategoryApplication = async (subCategoryId :string) => {
 // گرفتن اطلاعات کتگوری با زیر مجموعه هاش 
 export const GetAllAiCategoriesQuery = async (categoryId :string) => {
   try {
-    const response = await apiClient.get(`/AiApp/GetAllAiCategoriesQuery?aiCategoryId=${categoryId}`);
+    const response = await apiClient.get(`/AiApp/GetAll?aiCategoryId=${categoryId}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
