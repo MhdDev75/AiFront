@@ -37,8 +37,8 @@ const ChatPage = () => {
       connect
         .start()
         .then(() => {
-          connect.on("ReceiveMessage", (sender,message) => {
-            setMessages((prev) => [...prev, { sender, message }]);
+          connect.on("ReceiveMessage", (user,message) => {
+            setMessages((prev) => [...prev, { user, message }]);
           });
           connect.invoke("RetrieveMessageHistory");
         })
@@ -159,12 +159,12 @@ const ChatPage = () => {
               <div
                 key={index}
                 className={`chat  ${
-                  message.sender === "user" ? "chat-start" : "chat-end"
+                  message.user === "user" ? "chat-start" : "chat-end"
                 }`}
               >
                 <div
                   className={`chat-bubble ${
-                    message.sender === "user"
+                    message.user === "user"
                       ? "chat-bubble-primary"
                       : " chat-bubble-info"
                   } `}

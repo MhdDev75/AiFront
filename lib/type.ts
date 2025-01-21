@@ -69,63 +69,63 @@ export interface IApplication {
 }
 
 export interface IRegion {
-  id: number,
-  name: string,
-  currency: string
+  id: number;
+  name: string;
+  currency: string;
 }
 
 export interface IBalance {
-  amount: number,
-  currency: string,
-  firstName: string,
-  lastName: string
+  amount: number;
+  currency: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface IReceiptPayment {
-  amount: number,
-  type: "TEXT" | "IMAGE",
-  text?: string
+  amount: number;
+  type: "TEXT" | "IMAGE";
+  text?: string;
 }
 
 export interface IMeasures {
-  id: number,
-  name: string,
-  icon: React.ReactNode,
+  id: number;
+  name: string;
+  icon: React.ReactNode;
 }
 
 export interface IMeasuresValue {
-  id: number,
-  name: string,
-  value: number,
+  id: number;
+  name: string;
+  value: number;
 }
 
 export interface IAffiliateUrl {
-  url: string,
+  url: string;
 }
 
 export interface IAffiliateCode {
-  code: string
+  code: string;
 }
 
 export interface IInvitedFriend {
-  amount: number,
-  currency: string,
-  date: Date,
-  dateString: string,
-  image: string,
-  name: string
+  amount: number;
+  currency: string;
+  date: Date;
+  dateString: string;
+  image: string;
+  name: string;
 }
 
 export interface ITransaction {
-  amount: number,
-  currency: string,
-  type: string,
-  typeTitle: string,
-  icons: string,
-  description: string,
-  status: string,
-  transactionDate: Date
-  dateString: string,
+  amount: number;
+  currency: string;
+  type: string;
+  typeTitle: string;
+  icons: string;
+  description: string;
+  status: string;
+  transactionDate: Date;
+  dateString: string;
 }
 
 export interface IResponseCategoryItems {
@@ -147,9 +147,9 @@ export interface ILink {
 }
 
 export interface IMessage {
-    sender: string;
-    message:string;
-  };
+  user: string;
+  message: string;
+}
 
 export interface ILinkItems {
   url: string;
