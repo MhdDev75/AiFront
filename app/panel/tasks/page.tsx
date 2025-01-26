@@ -1,21 +1,44 @@
 "use client"
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import coins from "@/assets/tasks/coins.png"
 import { Coins, Flag, Medal, PopcornIcon } from 'lucide-react'
 import TaskBoxComponent from '@/components/panel/TaskBoxComponent'
 import { useTranslations } from 'next-intl'
 import { useBackButton } from '@/core/telegram/BackButtonProvider'
+import { getTaskList } from '@/api/TaskActions'
+import { toast } from 'react-toastify'
 
 
 const TasksPage = () => {
 
  const { setIsVisible } = useBackButton();
+    const [loading, setLoading] = useState(false)
+    const [taskServer, setTaskServer] = useState([])
 
   useEffect(() => {
     setIsVisible(true)
+    getTaskListClient()
   }, [])
+
   
+  
+   const getTaskListClient = async () => {
+          setLoading(true);
+          const response = await getTaskList();
+          if (response.isSuccess) {
+            console.log(response.value);
+            
+              setTaskServer(response.value)
+              setLoading(false)
+              
+          }
+          else {
+              toast.error(response.message)
+              setLoading(false)
+          }
+      };
+
   const t= useTranslations("i18n")
   
   const taskList = [
