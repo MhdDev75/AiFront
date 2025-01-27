@@ -95,8 +95,8 @@ const WalletPage = () => {
                         {t("wallet.TopUp")}
                     </span>
                 </div>
-                <div className=' flex flex-col items-center gap-1'>
-                    <button className="btn btn-success rounded-full h-12 w-12  p-0">
+                <div  className=' flex flex-col items-center gap-1'>
+                    <button disabled className="btn btn-success rounded-full h-12 w-12  p-0">
                         <ArrowRightLeft size={25} />
                     </button>
                     <span className='font-bold text-sm'>
@@ -104,7 +104,7 @@ const WalletPage = () => {
                     </span>
                 </div>
                 <div className=' flex flex-col items-center gap-1'>
-                    <button className="btn btn-error rounded-full h-12 w-12  p-0">
+                    <button disabled className="btn btn-error rounded-full h-12 w-12  p-0">
                         <BackpackIcon size={25} />
                     </button>
                     <span className='font-bold text-sm'>

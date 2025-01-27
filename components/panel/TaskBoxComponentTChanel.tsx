@@ -70,7 +70,7 @@ const TaskBoxComponentTChanel = ({
               <Image src={image} alt={title} width={30} height={30}></Image>
             </div>
             <div className="flex flex-col items-start gap-2">
-              <span className="text-sm">{title}</span>
+              <span className="text-sm test-start">{title}</span>
               <span className="text-xs text-opacity-70">{description}</span>
             </div>
           </div>
