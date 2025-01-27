@@ -1,6 +1,5 @@
 // src/api/apiClient.js
 import axios from "axios";
-import { toast } from "react-toastify";
 
 const apiClient = axios.create({
   baseURL: process.env.BASE_URL || "https://api.the-ai.studio/", // آدرس پایه API
@@ -24,14 +23,13 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response, // اگر درخواست موفق بود، پاسخ را برگردان
   (error) => {
-    console.log("error");
-
     if (error.response && error.response.status === 500) {
       console.log(error.response);
-      toast.error(error.response.data.detail);
+      console.error("Error 500: internal Error");
     }
     if (error.response && error.response.status === 400) {
-      toast.error(error.response.data.detail);
+      console.log(error.response);
+      console.error("Error 400: bad request");
     }
     if (error.response && error.response.status === 403) {
       console.error("Error 403: Access forbidden. Redirecting to login...");
@@ -39,9 +37,8 @@ apiClient.interceptors.response.use(
       // مثلا کاربر را به صفحه لاگین هدایت کن
     }
     if (error.response && error.response.status === 401) {
-      console.error("Error 403: Access forbidden. Redirecting to login...");
+      console.error("Error 401: Access forbidden. Redirecting to login...");
       window.location.href = "/reload/1";
-
       // مثلا کاربر را به صفحه لاگین هدایت کن
     }
     return Promise.reject(error); // خطا را به درخواست‌کننده برگردان

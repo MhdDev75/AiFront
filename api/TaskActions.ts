@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import apiClient from "./apiClient";
 
 // دریافت لیست ماموریت ها
@@ -20,7 +21,10 @@ export const postExternalLink = async (taskId: number) => {
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
-    return error.response.data;
+    if (error instanceof AxiosError) {
+      return error.response?.data;
+    }
+    return error;
   }
 };
 
@@ -33,7 +37,10 @@ export const postCheckInvite = async (taskId: number) => {
     return response.data;
   } catch (error) {
     console.error("Error Post Invited:", error);
-    return error.response.data;
+    if (error instanceof AxiosError) {
+      return error.response?.data;
+    }
+    return error;
   }
 };
 
@@ -46,6 +53,9 @@ export const postTelegramChannel = async (taskId: number) => {
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
-    return error.response.data;
+    if (error instanceof AxiosError) {
+      return error.response?.data;
+    }
+    return error;
   }
 };
