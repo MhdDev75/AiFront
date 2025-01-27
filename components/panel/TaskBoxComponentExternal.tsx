@@ -62,7 +62,7 @@ const TaskBoxComponentExternal = ({
         <>
           <div className="flex gap-3">
             <div
-              className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center items-center shadow-md shadow-neutral`}
+              className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center self-center items-center shadow-md shadow-neutral`}
             >
               <Image src={image} alt={title} width={30} height={30}></Image>
             </div>

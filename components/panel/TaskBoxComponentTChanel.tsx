@@ -57,7 +57,7 @@ const TaskBoxComponentTChanel = ({
     <button
       onClick={() => goToChanel(chanelName, id)}
       disabled={!status || loading || confirmStatus}
-      className="card btn btn-lg shadow-2xl  bg-base-100  flex flex-row flex-nowrap justify-between items-center p-2 rounded-full"
+      className="card btn btn-lg shadow-2xl  bg-base-100  flex flex-row flex-nowrap justify-between  items-center p-2 rounded-full"
     >
       {loading ? (
         <span className="loading flex justify-center self-center"> </span>
@@ -65,7 +65,7 @@ const TaskBoxComponentTChanel = ({
         <>
           <div className="flex gap-3">
             <div
-              className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center items-center shadow-md shadow-neutral`}
+              className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center items-center self-center shadow-md shadow-neutral`}
             >
               <Image src={image} alt={title} width={30} height={30}></Image>
             </div>
