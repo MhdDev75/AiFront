@@ -51,8 +51,8 @@
       "EnterYourAmount": "مقدار خود رو وارد کنید"
     },
     "Task": {
-      "DailyTask": "ماموریت روزانه",
-      "OneTimeTask": "مارموریت های ثابت",
+      "dailyUserTasks": "ماموریت روزانه",
+      "staticUserTasks": "مارموریت های ثابت",
       "SponsorTask": "ماموریت اسپانسر ها",
       "VipTask": "ماموریت ویژه",
       "NoTask": "ماموریتی برای نمایش وجود ندارد",
