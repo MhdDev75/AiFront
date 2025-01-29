@@ -7,7 +7,6 @@ const apiClient = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "Accept-Language": localStorage.getItem("Region"), // زبان پیش‌فرض
   },
 });
 
@@ -16,6 +15,11 @@ apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem("token"); // یا هر مکان دیگری که توکن را ذخیره می‌کنی
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
+  }
+  const Region = localStorage.getItem("Region"); // یا هر مکان دیگری که زبان را ذخیره می‌کنی
+  if (Region) {
+    config.headers['Accept-Language'] = Region;
+    
   }
   return config;
 });
