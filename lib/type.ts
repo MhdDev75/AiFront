@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 // types.ts
 export interface ITelegramUser {
   id: number;
@@ -149,6 +151,19 @@ export interface ILink {
 export interface IMessage {
   user: string;
   message: string;
+}
+
+export enum UserTask {
+  userTaskInvitedUserTask = "userTaskInvitedUserTask",
+  externalLinkUser = "externalLinkUser",
+  telegramChanel = "telegramChanel",
+}
+
+export interface ITasks {
+  id: number,
+  title: string,
+  icon: ReactNode,
+  list: []
 }
 
 export interface ILinkItems {

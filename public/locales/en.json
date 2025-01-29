@@ -51,8 +51,8 @@
       "EnterYourAmount": "Enter Your Amount"
     },
     "Task": {
-      "DailyTask": "Daily Task",
-      "OneTimeTask": "One-Time Task",
+      "dailyUserTasks": "Daily Task",
+      "staticUserTasks": "One-Time Task",
       "SponsorTask": "Sponsor Task",
       "VipTask": "Vip Task",
       "NoTask": "There is no task to display.",

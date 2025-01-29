@@ -55,25 +55,26 @@ export const getUserRegion = async () => {
     console.error("Error Get User Region:", error);
     throw error;
   }
-
 };
 
 // افزودن ملیت کاربر
 export const postUserRegion = async (region: number) => {
   try {
-    const response = await apiClient.post(`/Region/AddUserRegion`, {
-      regionId: region
-    },
+    const response = await apiClient.post(
+      `/Region/AddUserRegion`,
+      {
+        regionId: region,
+      },
       {
         headers: {
           "Content-Type": "application/json",
           "Accept-Language": region,
         },
-      });
+      }
+    );
     return response.data;
   } catch (error) {
     console.error("Error Post User Region:", error);
     throw error;
   }
-
-}
+};
