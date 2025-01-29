@@ -8,7 +8,7 @@ import iconLight from "@/assets/images/Ai_Studio-light.svg";
 import iconDark from "@/assets/images/Ai_Studio-dark.svg";
 import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { getRegion, loginWithTelegram } from "@/api/userActions";
+import { getRegion, getUserRegion, loginWithTelegram } from "@/api/userActions";
 import { setRegion } from "@/utils/helper";
 
 export default function HomePage() {
@@ -38,6 +38,17 @@ export default function HomePage() {
 
     }
   };
+
+  const getUserRegionclient = async () => {
+    const response = await getUserRegion();
+    if (response.isSuccess) {
+      if (response.value.Id == 1) {
+        localStorage.setItem("Region", "fa");
+      } else {
+        setRegion("en")
+      }
+    }
+  }
 
   const loginUser = async () => {
     try {

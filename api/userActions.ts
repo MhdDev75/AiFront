@@ -22,6 +22,19 @@ export const getUser = async () => {
   }
 };
 
+
+// تغییر زبان کاربر
+export const postUserLanguage = async (language: "EN" | "FA") => {
+  try {
+    const response = await apiClient.post(`/User/UpdateLanguage`, { "language": language });
+    return response.data;
+  } catch (error) {
+    console.error("Error Get User Region:", error);
+    throw error;
+  }
+
+};
+
 // گرفتن ملیت
 export const getRegion = async () => {
   try {

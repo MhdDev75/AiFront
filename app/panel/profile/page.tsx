@@ -15,7 +15,7 @@ import { changeTheme } from "@/utils/helper";
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { getUser } from "@/api/userActions";
+import { getUser, postUserLanguage } from "@/api/userActions";
 import { IApiUser } from "@/lib/type";
 
 const ProfilePage = () => {
@@ -26,6 +26,7 @@ const ProfilePage = () => {
   const { setIsVisible } = useBackButton();
   const onChange = (value: string) => {
     const locale = value as Locale;
+    postUserLanguage(locale.toUpperCase() as "EN" | "FA");
     setLocale(locale);
   };
 

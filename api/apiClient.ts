@@ -8,7 +8,7 @@ const apiClient = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "Accept-Language": "Fa", // زبان پیش‌فرض
+    "Accept-Language": localStorage.getItem("Region"), // زبان پیش‌فرض
   },
 });
 
