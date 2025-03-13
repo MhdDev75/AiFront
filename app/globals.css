@@ -18,6 +18,15 @@ body[dir="rtl"] {
   font-feature-settings: "ss02";
 }
 
+
+html[data-theme="dark"] code[class*="language-"], pre[class*="language-"] {
+   color: #fff !important;
+}
+
+html[data-theme="light"] code[class*="language-"], pre[class*="language-"] {
+  color: #000 !important;
+}
+
 body[dir="rtl"]::before {
   content: "";
   width: 10rem;

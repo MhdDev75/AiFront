@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: process.env.BASE_URL || "https://api.the-ai.studio/", // آدرس پایه API
-  timeout: 20000, // زمان انتظار درخواست‌ها
+  timeout: 30000, // زمان انتظار درخواست‌ها
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",

@@ -148,9 +148,15 @@ export interface ILink {
   cached: boolean;
 }
 
+ export type Message = {
+  type: "bold" | "header" | "text" | "code" | "list" | "list-item";
+  content: string;
+  language?: string; // فقط برای کد استفاده می‌شود
+};
+
 export interface IMessage {
   user: string;
-  message: string;
+  message: Message[];
 }
 
 export enum UserTask {

@@ -55,7 +55,7 @@ const TaskBoxComponentInvited = ({
             <div
               className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center self-center items-center shadow-md shadow-neutral`}
             >
-              <Image src={image} alt={title} width={30} height={30}></Image>
+              <Image src={image} alt={title ? title :"image"} width={30} height={30}></Image>
             </div>
             <div className="flex flex-col items-start ">
               <span className="text-sm">{title}</span>
@@ -69,7 +69,7 @@ const TaskBoxComponentInvited = ({
             <span
               className={`btn btn-xs border-yellow-500 self-center bg-base-100 text-xs text-nowrap  rounded-full`}
             >
-              + {price.toLocaleString()} {t(currency)}
+              + {price?.toLocaleString()} {t(currency)}
             </span>
           </div>
         </>

@@ -37,7 +37,6 @@ const TasksPage = () => {
     setLoading(true);
     const response = await getTaskList();
     if (response.isSuccess) {
-      console.log(response.value);
       setCategoryTask(response.value);
       const formattedTasks = {
         dailyUserTasks: response.value.dailyUserTasks.flatMap((task: any) => [
@@ -72,8 +71,6 @@ const TasksPage = () => {
       };
 
       setTaskServer(formattedTasks);
-      console.log(formattedTasks);
-      console.log(formattedTasks.dailyUserTasks[0]);
       setLoading(false);
     } else {
       toast.error(response.message);
@@ -145,7 +142,7 @@ const TasksPage = () => {
                     );
                   }
 
-                  if (child.type === UserTask.telegramChanel) {
+                  if ( child.type === UserTask.telegramChanel) {
                     return (
                       <TaskBoxComponentTChanel
                         key={child.id}
@@ -161,7 +158,7 @@ const TasksPage = () => {
                     );
                   }
 
-                  if (child.type === UserTask.userTaskInvitedUserTask) {
+                  if ( child.type === UserTask.userTaskInvitedUserTask) {
                     return (
                       <TaskBoxComponentInvited
                         key={child.id}

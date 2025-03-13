@@ -6,14 +6,14 @@ import {
   ArrowUpRight,
   ChevronDown,
   DotIcon,
-  DownloadCloud,
-  Earth,
+  // DownloadCloud,
+  // Earth,
   Factory,
   Hammer,
   Image,
   LucideBatteryWarning,
   Mic,
-  Tent,
+  // Tent,
   Text,
   ToyBrickIcon,
   Video,
@@ -114,24 +114,17 @@ function HomePage() {
       icon: <ToyBrickIcon size={20} />,
       url: "/Game",
       color: "bg-primary",
-    },
-    {
-      id: 2,
-      title: "Two",
-      icon: <Earth size={20} />,
-      url: "/fff",
-      color: "bg-amber-500",
-    },
+    }
   ];
 
   const tools = [
-    {
-      id: 1,
-      title: "Downloader",
-      icon: <DownloadCloud size={20} />,
-      url: "/panel/downloader",
-      color: "bg-red-500",
-    },
+    // {
+    //   id: 1,
+    //   title: "Downloader",
+    //   icon: <DownloadCloud size={20} />,
+    //   url: "/panel/downloader",
+    //   color: "bg-red-500",
+    // },
     {
       id: 2,
       title: "Convertor",
@@ -171,93 +164,7 @@ function HomePage() {
         },
       ],
     },
-    {
-      id: 2,
-      title: "Two",
-      icon: <Earth size={20} />,
-      url: "/fff",
-      color: "bg-amber-500",
-      imgList: [
-        {
-          id: 1,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg",
-        },
-        {
-          id: 2,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg",
-        },
-        {
-          id: 3,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg",
-        },
-        {
-          id: 4,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "Three",
-      icon: <Tent size={20} />,
-      url: "/other",
-      color: "bg-red-600",
-      imgList: [
-        {
-          id: 1,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg",
-        },
-        {
-          id: 2,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg",
-        },
-        {
-          id: 3,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg",
-        },
-        {
-          id: 4,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg",
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Four",
-      icon: <ToyBrickIcon size={20} />,
-      url: "/Game",
-      color: "bg-green-500",
-      imgList: [
-        {
-          id: 1,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3015-200-ivodfqemfvztmvgafhdouijhknthkvmp.jpeg",
-        },
-        {
-          id: 2,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-1019-200-ecyfizaydihfkxfwhwjlruyjdyoxengr.jpeg",
-        },
-        {
-          id: 3,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-3025-200-hhrrqrzhtikatlbwhnxhygqyraobsyer.jpeg",
-        },
-        {
-          id: 4,
-          imageUrl:
-            "https://qph.cf2.poecdn.net/main-thumb-pb-5124424-200-yqognbewbacsiadtjfzhgsrgntziokle.jpeg",
-        },
-      ],
-    },
+   
   ];
   return (
     <section className="flex flex-col gap-3 pb-3">
