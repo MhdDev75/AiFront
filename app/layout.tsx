@@ -10,8 +10,8 @@ import "./globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// import { TelegramProvider } from "@/core/telegram/TelegramProvider";
-// import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
+ import { TelegramProvider } from "@/core/telegram/TelegramProvider";
+ import { BackButtonProvider } from "@/core/telegram/BackButtonProvider";
 
 
 const geistSans = localFont({
@@ -46,13 +46,13 @@ export default async function RootLayout({
         className={`${locale == locales[0] ? iranSans.className : geistSans.variable
           }  antialiased`}
       >
-        {/* <TelegramProvider>
-          <BackButtonProvider> */}
+        <TelegramProvider>
+          <BackButtonProvider>
             <I18nProvider>
               {children}
             </I18nProvider>
-          {/* </BackButtonProvider>
-        </TelegramProvider> */}
+          </BackButtonProvider>
+        </TelegramProvider>
         <ToastContainer autoClose={2000}
           hideProgressBar={true}
           stacked
