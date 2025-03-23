@@ -34,7 +34,7 @@ const ChatPage = () => {
   const [chatInput, setChatInput] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
   const [application, setApplication] = useState<IApplication>();
-  const [uuid, setUuid] = useState("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+  const [uuid, setUuid] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const t = useTranslations("i18n");
@@ -50,7 +50,6 @@ const ChatPage = () => {
   };
   const getAiApplication = async () => {
     try {
-      console.log(params.id);
       const response = await GetAiApplicationById(params.id);
       if (response.isSuccess) {
         setApplication(response.value[0]);
@@ -76,15 +75,15 @@ const ChatPage = () => {
         })
         setUuid(response.value[response.value.length - 1].sessionId)
       }
-      if (!response.isSuccess) {
-        if (response.errors == "Account balance not enough") {
+    
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      if (!err.data.isSuccess) {
+        if (err.data.errors == "Account balance not enough") {
           const error = { user: "error", message: parseResponse(t("wallet.NotBalance")) };
           setMessages((prevMessages) => [...prevMessages, error])
         }
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      console.log(err.message);
     }
   };
 
