@@ -48,7 +48,8 @@
       "Value": "Value",
       "EnterAmount": "Enter Amount",
       "CreateReceipt": "Create a Receipt",
-      "EnterYourAmount": "Enter Your Amount"
+      "EnterYourAmount": "Enter Your Amount",
+      "history": "History"
     },
     "Task": {
       "dailyUserTasks": "Daily Task",

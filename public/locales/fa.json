@@ -48,7 +48,8 @@
       "Value": "مقدار",
       "EnterAmount": "مقدار دلخواه",
       "CreateReceipt": "ایجاد رسید",
-      "EnterYourAmount": "مقدار خود رو وارد کنید"
+      "EnterYourAmount": "مقدار خود رو وارد کنید",
+      "history": "تاریخچه"
     },
     "Task": {
       "dailyUserTasks": "ماموریت روزانه",

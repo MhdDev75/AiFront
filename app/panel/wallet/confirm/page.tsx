@@ -62,7 +62,7 @@ const ConfirmPage = () => {
             if (response.isSuccess) {
                 setLoading(false)
                 toast.success("درخواست ارسال شد و پس از تایید به حساب شما واریز میشود")
-                router.replace("/panel/wallet")
+                router.replace("/panel/wallet/history")
             }
         } catch (error) {
             console.log(error);

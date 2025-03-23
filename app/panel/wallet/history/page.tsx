@@ -55,7 +55,7 @@ const HistoryPage = () => {
         }
     }
     return (
-        <section className="flex flex-col h-full gap-2">
+        <section className="flex flex-col h-full gap-2 pb-4">
             {!loading && transactionServer?.map((item, index) => (
                 <div key={index} className='card bg-base-300 shadow flex flex-row justify-between items-center p-2 rounded-full'>
                     <div className='grid grid-cols-3  justify-between w-full items-center p-2'>
@@ -67,7 +67,7 @@ const HistoryPage = () => {
                             </div>
                         </div>
                         <div className='font-bold text-center '>
-                            {item.amount}
+                            {item.amount.toLocaleString()}
                         </div>
                         <div className='text text-sm text-end text-purple-500'>
                             {item.status}
@@ -76,6 +76,7 @@ const HistoryPage = () => {
 
                 </div>
             ))}
+            
         </section>
     )
 }

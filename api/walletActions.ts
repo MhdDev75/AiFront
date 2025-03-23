@@ -23,6 +23,18 @@ export const getTransaction = async () => {
   }
 };
 
+
+// گرفتن اطلاعات تراکنش کاربر
+export const getPaymentRequests = async () => {
+  try {
+    const response = await apiClient.get(`/Payment/Requests`);
+    return response.data;
+  } catch (error) {
+    console.error("Error Get Transaction:", error);
+    throw error;
+  }
+};
+
 // ارسال درخواست پرداخت
 export const postReceiptPayment = async (
   inputs: IReceiptPayment,

@@ -1,6 +1,6 @@
 "use client"
 import InlineBoxComponent from '@/components/panel/InlineBoxComponent'
-import { ArrowRightLeft, BackpackIcon, Banknote } from 'lucide-react'
+import { ArrowRightLeft, BackpackIcon, Banknote, History } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -51,6 +51,7 @@ const WalletPage = () => {
 
     const getTransactionClient = async () => {
         setLoading(true);
+        
         const response = await getTransaction();
         if (response.isSuccess) {
             response.value.map(async (item: ITransaction) => {
@@ -93,6 +94,14 @@ const WalletPage = () => {
                     </button>
                     <span className='font-bold text-sm '>
                         {t("wallet.TopUp")}
+                    </span>
+                </div>
+                <div className=' flex flex-col items-center gap-1'>
+                    <button onClick={() => router.push("/panel/wallet/history")} className="btn btn-warning rounded-full h-12 w-12  p-0">
+                        <History size={25} />
+                    </button>
+                    <span className='font-bold text-sm'>
+                        {t("wallet.history")}
                     </span>
                 </div>
                 <div  className=' flex flex-col items-center gap-1'>

@@ -130,6 +130,17 @@ export interface ITransaction {
   dateString: string;
 }
 
+export interface IPayments {
+  amount: number;
+  document: string;
+  issueDate: Date;
+  paymentType: string;
+  receiptType: string;
+  status: string;
+  dateString: string;
+}
+
+
 export interface IResponseCategoryItems {
   id: number;
   title: string | undefined;
