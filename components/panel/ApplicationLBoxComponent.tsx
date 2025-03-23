@@ -15,7 +15,7 @@ const ApplicationLBoxComponent: React.FC<IApplication> = ({
   id,
   rate,
   description,
-  flowed,
+  followerCount,
   imageUrl,
   name
 }: IApplication) => {
@@ -46,7 +46,7 @@ const ApplicationLBoxComponent: React.FC<IApplication> = ({
             <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
               <BadgePlus color="blue" size={12} />
               <span className=" text-xs text-gray-300">
-                {(Number(flowed)).toLocaleString()}
+                {(Number(followerCount)).toLocaleString()}
               </span>
             </div>
           </div>

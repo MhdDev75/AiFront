@@ -66,7 +66,7 @@ export interface IApplication {
   name: string;
   description: string;
   rate: string;
-  flowed: string;
+  followerCount: string;
   imageUrl: string;
 }
 

@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   ChevronDown,
   DotIcon,
+  DownloadCloud,
   // DownloadCloud,
   // Earth,
   Factory,
@@ -118,13 +119,13 @@ function HomePage() {
   ];
 
   const tools = [
-    // {
-    //   id: 1,
-    //   title: "Downloader",
-    //   icon: <DownloadCloud size={20} />,
-    //   url: "/panel/downloader",
-    //   color: "bg-red-500",
-    // },
+    {
+      id: 1,
+      title: "Downloader",
+      icon: <DownloadCloud size={20} />,
+      url: "/panel/downloader",
+      color: "bg-red-500",
+    },
     {
       id: 2,
       title: "Convertor",

@@ -32,7 +32,7 @@ export default function HomePage() {
   const getUserRegionClient = async () => {
     const response = await getUserRegion();
     if (response.isSuccess) {
-      if (response.value.Id == 1) {
+      if (response.value.id == 1) {
         setRegion("fa")
         localStorage.setItem("Region", "FA");
       } else {
@@ -44,8 +44,8 @@ export default function HomePage() {
 
   const loginUser = async () => {
     try {
-      const app = (window as any).Telegram?.WebApp;
-      const response = await loginWithTelegram(app.initData);
+       const app = (window as any).Telegram?.WebApp;
+       const response = await loginWithTelegram(app.initData);
 
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
