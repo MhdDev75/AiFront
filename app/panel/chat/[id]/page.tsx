@@ -34,7 +34,7 @@ const ChatPage = () => {
   const [chatInput, setChatInput] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
   const [application, setApplication] = useState<IApplication>();
-  const [uuid, setUuid] = useState("");
+  const [uuid, setUuid] = useState("3fa85f64-5717-4562-b3fc-2c963f66afa6");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const t = useTranslations("i18n");
@@ -64,7 +64,6 @@ const ChatPage = () => {
     try {
       const response = await getOpenAiChatHistory();
       if (response.isSuccess) {
-        console.log(response.value);
         response.value.map((item: any) => {
           item.conversations.map((child: any) => {
             const newMessage = { user: "user", message: parseResponse(child.question) };
@@ -75,15 +74,10 @@ const ChatPage = () => {
         })
         setUuid(response.value[response.value.length - 1].sessionId)
       }
-    
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      if (!err.data.isSuccess) {
-        if (err.data.errors == "Account balance not enough") {
-          const error = { user: "error", message: parseResponse(t("wallet.NotBalance")) };
-          setMessages((prevMessages) => [...prevMessages, error])
-        }
-      }
+      console.log(err);
     }
   };
 
@@ -105,7 +99,16 @@ const ChatPage = () => {
         setMessages((prevMessages) => [...prevMessages, assistance])
         setChatInput("");
         setLoading(false)
-      } catch (err) {
+
+      } catch (err: any) {
+        if (!err?.response?.data?.isSuccess) {
+          if (err?.response?.data?.errors == "Account balance not enough") {
+            const error = { user: "error", message: parseResponse(t("wallet.NotBalance")) };
+            setMessages((prevMessages) => [...prevMessages, error])
+            setChatInput("");
+
+          }
+        }
         setLoading(false)
         console.error("Failed to send message: ", err);
       }
@@ -217,7 +220,7 @@ const ChatPage = () => {
                 <div
                   className={` ${message.user === "user"
                     ? "chat-bubble chat-bubble-primary"
-                    : message.user === "error" ? "bg-error" : ""
+                    : message.user === "error" ? "chat-bubble bg-error" : ""
                     } `}
                 >
                   {message.message.map((item, index) => {
