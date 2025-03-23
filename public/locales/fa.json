@@ -49,7 +49,8 @@
       "EnterAmount": "مقدار دلخواه",
       "CreateReceipt": "ایجاد رسید",
       "EnterYourAmount": "مقدار خود رو وارد کنید",
-      "history": "تاریخچه"
+      "history": "تاریخچه",
+      "NotBalance":"موجودی حساب کافی نیست"
     },
     "Task": {
       "dailyUserTasks": "ماموریت روزانه",

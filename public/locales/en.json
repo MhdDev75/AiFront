@@ -49,7 +49,8 @@
       "EnterAmount": "Enter Amount",
       "CreateReceipt": "Create a Receipt",
       "EnterYourAmount": "Enter Your Amount",
-      "history": "History"
+      "history": "History",
+      "NotBalance":"Not enough Account balance"
     },
     "Task": {
       "dailyUserTasks": "Daily Task",

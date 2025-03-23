@@ -73,13 +73,15 @@ const ChatPage = () => {
             const assistance = { user: "sender", message: parseResponse(child.answer) };
             setMessages((prevMessages) => [...prevMessages, assistance])
           })
-
-
-
         })
         setUuid(response.value[response.value.length - 1].sessionId)
       }
-
+      if (!response.isSuccess) {
+        if (response.errors == "Account balance not enough") {
+          const error = { user: "error", message: parseResponse(t("wallet.NotBalance")) };
+          setMessages((prevMessages) => [...prevMessages, error])
+        }
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.log(err.message);
@@ -216,7 +218,7 @@ const ChatPage = () => {
                 <div
                   className={` ${message.user === "user"
                     ? "chat-bubble chat-bubble-primary"
-                    : ""
+                    : message.user === "error" ? "bg-error" : ""
                     } `}
                 >
                   {message.message.map((item, index) => {
