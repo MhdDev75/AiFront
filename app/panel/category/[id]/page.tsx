@@ -1,13 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useState } from "react";
-// import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 
 import {
   GetAllAiCategoriesQuery,
-  // getCategoryById,
-  // getCategoryItemListById,
 } from "@/api/categoryActions";
 import { useParams } from "next/navigation";
 import { ICategoryWithQuery, ISubCategoryWithApplication } from "@/lib/type";

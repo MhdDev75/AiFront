@@ -151,7 +151,9 @@ export interface ILink {
  export type Message = {
   type: "bold" | "header" | "text" | "code" | "list" | "list-item";
   content: string;
+  isRtl: boolean;
   language?: string; // فقط برای کد استفاده می‌شود
+  
 };
 
 export interface IMessage {

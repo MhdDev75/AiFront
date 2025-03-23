@@ -61,3 +61,16 @@ export const GetAiApplication = async (subCategoryId: string) => {
     throw error;
   }
 };
+
+// گرفتن اطلاعات اپلیکیشن با ایدی اپلیکیشن
+export const GetAiApplicationById = async (applicationId: string) => {
+  try {
+    const response = await apiClient.get(
+      `/AiApp/GetAiApplication/${applicationId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};

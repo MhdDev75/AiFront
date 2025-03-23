@@ -29,7 +29,7 @@ export default function HomePage() {
 
 
 
-  const getUserRegionclient = async () => {
+  const getUserRegionClient = async () => {
     const response = await getUserRegion();
     if (response.isSuccess) {
       if (response.value.Id == 1) {
@@ -50,7 +50,7 @@ export default function HomePage() {
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
         setCookie("token", response.value.token);
-        getUserRegionclient()
+        getUserRegionClient()
         localStorage.setItem("token", response.value.token);
         const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود

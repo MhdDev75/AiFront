@@ -124,6 +124,10 @@
       "pieces":"pieces",
       "torque":"torque"
     },
+    "chat":{
+      "send": "ُSend",
+      "Typing": "Type your message ..."
+    },
     "USD": "USD",
     "IRT": "IRT",
     "SessionError": "Your session has ended",
