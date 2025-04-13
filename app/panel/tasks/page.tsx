@@ -40,23 +40,26 @@ const TasksPage = () => {
       setCategoryTask(response.value);
       const formattedTasks = {
         dailyUserTasks: response.value.dailyUserTasks.flatMap((task: any) => [
-          ...task.externalLinkUser.map((item: any) => ({
+          ...task.externalLinkUser.map(async(item: any) => ({
             ...item,
             type: "externalLinkUser",
             currency: "IRT",
+            imageUrl:await getImage(item.imageId)
           })),
-          ...task.telegramChanel.map((item: any) => ({
+          ...task.telegramChanel.map(async(item: any) => ({
             ...item,
             type: "telegramChanel",
             currency: "IRT",
+            imageUrl:await getImage(item.imageId)
           })),
         ]),
 
-        staticUserTasks: response.value.staticUserTasks.flatMap((task: any) => [
+        staticUserTasks: response.value.staticUserTasks.flatMap(async(task: any) => [
           {
             ...task.userTaskInvitedUserTask,
             type: "userTaskInvitedUserTask",
             currency: "IRT",
+            imageUrl:await getImage(task.imageId)
           },
         ]),
       };
@@ -129,7 +132,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageId}
+                        image={child.imageUrl}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
@@ -146,7 +149,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={getImage()}
+                        image={child.imageUrl}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
@@ -162,7 +165,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageId}
+                        image={child.imageUrl}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
