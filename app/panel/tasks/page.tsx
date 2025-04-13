@@ -20,12 +20,12 @@ const TasksPage = () => {
   const [loading, setLoading] = useState(false);
   const [categoryTask, setCategoryTask] = useState([]);
 
-  interface sss {
+  interface TaskType {
     dailyUserTasks: any;
     staticUserTasks: any;
   }
 
-  const [taskServer, setTaskServer] = useState<sss>();
+  const [taskServer, setTaskServer] = useState<TaskType>();
   // const [taskList, setTaskList] = useState<ITasks[] | undefined>();
 
   useEffect(() => {
