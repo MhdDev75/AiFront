@@ -59,7 +59,8 @@
       "VipTask": "Vip Task",
       "NoTask": "There is no task to display.",
       "Increase": "Increase",
-      "YourRate": "Your Rate"
+      "YourRate": "Your Rate",
+      "Count":"Number of invitations : "
     },
     "Profile": {
       "Welcome": "welcome",
@@ -132,12 +133,16 @@
        "following": "Following",
       "unfollow": "Unfollow",
       "rate": "Rate this model",
-      "selectRate": "Selected Rate"
+      "selectRate": "Selected Rate",
+      "SubmitedRate": "Rate Submited",
+      "Copy":"Copy"
+
     },
     "USD": "USD",
     "IRT": "IRT",
     "SessionError": "Your session has ended",
     "Disconnected": "Error connecting to the server.",
+    "Error": "An error occurred. Please try again.",
     "Reload": "Reload again",
     "Toman": "T",
     "Soon": "Soon",

@@ -59,6 +59,12 @@ audio::-webkit-media-controls-panel {
   padding: 0;
 }
 
+pre[class*="language-"],
+code[class*="language-"] {
+    background: transparent !important; /* بک‌گراند را شفاف کنید */
+    border: none; /* حذف حاشیه‌ها */
+}
+
 /* body[dir="rtl"]>::after
 {
   --secondary:"#12130f";

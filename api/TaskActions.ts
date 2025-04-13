@@ -59,3 +59,14 @@ export const postTelegramChannel = async (taskId: number) => {
     return error;
   }
 };
+
+
+export const getImageFile = async (imageId:string) => {
+  try {
+    const response = await apiClient.get(`/FileStorage/${imageId}/Download`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};

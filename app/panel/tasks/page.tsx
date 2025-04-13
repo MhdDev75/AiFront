@@ -7,7 +7,7 @@ import coins from "@/assets/tasks/coins.png";
 import { Coins, Flag, PopcornIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { getTaskList } from "@/api/TaskActions";
+import { getImageFile, getTaskList } from "@/api/TaskActions";
 import { toast } from "react-toastify";
 import { UserTask } from "@/lib/type";
 import TaskBoxComponentExternal from "@/components/panel/TaskBoxComponentExternal";
@@ -43,18 +43,12 @@ const TasksPage = () => {
           ...task.externalLinkUser.map((item: any) => ({
             ...item,
             type: "externalLinkUser",
-            status: true,
-            currency: "USD",
-            imageId:
-              "https://cdn.iconscout.com/icon/free/png-512/free-youtube-logo-icon-download-in-svg-png-gif-file-formats--social-media-70-flat-icons-color-pack-logos-432560.png?f=webp&w=256",
+            currency: "IRT",
           })),
           ...task.telegramChanel.map((item: any) => ({
             ...item,
             type: "telegramChanel",
-            status: true,
-            currency: "USD",
-            imageId:
-              "https://cdn.iconscout.com/icon/free/png-256/free-telegram-logo-icon-download-in-svg-png-gif-file-formats--social-media-brand-pack-logos-icons-3073750.png?f=webp&w=256",
+            currency: "IRT",
           })),
         ]),
 
@@ -62,10 +56,7 @@ const TasksPage = () => {
           {
             ...task.userTaskInvitedUserTask,
             type: "userTaskInvitedUserTask",
-            status: true,
-            currency: "USD",
-            imageId:
-              "https://cdn.iconscout.com/icon/premium/png-256-thumb/user-1604300-1360571.png?f=webp&w=256",
+            currency: "IRT",
           },
         ]),
       };
@@ -78,6 +69,12 @@ const TasksPage = () => {
     }
   };
 
+  const getImage = async (imageId: string) => {
+    console.log("sss");
+    const res = await getImageFile(imageId);
+    console.log(res);
+  };
+  
   const t = useTranslations("i18n");
 
   return (
@@ -89,7 +86,8 @@ const TasksPage = () => {
         <Image src={coins} width={150} height={150} alt="coins" />
       </div>
       <div className="flex flex-col bg-base-200 rounded-3xl p-3 h-[100%-14rem] overflow-y-auto gap-5">
-        {!loading && categoryTask &&
+        {!loading &&
+          categoryTask &&
           Object.keys(categoryTask).map((item, index) => {
             let list = [];
             if (item == "dailyUserTasks") {
@@ -101,8 +99,8 @@ const TasksPage = () => {
             }
 
             return (
-              <>
-                <div key={index}>
+              <div className="flex flex-col gap-3" key={index}>
+                <div>
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-row justify-between">
                       <div className="flex flex-row gap-2">
@@ -117,7 +115,7 @@ const TasksPage = () => {
                       </div>
                       {}
                       <span className="font-bold">
-                        {list.filter((x: any) => x.status == true).length +
+                        {list.filter((x: any) => x.status == "DONE").length +
                           "/" +
                           list.length}
                       </span>
@@ -142,13 +140,13 @@ const TasksPage = () => {
                     );
                   }
 
-                  if ( child.type === UserTask.telegramChanel) {
+                  if (child.type === UserTask.telegramChanel) {
                     return (
                       <TaskBoxComponentTChanel
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageId}
+                        image={getImage()}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
@@ -158,7 +156,7 @@ const TasksPage = () => {
                     );
                   }
 
-                  if ( child.type === UserTask.userTaskInvitedUserTask) {
+                  if (child.type === UserTask.userTaskInvitedUserTask) {
                     return (
                       <TaskBoxComponentInvited
                         key={child.id}
@@ -174,7 +172,7 @@ const TasksPage = () => {
                     );
                   }
                 })}
-              </>
+              </div>
             );
           })}
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import { postExternalLink } from "@/api/TaskActions";
+import { CopyCheckIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -10,7 +11,7 @@ export interface inlineBoxProps {
   description: string;
   image: string;
   price: number;
-  status: boolean;
+  status: string;
   currency: string;
   url: string;
   platformType: string;
@@ -53,7 +54,7 @@ const TaskBoxComponentExternal = ({
   return (
     <button
       onClick={() => goToLink(url, id)}
-      disabled={!status || loading || confirmStatus}
+      disabled={status == "DONE" || loading || confirmStatus}
       className="card btn btn-lg shadow-2xl  bg-base-100  flex flex-row flex-nowrap justify-between items-center p-2 rounded-full"
     >
       {loading ? (
@@ -64,7 +65,17 @@ const TaskBoxComponentExternal = ({
             <div
               className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center self-center items-center shadow-md shadow-neutral`}
             >
-              <Image src={image} alt={title} width={30} height={30}></Image>
+              {image ? (
+                <Image
+                  src={`data:image/jpeg;base64,${image}`}
+                  alt="T"
+                  width={30}
+                  height={30}
+                  unoptimized
+                ></Image>
+              ) : (
+                <CopyCheckIcon color="gray" size={30} />
+              )}
             </div>
             <div className="flex flex-col items-start gap-2">
               <span className="text-sm">{title}</span>

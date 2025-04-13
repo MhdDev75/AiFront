@@ -22,6 +22,17 @@ export const getOpenAiChatHistory = async () => {
   }
 };
 
+//  گرفتن تاریخچه چت 
+export const getOpenAiChatHistoryConversaton = async (sesstionId:string) => {
+  try {
+    const response = await apiClient.get(`/Chat/HistoryDetail/${sesstionId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error Get Balance:", error);
+    throw error;
+  }
+};
+
 //  گرفتن اطلاعات دنبالکننده ها 
 export const getFollowing = async (applicationId: string) => {
   try {
