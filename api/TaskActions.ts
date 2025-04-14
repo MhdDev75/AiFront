@@ -63,8 +63,16 @@ export const postTelegramChannel = async (taskId: number) => {
 
 export const getImageFile = async (imageId: string) => {
   try {
-    const response = await apiClient.get(`/FileStorage/${encodeURIComponent(imageId)}/Download`);
-    return response.data;
+    const response = await apiClient.get(`/FileStorage/${encodeURIComponent(imageId)}/Download`, {
+      responseType: 'arraybuffer', // تعیین نوع پاسخ به باینری
+    });
+    const base64String = btoa(
+      new Uint8Array(response.data).reduce(
+        (data, byte) => data + String.fromCharCode(byte),
+        ''
+      )
+    );
+    return base64String;
   } catch (error) {
     console.error("Error fetching user:", error);
     throw error;

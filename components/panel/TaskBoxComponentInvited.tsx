@@ -1,9 +1,9 @@
 "use client";
-import { postCheckInvite } from "@/api/TaskActions";
+import { getImageFile, postCheckInvite } from "@/api/TaskActions";
 import { CopyCheckIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 export interface inlineBoxProps {
   id: number;
@@ -29,6 +29,9 @@ const TaskBoxComponentInvited = ({
   const t = useTranslations("i18n");
   const [loading, setLoading] = useState(false);
   const [confirmStatus, setConfirmStatus] = useState(false);
+  const [img, setImg] = useState<string>();
+  const [loadingImg, setloadingImg] = useState(false);
+
   const checkStatus = async (id: number) => {
     setLoading(true);
     const response = await postCheckInvite(id);
@@ -40,6 +43,17 @@ const TaskBoxComponentInvited = ({
       toast.error(response.errors[0]);
       setLoading(false);
     }
+  };
+
+  useEffect(() => {
+    getImage(image);
+  }, []);
+
+  const getImage = async (imageId: string) => {
+    setloadingImg(true);
+    const imageBase64 = await getImageFile(imageId);
+    setImg(imageBase64);
+    setloadingImg(false);
   };
 
   return (
@@ -54,18 +68,22 @@ const TaskBoxComponentInvited = ({
         <>
           <div className="flex gap-3">
             <div
-              className={`flex bg-gradient-to-b from-warning to-info rounded-full p-2 justify-center self-center items-center shadow-md shadow-neutral`}
+              className={`flex bg-gradient-to-b from-warning to-info rounded-full justify-center self-center items-center shadow-md shadow-neutral`}
             >
-              {image ? (
+              {!loadingImg ? (
                 <Image
-                  src={`data:image/jpeg;base64,${image}`}
+                  src={`data:image/jpeg;base64,${img}`}
                   alt="T"
                   width={30}
                   height={30}
                   unoptimized
+                  className="h-12 w-12 object-cover  rounded-full"
                 ></Image>
-              ) : (
+              ) : img ? (
                 <CopyCheckIcon color="gray" size={30} />
+              ) : (
+                <span className="loading h-12 w-12 flex justify-center self-center">
+                </span>
               )}
             </div>
             <div className="flex flex-col items-start ">

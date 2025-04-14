@@ -7,7 +7,7 @@ import coins from "@/assets/tasks/coins.png";
 import { Coins, Flag, PopcornIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
-import { getImageFile, getTaskList } from "@/api/TaskActions";
+import { getTaskList } from "@/api/TaskActions";
 import { toast } from "react-toastify";
 import { Currency, UserTask } from "@/lib/type";
 import TaskBoxComponentExternal from "@/components/panel/TaskBoxComponentExternal";
@@ -33,22 +33,20 @@ const TasksPage = () => {
     getTaskListClient();
   }, []);
 
- const getCurrencyName = (value: number): string => {
+  const getCurrencyName = (value: number): string => {
+    console.log(value);
     return Currency[value] ?? "Unknown Currency";
   };
 
   const getTaskListClient = async () => {
     setLoading(true);
     const response = await getTaskList();
-    console.log(response);
-    
+    console.log("سسس",response);
+
     if (response.isSuccess) {
       setCategoryTask(response.value);
       const formattedTasks = await formatTasks(response);
-
-      // حالا می‌توانی داده‌ها را در صفحه نمایش دهی
       console.log("Formatted Tasks:", formattedTasks);
-    
 
       setTaskServer(formattedTasks);
       setLoading(false);
@@ -63,38 +61,31 @@ const TasksPage = () => {
         ...task.externalLinkUser.map(async (item: any) => ({
           ...item,
           type: "externalLinkUser",
-          currency: getCurrencyName(item.currency),
-          imageUrl: await getImage(item.imageId),
+         
         })),
         ...task.telegramChanel.map(async (item: any) => ({
           ...item,
           type: "telegramChanel",
-          currency: getCurrencyName(item.currency),
-          imageUrl: await getImage(item.imageId),
+        
         })),
       ])
     );
-  
+    response.value.staticUserTasks.map(async (task: any) => (
+      console.log(task)
+    ))
     const staticUserTasks = await Promise.all(
       response.value.staticUserTasks.map(async (task: any) => ({
         ...task.userTaskInvitedUserTask,
         type: "userTaskInvitedUserTask",
-        currency: getCurrencyName(task.currency),
-        // imageUrl: await getImage(task.imageId),
       }))
     );
-  
+
+    console.log("staticUserTasks",staticUserTasks);
+    console.log("dailyUserTasks", dailyUserTasks);
+    
+
     return { dailyUserTasks, staticUserTasks };
   }
-  
-  
-  // **مثال استفاده**
- 
-  const getImage = async (imageId: string) => {
-    const res = await getImageFile(imageId);
-    console.log(res);
-  };
-  
   const t = useTranslations("i18n");
 
   return (
@@ -149,7 +140,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageUrl}
+                        image={child.imageId}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
@@ -166,7 +157,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageUrl}
+                        image={child.imageId}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
@@ -182,7 +173,7 @@ const TasksPage = () => {
                         key={child.id}
                         title={child.title}
                         description={child.description}
-                        image={child.imageUrl}
+                        image={child.imageId}
                         price={child.price}
                         status={child.status}
                         currency={child.currency}
