@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { getTaskList } from "@/api/TaskActions";
 import { toast } from "react-toastify";
-import { Currency, UserTask } from "@/lib/type";
+import { UserTask } from "@/lib/type";
 import TaskBoxComponentExternal from "@/components/panel/TaskBoxComponentExternal";
 import TaskBoxComponentTChanel from "@/components/panel/TaskBoxComponentTChanel";
 import TaskBoxComponentInvited from "@/components/panel/TaskBoxComponentInvited";
