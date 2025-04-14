@@ -159,12 +159,12 @@ export interface ILink {
   cached: boolean;
 }
 
- export type Message = {
+export type Message = {
   type: "bold" | "header" | "text" | "code" | "list" | "list-item";
   content: string;
   isRtl: boolean;
   language?: string; // فقط برای کد استفاده می‌شود
-  
+
 };
 
 export interface IMessage {
@@ -176,6 +176,56 @@ export enum UserTask {
   userTaskInvitedUserTask = "userTaskInvitedUserTask",
   externalLinkUser = "externalLinkUser",
   telegramChanel = "telegramChanel",
+}
+
+export enum Currency {
+  IRT = 0, // Iranian Rial
+  IRTT = 1,
+  USD = 2, // United States Dollar
+  EUR = 3, // Euro
+  GBP = 4, // British Pound Sterling
+  JPY = 5, // Japanese Yen
+  AUD = 6, // Australian Dollar
+  CAD = 7, // Canadian Dollar
+  CHF = 8, // Swiss Franc
+  CNY = 9, // Chinese Yuan
+  INR = 10, // Indian Rupee
+  RUB = 11, // Russian Ruble
+  BRL = 12, // Brazilian Real
+  ZAR = 13, // South African Rand
+  MXN = 14, // Mexican Peso
+  SGD = 15, // Singapore Dollar
+  HKD = 16, // Hong Kong Dollar
+  NZD = 17, // New Zealand Dollar
+  KRW = 18, // South Korean Won
+  SEK = 19, // Swedish Krona
+  NOK = 20, // Norwegian Krone
+  DKK = 21, // Danish Krone
+  TRY = 22, // Turkish Lira
+  AED = 23, // United Arab Emirates Dirham
+  SAR = 24, // Saudi Riyal
+  THB = 25, // Thai Baht
+  MYR = 26, // Malaysian Ringgit
+  IDR = 27, // Indonesian Rupiah
+  PHP = 28, // Philippine Peso
+  VND = 29, // Vietnamese Dong
+  PLN = 30, // Polish Zloty
+  CZK = 31, // Czech Koruna
+  HUF = 32, // Hungarian Forint
+  ILS = 33, // Israeli New Shekel
+  ARS = 34, // Argentine Peso
+  COP = 35, // Colombian Peso
+  CLP = 36, // Chilean Peso
+  EGP = 37, // Egyptian Pound
+  NGN = 38, // Nigerian Naira
+  PKR = 39, // Pakistani Rupee
+  BDT = 40, // Bangladeshi Taka
+  LKR = 41, // Sri Lankan Rupee
+  KWD = 42, // Kuwaiti Dinar
+  QAR = 43, // Qatari Riyal
+  OMR = 44, // Omani Rial
+  BHD = 45, // Bahraini Dinar
+  JOD = 46, // Jordanian Dinar
 }
 
 export interface ITasks {

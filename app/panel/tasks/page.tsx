@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { useBackButton } from "@/core/telegram/BackButtonProvider";
 import { getImageFile, getTaskList } from "@/api/TaskActions";
 import { toast } from "react-toastify";
-import { UserTask } from "@/lib/type";
+import { Currency, UserTask } from "@/lib/type";
 import TaskBoxComponentExternal from "@/components/panel/TaskBoxComponentExternal";
 import TaskBoxComponentTChanel from "@/components/panel/TaskBoxComponentTChanel";
 import TaskBoxComponentInvited from "@/components/panel/TaskBoxComponentInvited";
@@ -33,36 +33,22 @@ const TasksPage = () => {
     getTaskListClient();
   }, []);
 
+ const getCurrencyName = (value: number): string => {
+    return Currency[value] ?? "Unknown Currency";
+  };
+
   const getTaskListClient = async () => {
     setLoading(true);
     const response = await getTaskList();
+    console.log(response);
+    
     if (response.isSuccess) {
       setCategoryTask(response.value);
-      const formattedTasks = {
-        dailyUserTasks: response.value.dailyUserTasks.flatMap((task: any) => [
-          ...task.externalLinkUser.map(async(item: any) => ({
-            ...item,
-            type: "externalLinkUser",
-            currency: "IRT",
-            imageUrl:await getImage(item.imageId)
-          })),
-          ...task.telegramChanel.map(async(item: any) => ({
-            ...item,
-            type: "telegramChanel",
-            currency: "IRT",
-            imageUrl:await getImage(item.imageId)
-          })),
-        ]),
+      const formattedTasks = await formatTasks(response);
 
-        staticUserTasks: response.value.staticUserTasks.flatMap(async(task: any) => [
-          {
-            ...task.userTaskInvitedUserTask,
-            type: "userTaskInvitedUserTask",
-            currency: "IRT",
-            imageUrl:await getImage(task.imageId)
-          },
-        ]),
-      };
+      // حالا می‌توانی داده‌ها را در صفحه نمایش دهی
+      console.log("Formatted Tasks:", formattedTasks);
+    
 
       setTaskServer(formattedTasks);
       setLoading(false);
@@ -71,9 +57,40 @@ const TasksPage = () => {
       setLoading(false);
     }
   };
-
+  async function formatTasks(response: any) {
+    const dailyUserTasks = await Promise.all(
+      response.value.dailyUserTasks.flatMap((task: any) => [
+        ...task.externalLinkUser.map(async (item: any) => ({
+          ...item,
+          type: "externalLinkUser",
+          currency: getCurrencyName(item.currency),
+          imageUrl: await getImage(item.imageId),
+        })),
+        ...task.telegramChanel.map(async (item: any) => ({
+          ...item,
+          type: "telegramChanel",
+          currency: getCurrencyName(item.currency),
+          imageUrl: await getImage(item.imageId),
+        })),
+      ])
+    );
+  
+    const staticUserTasks = await Promise.all(
+      response.value.staticUserTasks.map(async (task: any) => ({
+        ...task.userTaskInvitedUserTask,
+        type: "userTaskInvitedUserTask",
+        currency: getCurrencyName(task.currency),
+        // imageUrl: await getImage(task.imageId),
+      }))
+    );
+  
+    return { dailyUserTasks, staticUserTasks };
+  }
+  
+  
+  // **مثال استفاده**
+ 
   const getImage = async (imageId: string) => {
-    console.log("sss");
     const res = await getImageFile(imageId);
     console.log(res);
   };
