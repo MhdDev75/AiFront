@@ -49,6 +49,8 @@ const TaskBoxComponentInvited = ({
     getImage(image);
   }, []);
 
+  
+
   const getImage = async (imageId: string) => {
     setloadingImg(true);
     const imageBase64 = await getImageFile(imageId);

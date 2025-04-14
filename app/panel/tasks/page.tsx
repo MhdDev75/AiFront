@@ -33,11 +33,6 @@ const TasksPage = () => {
     getTaskListClient();
   }, []);
 
-  const getCurrencyName = (value: number): string => {
-    console.log(value);
-    return Currency[value] ?? "Unknown Currency";
-  };
-
   const getTaskListClient = async () => {
     setLoading(true);
     const response = await getTaskList();
