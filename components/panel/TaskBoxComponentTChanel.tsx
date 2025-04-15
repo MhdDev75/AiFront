@@ -87,7 +87,7 @@ const TaskBoxComponentTChanel = ({
              {!loadingImg ? (
                           <Image
                             src={`data:image/jpeg;base64,${img}`}
-                            alt="T"
+                            alt={title}
                             width={30}
                             height={30}
                             unoptimized
@@ -96,7 +96,7 @@ const TaskBoxComponentTChanel = ({
                         ) : img ? (
                           <CopyCheckIcon color="gray" size={30} />
                         ) : (
-                          <span className="loading h-12 w-12 flex justify-center self-center">
+                          <span className="loading  rounded-full  h-12 w-12 flex justify-center self-center">
                           </span>
                         )}
             </div>

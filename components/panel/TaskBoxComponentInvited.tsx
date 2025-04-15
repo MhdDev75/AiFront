@@ -14,6 +14,7 @@ export interface inlineBoxProps {
   status: string;
   currency: string;
   count: number;
+  invited:number;
 }
 
 const TaskBoxComponentInvited = ({
@@ -25,7 +26,8 @@ const TaskBoxComponentInvited = ({
   status,
   currency,
   count,
-}: inlineBoxProps) => {
+  invited
+}: inlineBoxProps, ) => {
   const t = useTranslations("i18n");
   const [loading, setLoading] = useState(false);
   const [confirmStatus, setConfirmStatus] = useState(false);
@@ -75,7 +77,7 @@ const TaskBoxComponentInvited = ({
               {!loadingImg ? (
                 <Image
                   src={`data:image/jpeg;base64,${img}`}
-                  alt="T"
+                  alt={title}
                   width={30}
                   height={30}
                   unoptimized
@@ -84,7 +86,7 @@ const TaskBoxComponentInvited = ({
               ) : img ? (
                 <CopyCheckIcon color="gray" size={30} />
               ) : (
-                <span className="loading h-12 w-12 flex justify-center self-center">
+                <span className="loading h-12 w-12 flex  rounded-full  justify-center self-center">
                 </span>
               )}
             </div>
@@ -92,7 +94,7 @@ const TaskBoxComponentInvited = ({
               <span className="text-sm">{title}</span>
               <span className="text-xs text-opacity-70">{description}</span>
               <span className="text-[0.6rem] text-opacity-70 text-primary">
-                {t("Task.Count") + count}
+                {t("Task.Count") + count + "/" + invited}
               </span>
             </div>
           </div>

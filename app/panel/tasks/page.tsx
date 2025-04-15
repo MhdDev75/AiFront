@@ -13,12 +13,14 @@ import { UserTask } from "@/lib/type";
 import TaskBoxComponentExternal from "@/components/panel/TaskBoxComponentExternal";
 import TaskBoxComponentTChanel from "@/components/panel/TaskBoxComponentTChanel";
 import TaskBoxComponentInvited from "@/components/panel/TaskBoxComponentInvited";
+import { getInvitedList } from "@/api/affiliateActions";
 // import { ITasks } from "@/lib/type";
 
 const TasksPage = () => {
   const { setIsVisible } = useBackButton();
   const [loading, setLoading] = useState(false);
   const [categoryTask, setCategoryTask] = useState([]);
+  const [count , setCount] = useState<number>(0)
 
   interface TaskType {
     dailyUserTasks: any;
@@ -30,8 +32,19 @@ const TasksPage = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    getInvitedServer()
     getTaskListClient();
   }, []);
+
+  const getInvitedServer = async () => {
+      try {
+        const response = await getInvitedList();
+        setCount(response.value.length) 
+      } catch (err: any) {
+        console.log(err.message);
+      }
+    };
+  
 
   const getTaskListClient = async () => {
     setLoading(true);
@@ -174,6 +187,7 @@ const TasksPage = () => {
                         currency={child.currency}
                         id={child.id}
                         count={child.count}
+                        invited={count}
                       />
                     );
                   }
