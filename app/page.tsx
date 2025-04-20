@@ -108,7 +108,7 @@ export default function HomePage() {
               {appl && appl?.initData}
             </span> */}
             <span>
-              { appl && appl?.initDataUnsafe}
+              { appl && JSON.stringify(appl)}
             </span>
           </div>
           <span className="text-sm ">{t("Version")} : 0.0.4</span>
