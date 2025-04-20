@@ -45,7 +45,7 @@ export default function HomePage() {
   const loginUser = async () => {
     try {
        const app = (window as any).Telegram?.WebApp;
-       const response = await loginWithTelegram(app.initData);
+       const response = await loginWithTelegram(app.initData , app.initDataUnsafe?.start_param);
 
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
