@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useCookies } from "react-cookie";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import iconLight from "@/assets/images/Ai_Studio-light.svg";
@@ -12,13 +12,12 @@ import { getUserRegion, loginWithTelegram } from "@/api/userActions";
 import { setRegion } from "@/utils/helper";
 
 export default function HomePage() {
-  // const [progress, setProgress] = useState(0);
-  // const router = useRouter();
+  const [progress, setProgress] = useState(0);
+  const router = useRouter();
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
   const [cookie, setCookie] = useCookies(["token", "NewUser", "Theme"]);
   const [theme, setTheme] = useState("dark");
-  const [appl, setappl] = useState<any>();
 
   useEffect(() => {
     localStorage.clear();
@@ -49,7 +48,6 @@ export default function HomePage() {
   const loginUser = async () => {
     try {
       const app = (window as any).Telegram?.WebApp;
-      setappl(app)
       const response = await loginWithTelegram(app.initData, app.initDataUnsafe?.start_param);
 
       if (response.isSuccess) {
@@ -63,14 +61,14 @@ export default function HomePage() {
         let currentStep = 0;
         const timer = setInterval(async () => {
           currentStep++;
-          // setProgress((currentStep / steps) * 100);
+          setProgress((currentStep / steps) * 100);
 
           if (currentStep >= steps) {
             clearInterval(timer);
             if (response.value.isNew == false && await getUserRegionClient()) {
-              // router.push("/panel/home");
+              router.push("/panel/home");
             } else {
-              // router.push("/region");
+              router.push("/region");
             }
           }
         }, increment);
@@ -98,19 +96,11 @@ export default function HomePage() {
           <h1 className="text-2xl text-primary font-extrabold text-center">
             {t("welcome")}
           </h1>
-          {/* <progress
+          <progress
             className="progress progress-success w-56 mt-5"
             value={progress}
             max="100"
-          ></progress> */}
-          <div className="flex flex-col gap-3">
-            {/* <span>
-              {appl && appl?.initData}
-            </span> */}
-            <span>
-              { appl && JSON.stringify(appl)}
-            </span>
-          </div>
+          ></progress>
           <span className="text-sm ">{t("Version")} : 0.0.4</span>
         </div>
       </main>
