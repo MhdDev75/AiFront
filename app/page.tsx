@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useCookies } from "react-cookie";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import iconLight from "@/assets/images/Ai_Studio-light.svg";
@@ -13,7 +13,7 @@ import { setRegion } from "@/utils/helper";
 
 export default function HomePage() {
   const [progress, setProgress] = useState(0);
-  const router = useRouter();
+  // const router = useRouter();
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
   const [cookie, setCookie] = useCookies(["token", "NewUser", "Theme"]);
