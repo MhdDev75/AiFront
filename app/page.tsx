@@ -104,9 +104,9 @@ export default function HomePage() {
             max="100"
           ></progress> */}
           <div className="flex flex-col gap-3">
-            <span>
+            {/* <span>
               {appl && appl?.initData}
-            </span>
+            </span> */}
             <span>
               { appl && appl?.initDataUnsafe}
             </span>
