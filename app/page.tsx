@@ -98,14 +98,14 @@ export default function HomePage() {
           <h1 className="text-2xl text-primary font-extrabold text-center">
             {t("welcome")}
           </h1>
-          <progress
+          {/* <progress
             className="progress progress-success w-56 mt-5"
             value={progress}
             max="100"
-          ></progress>
+          ></progress> */}
           <div className="flex flex-col gap-3">
             <span>
-              {appl.initData}
+              {appl && appl?.initData}
             </span>
             <span>
               { appl && appl?.initDataUnsafe?.start_param}
