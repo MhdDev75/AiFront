@@ -18,6 +18,7 @@ export default function HomePage() {
   const { setIsVisible } = useBackButton();
   const [cookie, setCookie] = useCookies(["token", "NewUser", "Theme"]);
   const [theme, setTheme] = useState("dark");
+  const [appl, setappl] = useState<any>();
 
   useEffect(() => {
     localStorage.clear();
@@ -47,28 +48,29 @@ export default function HomePage() {
 
   const loginUser = async () => {
     try {
-       const app = (window as any).Telegram?.WebApp;
-       const response = await loginWithTelegram(app.initData , app.initDataUnsafe?.start_param);
+      const app = (window as any).Telegram?.WebApp;
+      setappl(app)
+      const response = await loginWithTelegram(app.initData, app.initDataUnsafe?.start_param);
 
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
         setCookie("token", response.value.token);
-        
+
         localStorage.setItem("token", response.value.token);
         const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
         const steps = totalDuration / increment;
         let currentStep = 0;
-        const timer = setInterval(async() => {
+        const timer = setInterval(async () => {
           currentStep++;
           setProgress((currentStep / steps) * 100);
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            if (response.value.isNew == false &&  await getUserRegionClient()) {
-              router.push("/panel/home");
+            if (response.value.isNew == false && await getUserRegionClient()) {
+              // router.push("/panel/home");
             } else {
-              router.push("/region");
+              // router.push("/region");
             }
           }
         }, increment);
@@ -101,6 +103,14 @@ export default function HomePage() {
             value={progress}
             max="100"
           ></progress>
+          <div className="flex flex-col gap-3">
+            <span>
+              {appl.initData}
+            </span>
+            <span>
+              { appl && appl?.initDataUnsafe?.start_param}
+            </span>
+          </div>
           <span className="text-sm ">{t("Version")} : 0.0.4</span>
         </div>
       </main>
