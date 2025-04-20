@@ -115,7 +115,7 @@ export interface IInvitedFriend {
   date: Date;
   dateString: string;
   image: string;
-  name: string;
+  firstName: string;
 }
 
 export interface ITransaction {

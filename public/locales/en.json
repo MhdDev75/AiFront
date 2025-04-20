@@ -50,7 +50,7 @@
       "CreateReceipt": "Create a Receipt",
       "EnterYourAmount": "Enter Your Amount",
       "history": "History",
-      "NotBalance":"Not enough Account balance"
+      "NotBalance": "Not enough Account balance"
     },
     "Task": {
       "dailyUserTasks": "Daily Task",
@@ -60,7 +60,7 @@
       "NoTask": "There is no task to display.",
       "Increase": "Increase",
       "YourRate": "Your Rate",
-      "Count":"Number of invitations : "
+      "Count": "Number of invitations : "
     },
     "Profile": {
       "Welcome": "welcome",
@@ -121,28 +121,28 @@
       "frequency": "frequency",
       "angle": "angle",
       "acceleration": "acceleration",
-      "charge":"charge",
-      "force":"force",
-      "massFlowRate":"massFlowRate",
-      "pieces":"pieces",
-      "torque":"torque"
+      "charge": "charge",
+      "force": "force",
+      "massFlowRate": "massFlowRate",
+      "pieces": "pieces",
+      "torque": "torque"
     },
-    "chat":{
-      "send": "ُSend",
+    "chat": {
+      "send": "Send",
       "Typing": "Type your message ...",
-       "following": "Following",
+      "following": "Following",
       "unfollow": "Unfollow",
       "rate": "Rate this model",
       "selectRate": "Selected Rate",
       "SubmitedRate": "Rate Submited",
-      "Copy":"Copy"
-
+      "Copy": "Copy"
     },
     "USD": "USD",
     "IRT": "IRT",
     "SessionError": "Your session has ended",
     "Disconnected": "Error connecting to the server.",
     "Error": "An error occurred. Please try again.",
+    "Required": "Please select one of the items.",
     "Reload": "Reload again",
     "Toman": "T",
     "Soon": "Soon",
@@ -156,6 +156,7 @@
     "header": "Application supports i18n",
     "footer": "You can select a different language from the dropdown menu.",
     "Version": "Version",
-    "LetsGo": "Lets Go !"
+    "LetsGo": "Lets Go !",
+    "Confirm":"Confirm"
   }
 }

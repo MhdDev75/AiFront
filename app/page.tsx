@@ -24,23 +24,26 @@ export default function HomePage() {
     setCookie("token", null);
     setIsVisible(false); // دکمه بازگشت را فعال کنید
     setTheme(cookie.Theme);
-    loginUser()
+    loginUser();
   }, []);
-
-
 
   const getUserRegionClient = async () => {
     const response = await getUserRegion();
     if (response.isSuccess) {
+      if (!response.value.id) {
+        return false;
+      }
       if (response.value.id == 1) {
-        setRegion("fa")
+        setRegion("fa");
         localStorage.setItem("Region", "FA");
+        return true;
       } else {
-        setRegion("en")
+        setRegion("en");
         localStorage.setItem("Region", "EN");
+        return true;
       }
     }
-  }
+  };
 
   const loginUser = async () => {
     try {
@@ -50,19 +53,19 @@ export default function HomePage() {
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
         setCookie("token", response.value.token);
-        getUserRegionClient()
+        
         localStorage.setItem("token", response.value.token);
         const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
         const steps = totalDuration / increment;
         let currentStep = 0;
-        const timer = setInterval(() => {
+        const timer = setInterval(async() => {
           currentStep++;
           setProgress((currentStep / steps) * 100);
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            if (response.value.isNew == false) {
+            if (response.value.isNew == false &&  await getUserRegionClient()) {
               router.push("/panel/home");
             } else {
               router.push("/region");

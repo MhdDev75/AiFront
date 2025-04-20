@@ -21,10 +21,11 @@ const WelcomePage = () => {
   const router = useRouter();
   const local = useLocale();
   // eslint-disable-next-line @typescript-eslint/no-array-constructor
+  const theme = cookie.Theme ? cookie.Theme : "dark";
   const sliderList = [
     {
       id: 1,
-      imgUrl: `/assets/welcome/${local}-${cookie.Theme}-${
+      imgUrl: `/assets/welcome/${local}-${theme}-${
         cookie.Platform == "tdesktop" ? "d" : "m"
       }.webp`,
       time: 15000,
@@ -53,10 +54,10 @@ const WelcomePage = () => {
           setCurrent(current + 1);
         }
       }
-      
+
       if (current === sliderList.length && progress === 100) {
-        clearInterval(timer)
-        router.push("/panel/home")
+        clearInterval(timer);
+        router.push("/panel/home");
       }
     }, increment);
 
@@ -76,7 +77,13 @@ const WelcomePage = () => {
               id={`slide${item.id}`}
               className="carousel-item relative w-full"
             >
-              <Image src={item.imgUrl} alt={`slide${item.id}`} className="w-full" />
+              <Image
+                src={item.imgUrl}
+                alt={`slide${item.id}`}
+                width={100}
+                height={100}
+                className="w-full"
+              />
             </div>
           ))}
           {current < sliderList.length && currentStep != 100 && (
