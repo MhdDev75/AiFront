@@ -12,7 +12,7 @@ import { getUserRegion, loginWithTelegram } from "@/api/userActions";
 import { setRegion } from "@/utils/helper";
 
 export default function HomePage() {
-  const [progress, setProgress] = useState(0);
+  // const [progress, setProgress] = useState(0);
   // const router = useRouter();
   const t = useTranslations("i18n");
   const { setIsVisible } = useBackButton();
@@ -63,7 +63,7 @@ export default function HomePage() {
         let currentStep = 0;
         const timer = setInterval(async () => {
           currentStep++;
-          setProgress((currentStep / steps) * 100);
+          // setProgress((currentStep / steps) * 100);
 
           if (currentStep >= steps) {
             clearInterval(timer);
