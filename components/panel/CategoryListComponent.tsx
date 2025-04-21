@@ -28,7 +28,7 @@ const CategoryListComponent: React.FC<ISubCategoryWithApplication> = ({
       rtl: isIr,
       mode: "snap",
       slides: { origin: "auto", perView: 1.5, spacing: 10 },
-      loop: true,
+      loop: false,
       slideChanged() {
         console.log("slide changed");
       },
