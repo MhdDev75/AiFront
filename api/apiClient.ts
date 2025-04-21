@@ -1,4 +1,5 @@
 // src/api/apiClient.js
+import { getLocale } from "@/core/i18n/locale";
 import axios from "axios";
 
 const apiClient = axios.create({
@@ -11,15 +12,16 @@ const apiClient = axios.create({
 });
 
 // افزودن یک اینترسپتور برای مدیریت توکن (در صورت نیاز)
-apiClient.interceptors.request.use((config) => {
+apiClient.interceptors.request.use(async (config) => {
   const token = localStorage.getItem("token"); // یا هر مکان دیگری که توکن را ذخیره می‌کنی
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  const Region = localStorage.getItem("Region"); // یا هر مکان دیگری که زبان را ذخیره می‌کنی
-  if (Region) {
-    config.headers['Accept-Language'] = Region;
-    
+  const locale = await getLocale(); // یا هر مکان دیگری که زبان را ذخیره می‌کنی
+  if (locale) {
+    config.headers["Accept-Language"] = locale;
+  } else {
+    config.headers["Accept-Language"] = "FA";
   }
   return config;
 });
