@@ -157,7 +157,7 @@ const ChatPage = () => {
 
   const getAiChatHistory = async () => {
     try {
-      const response = await getOpenAiChatHistory();
+      const response = await getOpenAiChatHistory(Number(params.id));
       if (response.isSuccess) {
         setUuid(response.value[0].sessionId);
         const res = await getOpenAiChatHistoryConversaton(

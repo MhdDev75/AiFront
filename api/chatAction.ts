@@ -1,9 +1,15 @@
 import apiClient from "./apiClient";
 
-// ارسال و گرفتن چت 
-export const getOpenAiChat = async (message: string, sessionId: string, applicationId: number) => {
+// ارسال و گرفتن چت
+export const getOpenAiChat = async (
+  message: string,
+  sessionId: string,
+  applicationId: number
+) => {
   try {
-    const response = await apiClient.get(`/Chat?Message=${message}&SessionId=${sessionId}&ApplicationId=${applicationId}`);
+    const response = await apiClient.get(
+      `/Chat?Message=${message}&SessionId=${sessionId}&ApplicationId=${applicationId}`
+    );
     return response.data;
   } catch (error) {
     console.error("Error Get Balance:", error);
@@ -11,10 +17,10 @@ export const getOpenAiChat = async (message: string, sessionId: string, applicat
   }
 };
 
-//  گرفتن تاریخچه چت 
-export const getOpenAiChatHistory = async () => {
+//  گرفتن تاریخچه چت
+export const getOpenAiChatHistory = async (applicationId: number) => {
   try {
-    const response = await apiClient.get(`/Chat/History`);
+    const response = await apiClient.get(`/Chat/History/${applicationId}`);
     return response.data;
   } catch (error) {
     console.error("Error Get Balance:", error);
@@ -22,8 +28,8 @@ export const getOpenAiChatHistory = async () => {
   }
 };
 
-//  گرفتن تاریخچه چت 
-export const getOpenAiChatHistoryConversaton = async (sesstionId:string) => {
+//  گرفتن تاریخچه چت
+export const getOpenAiChatHistoryConversaton = async (sesstionId: string) => {
   try {
     const response = await apiClient.get(`/Chat/HistoryDetail/${sesstionId}`);
     return response.data;
@@ -33,10 +39,12 @@ export const getOpenAiChatHistoryConversaton = async (sesstionId:string) => {
   }
 };
 
-//  گرفتن اطلاعات دنبالکننده ها 
+//  گرفتن اطلاعات دنبالکننده ها
 export const getFollowing = async (applicationId: string) => {
   try {
-    const response = await apiClient.get(`/ApplicationFollower?appllicationId=${applicationId}`);
+    const response = await apiClient.get(
+      `/ApplicationFollower?appllicationId=${applicationId}`
+    );
     return response.data;
   } catch (error) {
     console.error("Error Get Balance:", error);
@@ -48,7 +56,7 @@ export const getFollowing = async (applicationId: string) => {
 export const postFollowing = async (applicationId: string) => {
   try {
     const response = await apiClient.post(`/ApplicationFollower/Follow`, {
-      "applicationId": applicationId
+      applicationId: applicationId,
     });
     return response.data;
   } catch (error) {
@@ -57,12 +65,11 @@ export const postFollowing = async (applicationId: string) => {
   }
 };
 
-
 //  لغو دنبال کردن
 export const postUnFollowing = async (applicationId: string) => {
   try {
     const response = await apiClient.post(`/ApplicationFollower/UnFollow`, {
-      "applicationId": applicationId
+      applicationId: applicationId,
     });
     return response.data;
   } catch (error) {
@@ -72,11 +79,14 @@ export const postUnFollowing = async (applicationId: string) => {
 };
 
 //  اراسال بازخورد
-export const postApplicationRate = async (applicationId: string, rate: string) => {
+export const postApplicationRate = async (
+  applicationId: string,
+  rate: string
+) => {
   try {
     const response = await apiClient.post(`/ApplicationRate`, {
-      "applicationId": applicationId,
-      "rate": rate
+      applicationId: applicationId,
+      rate: rate,
     });
     return response.data;
   } catch (error) {
@@ -88,15 +98,12 @@ export const postApplicationRate = async (applicationId: string, rate: string) =
 //  گرفتن اطلاعات بازخورد
 export const getApplicationRate = async (applicationId: string) => {
   try {
-    const response = await apiClient.get(`/ApplicationRate?applicationId=${applicationId}`);
+    const response = await apiClient.get(
+      `/ApplicationRate?applicationId=${applicationId}`
+    );
     return response.data;
   } catch (error) {
     console.error("Error Get Balance:", error);
     throw error;
   }
 };
-
-
-
-
-
