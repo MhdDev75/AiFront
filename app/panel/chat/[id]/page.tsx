@@ -51,7 +51,7 @@ const ChatPage = () => {
   const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
   const [application, setApplication] = useState<IApplication>();
-  const [uuid, setUuid] = useState<string | null>(null);
+  const [uuid, setUuid] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const t = useTranslations("i18n");
@@ -195,7 +195,7 @@ const ChatPage = () => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         const response = await getOpenAiChat(
           chatInput,
-          uuid ? uuid : null,
+          uuid ,
           Number(params.id)
         );
         if (response.isSuccess) {
