@@ -19,7 +19,7 @@ apiClient.interceptors.request.use(async (config) => {
   }
   const locale = await getLocale(); // یا هر مکان دیگری که زبان را ذخیره می‌کنی
   if (locale) {
-    config.headers["Accept-Language"] = locale;
+    config.headers["Accept-Language"] = locale.toUpperCase();
   } else {
     config.headers["Accept-Language"] = "FA";
   }
