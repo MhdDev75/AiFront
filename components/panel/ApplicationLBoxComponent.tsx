@@ -41,7 +41,7 @@ const ApplicationLBoxComponent: React.FC<IApplication> = ({
           <div className="flex flex-col flex-nowrap justify-center items-start gap-1">
             <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
               <StarIcon color="yellow" size={12} />
-              <span className="font-bold text-xs">{rate}</span>
+              <span className="font-bold text-xs">{Number(rate).toFixed(2)}</span>
             </div>
             <div className="bg-gray-500 bg-opacity-70 rounded-md flex flex-row gap-1 flex-nowrap px-1 items-center">
               <BadgePlus color="blue" size={12} />
