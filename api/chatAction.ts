@@ -1,7 +1,7 @@
 import apiClient from "./apiClient";
 
 // ارسال و گرفتن چت 
-export const getOpenAiChat = async (message: string, sessionId: string, applicationId: number) => {
+export const getOpenAiChat = async (message: string, sessionId: string | null, applicationId: number) => {
   try {
     const response = await apiClient.get(`/Chat?Message=${message}&SessionId=${sessionId}&ApplicationId=${applicationId}`);
     return response.data;

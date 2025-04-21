@@ -51,7 +51,7 @@ const ChatPage = () => {
   const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
   const [application, setApplication] = useState<IApplication>();
-  const [uuid, setUuid] = useState("");
+  const [uuid, setUuid] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const t = useTranslations("i18n");
@@ -195,26 +195,25 @@ const ChatPage = () => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         const response = await getOpenAiChat(
           chatInput,
-          uuid,
+          uuid ? uuid : null,
           Number(params.id)
         );
-        const inputMessage = response.value.output;
-        const parsedMessages = parseResponse(inputMessage);
-        const assistance = { user: "sender", message: parsedMessages };
-        setMessages((prevMessages) => [...prevMessages, assistance]);
+        if (response.isSuccess) {
+          const inputMessage = response.value.output;
+          const parsedMessages = parseResponse(inputMessage);
+          const assistance = { user: "sender", message: parsedMessages };
+          setMessages((prevMessages) => [...prevMessages, assistance]);
+        } else {
+          const error = {
+            user: "error",
+            message: parseResponse(response.errors),
+          };
+          setMessages((prevMessages) => [...prevMessages, error]);
+        }
+
         setChatInput("");
         setLoading(false);
       } catch (err: any) {
-        if (!err?.response?.data?.isSuccess) {
-          if (err?.response?.data?.errors == "Account balance not enough") {
-            const error = {
-              user: "error",
-              message: parseResponse(t("wallet.NotBalance")),
-            };
-            setMessages((prevMessages) => [...prevMessages, error]);
-            setChatInput("");
-          }
-        }
         setLoading(false);
         console.error("Failed to send message: ", err);
       }

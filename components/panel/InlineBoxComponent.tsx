@@ -51,10 +51,27 @@ const InlineBoxComponent = ({
 }: inlineBoxProps) => {
   // const t = useTranslations("i18n")
   const [convertDate, setConvertDate] = useState<string>();
+  const [string, setString] = useState<string[]>();
   useEffect(() => {
     const res = convertLocalizeDate(date);
     setConvertDate(res.toString());
+    getTypeColorAndStatus(type);
   }, []);
+
+  const getTypeColorAndStatus = (type: string) => {
+    switch (type) {
+      case "X":
+        setString(["-", "text-error"]);
+      case "GIFT":
+        setString(["+", "text-success"]);
+      case "CHAT":
+        setString(["-", "text-error"]);
+      case "USER_TASK":
+        setString(["+", "text-success"]);
+      default:
+        setString(["+", "text-success"]);
+    }
+  };
 
   return (
     <div className="card bg-base-300 shadow flex flex-row flex-nowrap justify-between items-center p-2 rounded-full">
@@ -74,18 +91,10 @@ const InlineBoxComponent = ({
       <div>
         <span
           className={`${
-            status == "ADVICE" ? "text-success" : "text-error"
+            string && string[1]
           } text-md text-nowrap font-bold px-3 `}
         >
-          {(type == "پرداختی" ||
-          type == "GIFT" ||
-          type == "USER_TASK" ||
-          type == "CHAT"
-            ? "+"
-            : "-") +
-            " " +
-            price.toLocaleString()}{" "}
-          {currency}
+          {string && string[0] + " " + price.toLocaleString()} {currency}
         </span>
       </div>
     </div>
