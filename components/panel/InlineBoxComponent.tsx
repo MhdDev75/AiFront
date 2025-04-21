@@ -51,7 +51,7 @@ const InlineBoxComponent = ({
 }: inlineBoxProps) => {
   // const t = useTranslations("i18n")
   const [convertDate, setConvertDate] = useState<string>();
-  const [string, setString] = useState<string[]>();
+  const [string, setString] = useState<{ symbol: string; color: string }>();
   useEffect(() => {
     const res = convertLocalizeDate(date);
     setConvertDate(res.toString());
@@ -59,17 +59,25 @@ const InlineBoxComponent = ({
   }, []);
 
   const getTypeColorAndStatus = (type: string) => {
+    console.log(type);
+
     switch (type) {
       case "X":
-        setString(["-", "text-error"]);
+        setString({ symbol: "-", color: "text-error" });
+        break;
       case "GIFT":
-        setString(["+", "text-success"]);
+        setString({ symbol: "+", color: "text-success" });
+        break;
       case "CHAT":
-        setString(["-", "text-error"]);
+        console.log("ss");
+        setString({ symbol: "-", color: "text-error" });
+        break;
       case "USER_TASK":
-        setString(["+", "text-success"]);
+        setString({ symbol: "+", color: "text-success" });
+        break;
       default:
-        setString(["+", "text-success"]);
+        setString({ symbol: "+", color: "text-success" });
+        break;
     }
   };
 
@@ -91,10 +99,13 @@ const InlineBoxComponent = ({
       <div>
         <span
           className={`${
-            string && string[1]
+            string && string.color
           } text-md text-nowrap font-bold px-3 `}
         >
-          {string && string[0] + " " + price.toLocaleString()} {currency}
+          {}
+          {string &&
+            string.symbol + " " + price.toLocaleString()}{" "}
+          {currency}
         </span>
       </div>
     </div>

@@ -115,10 +115,9 @@ const ChatPage = () => {
   const getApplicationRateClient = async () => {
     try {
       const response = await getApplicationRate(params.id);
-      console.log(response);
-
       if (response.isSuccess) {
-        setRateValue(response.value.rate | 0);
+        const rate = response.value.rate ? response.value.rate : 0;
+        setRateValue(rate);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -128,7 +127,7 @@ const ChatPage = () => {
 
   const postApplicationRateClient = async () => {
     try {
-      if (rateValue == undefined) {
+      if (rateValue == undefined ||  rateValue == 0) {
         toast.error(t("chat.selectRate"));
         return;
       }
@@ -144,7 +143,7 @@ const ChatPage = () => {
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      toast.success(t("Error"));
+      toast.error(t("Error"));
       console.log(err.message);
     }
   };
@@ -195,7 +194,7 @@ const ChatPage = () => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         const response = await getOpenAiChat(
           chatInput,
-          uuid ,
+          uuid,
           Number(params.id)
         );
         if (response.isSuccess) {
@@ -340,7 +339,9 @@ const ChatPage = () => {
                             type="radio"
                             name="rating-2"
                             onClick={() => setRateValue(index + 1)}
-                            className="mask mask-star-2 bg-orange-400"
+                            className={`mask mask-star-2 ${
+                              rateValue >= index + 1 ? "bg-orange-400" : ""
+                            } `}
                             defaultChecked={rateValue == index + 1}
                           />
                         );
