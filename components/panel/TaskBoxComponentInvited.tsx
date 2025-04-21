@@ -94,7 +94,7 @@ const TaskBoxComponentInvited = ({
               <span className="text-sm">{title}</span>
               <span className="text-xs text-opacity-70">{description}</span>
               <span className="text-[0.6rem] text-opacity-70 text-primary">
-                {t("Task.Count") + count + "/" + invited}
+                {t("Task.Count") + invited  + "/" + count}
               </span>
             </div>
           </div>
