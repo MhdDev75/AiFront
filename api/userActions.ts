@@ -1,10 +1,23 @@
 import apiClient from "./apiClient";
 
 // ورود کاربر
-export const loginWithTelegram = async (initData: string) => {
+export const loginWithTelegram = async (initData: string, affiliateCode: string) => {
   try {
-    const response = await apiClient.get(`/User/login?${initData}`);
-    return response.data;
+    console.log(affiliateCode);
+    
+    if (!affiliateCode || affiliateCode == "" || affiliateCode == undefined) {
+      const response = await apiClient.get(`/User/login?${initData}`);
+    console.log("unAff",response.data);
+
+      return response.data;
+    }
+    else {
+      const response = await apiClient.get(`/User/login/${affiliateCode}?${initData}`);
+    console.log("aff",response.data);
+
+      return response.data;
+    }
+
   } catch (error) {
     console.error("Error login user:", error);
     throw error;

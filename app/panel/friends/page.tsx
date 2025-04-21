@@ -34,7 +34,7 @@ const FriendsPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const app = (window as any).Telegram?.WebApp;
     if (app) {
-      app.openTelegramLink(`https://t.me/share/url?url=${affiliateUrl?.url}`);
+      app.openTelegramLink(`https://t.me/share/url?url=${affiliateUrl?.url.replace("start","startapp")}`);
     }
   };
 

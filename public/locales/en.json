@@ -157,6 +157,7 @@
     "footer": "You can select a different language from the dropdown menu.",
     "Version": "Version",
     "LetsGo": "Lets Go !",
-    "Confirm":"Confirm"
+    "Confirm": "Confirm",
+    "SelectedRegion": "Select Region"
   }
 }

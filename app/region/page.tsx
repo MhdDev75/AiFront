@@ -65,7 +65,7 @@ const RegionPage = () => {
     <div className="flex flex-col justify-center items-center h-screen main-div">
       <main className="container flex flex-col gap-3 justify-center items-center mx-auto relative flex-1 overflow-y-auto px-4">
         <div className="flex flex-col gap-3 w-full">
-          <span className="text-lg">انتخاب زبان</span>
+          <span className="text-lg"> {t("SelectedRegion")}</span>
           {regionServer &&
             regionServer.map((item) => (
               <button

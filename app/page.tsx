@@ -48,24 +48,24 @@ export default function HomePage() {
   const loginUser = async () => {
     try {
       const app = (window as any).Telegram?.WebApp;
-      const response = await loginWithTelegram(app.initData);
+      const response = await loginWithTelegram(app.initData, app.initDataUnsafe?.start_param);
 
       if (response.isSuccess) {
         setCookie("NewUser", response.value.isNew);
         setCookie("token", response.value.token);
-        
+
         localStorage.setItem("token", response.value.token);
         const totalDuration = 3000; // مدت زمان نمایش صفحه فرود در میلی‌ثانیه (اینجا 3 ثانیه)
         const increment = 100; // هر چند میلی‌ثانیه یک بار پیشرفت نوار به‌روز شود
         const steps = totalDuration / increment;
         let currentStep = 0;
-        const timer = setInterval(async() => {
+        const timer = setInterval(async () => {
           currentStep++;
           setProgress((currentStep / steps) * 100);
 
           if (currentStep >= steps) {
             clearInterval(timer);
-            if (response.value.isNew == false &&  await getUserRegionClient()) {
+            if (response.value.isNew == false && await getUserRegionClient()) {
               router.push("/panel/home");
             } else {
               router.push("/region");
